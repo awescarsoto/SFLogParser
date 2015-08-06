@@ -41,21 +41,69 @@ decreasers = ['CALLOUT_RESPONSE', 'CODE_UNIT_FINISHED', 'CONSTRUCTOR_EXIT', 'CUM
               'SOSL_EXECUTE_END', 'SYSTEM_CONSTRUCTOR_EXIT', 'SYSTEM_METHOD_EXIT', 'SYSTEM_MODE_EXIT',
               'VARIABLE_SCOPE_END', 'VF_DESERIALIZE_VIEWSTATE_END', 'VF_EVALUATE_FORMULA_END',
               'VF_SERIALIZE_VIEWSTATE_END', 'WF_CRITERIA_END', 'WF_RULE_EVAL_END']
-ImportantInfo = {'CALLOUT_REQUEST': 1, 'CODE_UNIT_STARTED': 1, 'CONSTRUCTOR_ENTRY': 1, 'CUMULATIVE_LIMIT_USAGE': 1,
-                 'CUMULATIVE_PROFILING_BEGIN': 1, 'DML_BEGIN': 1, 'EXECUTION_STARTED': 1, 'METHOD_ENTRY': 1,
-                 'SOQL_EXECUTE_BEGIN': 1, 'SOSL_EXECUTE_BEGIN': 1, 'SYSTEM_CONSTRUCTOR_ENTRY': 1,
-                 'SYSTEM_METHOD_ENTRY': 1, 'SYSTEM_MODE_ENTER': 1,'VARIABLE_SCOPE_BEGIN': 1,
+importantInfo = {'CALLOUT_REQUEST': 1, 'CODE_UNIT_STARTED': 4, 'CONSTRUCTOR_ENTRY': 1, 'CUMULATIVE_LIMIT_USAGE': 1,
+                 'CUMULATIVE_PROFILING_BEGIN': 1, 'DML_BEGIN': 1, 'EXECUTION_STARTED': 1, 'METHOD_ENTRY': 4,
+                 'SOQL_EXECUTE_BEGIN': 4, 'SOSL_EXECUTE_BEGIN': 1, 'SYSTEM_CONSTRUCTOR_ENTRY': 1,
+                 'SYSTEM_METHOD_ENTRY': 3, 'SYSTEM_MODE_ENTER': 1,'VARIABLE_SCOPE_BEGIN': 1,
                  'VF_DESERIALIZE_VIEWSTATE_BEGIN': 1, 'VF_EVALUATE_FORMULA_BEGIN': 1,
                  'VF_SERIALIZE_VIEWSTATE_BEGIN': 1, 'WF_CRITERIA_BEGIN': 1, 'WF_RULE_EVAL_BEGIN': 1}
-
-currLevel = 0
+formatting = {'CALLOUT_REQUEST': 1,
+              'CODE_UNIT_STARTED': 4,
+              'CONSTRUCTOR_ENTRY': 1,
+              'CUMULATIVE_LIMIT_USAGE': 1,
+              'CUMULATIVE_PROFILING_BEGIN': 1,
+              'DML_BEGIN': 1,
+              'EXECUTION_STARTED': 1,
+              'METHOD_ENTRY': 4,
+              'SOQL_EXECUTE_BEGIN': 4,
+              'SOSL_EXECUTE_BEGIN': 1,
+              'SYSTEM_CONSTRUCTOR_ENTRY': 1,
+              'SYSTEM_METHOD_ENTRY': 3,
+              'SYSTEM_MODE_ENTER': 1,
+              'VARIABLE_SCOPE_BEGIN': 1,
+              'VF_DESERIALIZE_VIEWSTATE_BEGIN': 1,
+              'VF_EVALUATE_FORMULA_BEGIN': 1,
+              'VF_SERIALIZE_VIEWSTATE_BEGIN': 1,
+              'WF_CRITERIA_BEGIN': 1,
+              'WF_RULE_EVAL_BEGIN': 1}
 
 # Initiate the tree
 root = Tk()
-structure = ttk.Treeview(root)
-structure.insert("", 1, text="root")
+root.title("Salesforce Debug Methods Tree")
+structure = ttk.Treeview(root, selectmode="extended")
 
-# Iterate over the lines in the file
+# Format the tree with columns and scrollbars that resize
+structure.column("#0", stretch=TRUE)
+ysb = ttk.Scrollbar(root, orient='vertical', command=structure.yview)
+xsb = ttk.Scrollbar(root, orient='horizontal', command=structure.xview)
+structure.configure(yscroll=ysb.set, xscroll=xsb.set)
+structure.heading('#0', text="Methods Tree", anchor='w')
+structure.grid(row=0, column=0, sticky='nsew')
+structure.columnconfigure(0, weight=1)
+ysb.grid(row=0, column=1, sticky='nse')
+xsb.grid(row=1, column=0, sticky='sew')
+structure.grid(sticky="nesw")
+root.columnconfigure(0, weight=1)
+root.rowconfigure(0, weight=1)
+structure.columnconfigure(0, weight=1)
+structure.rowconfigure(0, weight=1)
+
+# Variables
+currLevel = 0
+currChild = 0
+stack = []
+
+# Create first node
+firstLineHit = False
+while not firstLineHit:
+    initial = f.readline()
+    initial = initial.rstrip('\n')
+    if "|" in initial:
+        splitLine = initial.split("|")
+        stack.append(structure.insert('', 'end', text=splitLine[importantInfo[splitLine[1]]]))
+        firstLineHit = True
+
+# Iterate over the rest of lines in the file
 for line in f:
 
     # Separate lines by the pipe and remove newline characters
@@ -64,12 +112,13 @@ for line in f:
         splitLine = line.split("|")
         if splitLine[1] in increasers:
             currLevel += 1
-            structure.insert("", 1, text=splitLine[ImportantInfo[splitLine[1]]])
-            print (currLevel * '\t') + splitLine[ImportantInfo[splitLine[1]]]
+            stack.append(structure.insert(stack[len(stack) - 1], 'end', text=splitLine[importantInfo[splitLine[1]]]))
+            print (currLevel * '\t') + splitLine[importantInfo[splitLine[1]]]  # Debugging info
         elif splitLine[1] in decreasers:
             currLevel -= 1
-            print (currLevel * '\t') + "end"
+            stack.pop()
+            print (currLevel * '\t') + "end"  # debugging info
 
-structure.pack()
-root.mainloop()
-f.close()
+f.close()  # close the file when everything is done
+root.mainloop()  # Keeps the window open and running
+

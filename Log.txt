@@ -1,0 +1,1547 @@
+34.0 APEX_CODE,FINEST;APEX_PROFILING,INFO;CALLOUT,INFO;DB,INFO;SYSTEM,DEBUG;VALIDATION,INFO;VISUALFORCE,INFO;WORKFLOW,INFO
+12:24:59.027 (21027013174)|EXECUTION_STARTED
+12:24:59.027 (21027083188)|CODE_UNIT_STARTED|[EXTERNAL]|01pL0000000Le4G|lab2_ValidateRepActiveFlagTest.activeRepsAreRepsTest
+12:24:59.027 (21027359085)|HEAP_ALLOCATE|[72]|Bytes:3
+12:24:59.027 (21027403095)|HEAP_ALLOCATE|[77]|Bytes:152
+12:24:59.027 (21027422881)|HEAP_ALLOCATE|[342]|Bytes:408
+12:24:59.027 (21027444720)|HEAP_ALLOCATE|[355]|Bytes:408
+12:24:59.027 (21027465421)|HEAP_ALLOCATE|[467]|Bytes:48
+12:24:59.027 (21027500714)|HEAP_ALLOCATE|[139]|Bytes:6
+12:24:59.027 (21027522208)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:74
+12:24:59.027 (21027541085)|METHOD_ENTRY|[9]|01pL0000000Le4G|lab2_ValidateRepActiveFlagTest.lab2_ValidateRepActiveFlagTest()
+12:24:59.027 (21027546932)|STATEMENT_EXECUTE|[9]
+12:24:59.027 (21027552162)|STATEMENT_EXECUTE|[9]
+12:24:59.027 (21027556604)|METHOD_EXIT|[9]|lab2_ValidateRepActiveFlagTest
+12:24:59.027 (21027600534)|HEAP_ALLOCATE|[50]|Bytes:5
+12:24:59.027 (21027630033)|HEAP_ALLOCATE|[56]|Bytes:5
+12:24:59.027 (21027641935)|HEAP_ALLOCATE|[64]|Bytes:7
+12:24:59.027 (21027683772)|STATEMENT_EXECUTE|[12]
+12:24:59.027 (21027688075)|STATEMENT_EXECUTE|[14]
+12:24:59.028 (21028281803)|HEAP_ALLOCATE|[14]|Bytes:1
+12:24:59.028 (21028302934)|METHOD_ENTRY|[8]|01pL0000000LhKH|createTestUser.createTestUser()
+12:24:59.028 (21028307807)|STATEMENT_EXECUTE|[8]
+12:24:59.028 (21028312202)|STATEMENT_EXECUTE|[8]
+12:24:59.028 (21028316656)|METHOD_EXIT|[8]|createTestUser
+12:24:59.028 (21028341902)|HEAP_ALLOCATE|[14]|Bytes:4
+12:24:59.028 (21028357161)|CONSTRUCTOR_ENTRY|[14]|01pL0000000LhKH|<init>()
+12:24:59.028 (21028400547)|VARIABLE_SCOPE_BEGIN|[8]|this|createTestUser|true|false
+12:24:59.028 (21028441344)|VARIABLE_ASSIGNMENT|[8]|this|{}|0x87b88b3
+12:24:59.028 (21028455284)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:6
+12:24:59.028 (21028470711)|VARIABLE_SCOPE_BEGIN|[2]|this|System.ApexBaseClass|true|false
+12:24:59.028 (21028486126)|VARIABLE_ASSIGNMENT|[2]|this|{}|0x87b88b3
+12:24:59.028 (21028495550)|STATEMENT_EXECUTE|[8]
+12:24:59.028 (21028502468)|CONSTRUCTOR_EXIT|[14]|01pL0000000LhKH|<init>()
+12:24:59.028 (21028532914)|METHOD_ENTRY|[14]|01pL0000000LhKH|createTestUser.createUser()
+12:24:59.028 (21028543589)|VARIABLE_SCOPE_BEGIN|[9]|this|createTestUser|true|false
+12:24:59.028 (21028559267)|VARIABLE_ASSIGNMENT|[9]|this|{}|0x87b88b3
+12:24:59.028 (21028568769)|STATEMENT_EXECUTE|[9]
+12:24:59.028 (21028571528)|STATEMENT_EXECUTE|[10]
+12:24:59.028 (21028623589)|HEAP_ALLOCATE|[10]|Bytes:4
+12:24:59.028 (21028754989)|VARIABLE_SCOPE_BEGIN|[10]|u|User|true|false
+12:24:59.028 (21028774469)|VARIABLE_ASSIGNMENT|[10]|u|{}|0x2c532360
+12:24:59.028 (21028779109)|STATEMENT_EXECUTE|[13]
+12:24:59.028 (21028785737)|HEAP_ALLOCATE|[13]|Bytes:7
+12:24:59.028 (21028855511)|VARIABLE_ASSIGNMENT|[13]|this.FirstName|"Invalid"|0x2c532360
+12:24:59.028 (21028861744)|STATEMENT_EXECUTE|[14]
+12:24:59.028 (21028867921)|HEAP_ALLOCATE|[14]|Bytes:6
+12:24:59.028 (21028897891)|VARIABLE_ASSIGNMENT|[14]|this.LastName|"Active"|0x2c532360
+12:24:59.028 (21028903820)|STATEMENT_EXECUTE|[15]
+12:24:59.028 (21028909755)|HEAP_ALLOCATE|[15]|Bytes:6
+12:24:59.028 (21028940070)|VARIABLE_ASSIGNMENT|[15]|this.Alias|"tester"|0x2c532360
+12:24:59.028 (21028945310)|STATEMENT_EXECUTE|[16]
+12:24:59.028 (21028951198)|HEAP_ALLOCATE|[16]|Bytes:18
+12:24:59.028 (21028980668)|VARIABLE_ASSIGNMENT|[16]|this.Email|"tester@testorg.org"|0x2c532360
+12:24:59.028 (21028986011)|STATEMENT_EXECUTE|[17]
+12:24:59.029 (21029015127)|VARIABLE_ASSIGNMENT|[17]|this.Username|"tester@testorg.org"|0x2c532360
+12:24:59.029 (21029021840)|STATEMENT_EXECUTE|[18]
+12:24:59.029 (21029033674)|HEAP_ALLOCATE|[18]|Bytes:7
+12:24:59.029 (21029066915)|VARIABLE_ASSIGNMENT|[18]|this.CommunityNickname|"Tester9"|0x2c532360
+12:24:59.029 (21029072468)|STATEMENT_EXECUTE|[21]
+12:24:59.029 (21029078287)|HEAP_ALLOCATE|[21]|Bytes:51
+12:24:59.029 (21029092833)|HEAP_ALLOCATE|[21]|Bytes:4
+12:24:59.029 (21029327182)|SOQL_EXECUTE_BEGIN|[21]|Aggregations:0|SELECT Id FROM Profile WHERE Name = 'Standard User'
+12:24:59.042 (21042129534)|SOQL_EXECUTE_END|[21]|Rows:1
+12:24:59.042 (21042154849)|HEAP_ALLOCATE|[21]|Bytes:8
+12:24:59.042 (21042170955)|HEAP_ALLOCATE|[21]|Bytes:29
+12:24:59.042 (21042321152)|HEAP_ALLOCATE|[21]|Bytes:8
+12:24:59.042 (21042342574)|HEAP_ALLOCATE|[21]|Bytes:33
+12:24:59.042 (21042442389)|HEAP_ALLOCATE|[21]|Bytes:8
+12:24:59.042 (21042455577)|VARIABLE_SCOPE_BEGIN|[21]|p|Profile|true|false
+12:24:59.042 (21042493800)|VARIABLE_ASSIGNMENT|[21]|p|{"s":1,"v":{"Id":"00eE0000000xnjhIAA"}}|0xad131c0
+12:24:59.042 (21042500848)|STATEMENT_EXECUTE|[22]
+12:24:59.042 (21042591649)|VARIABLE_ASSIGNMENT|[22]|this.ProfileId|"00eE0000000xnjhIAA"|0x2c532360
+12:24:59.042 (21042598328)|STATEMENT_EXECUTE|[25]
+12:24:59.042 (21042605163)|HEAP_ALLOCATE|[25]|Bytes:19
+12:24:59.042 (21042641361)|VARIABLE_ASSIGNMENT|[25]|this.TimeZoneSidKey|"America/Los_Angeles"|0x2c532360
+12:24:59.042 (21042647177)|STATEMENT_EXECUTE|[26]
+12:24:59.042 (21042653161)|HEAP_ALLOCATE|[26]|Bytes:5
+12:24:59.042 (21042684231)|VARIABLE_ASSIGNMENT|[26]|this.LocaleSidKey|"en_US"|0x2c532360
+12:24:59.042 (21042690971)|STATEMENT_EXECUTE|[27]
+12:24:59.042 (21042696814)|HEAP_ALLOCATE|[27]|Bytes:10
+12:24:59.042 (21042727620)|VARIABLE_ASSIGNMENT|[27]|this.EmailEncodingKey|"ISO-8859-1"|0x2c532360
+12:24:59.042 (21042732878)|STATEMENT_EXECUTE|[28]
+12:24:59.042 (21042762792)|VARIABLE_ASSIGNMENT|[28]|this.LanguageLocaleKey|"en_US"|0x2c532360
+12:24:59.042 (21042767965)|STATEMENT_EXECUTE|[31]
+12:24:59.042 (21042774257)|HEAP_ALLOCATE|[31]|Bytes:4
+12:24:59.042 (21042808705)|VARIABLE_ASSIGNMENT|[31]|this.LAN_ID__c|"AEFG"|0x2c532360
+12:24:59.042 (21042818353)|STATEMENT_EXECUTE|[32]
+12:24:59.042 (21042825269)|HEAP_ALLOCATE|[32]|Bytes:15
+12:24:59.042 (21042861641)|VARIABLE_ASSIGNMENT|[32]|this.Street|"123 Fake Street"|0x2c532360
+12:24:59.042 (21042867537)|STATEMENT_EXECUTE|[33]
+12:24:59.042 (21042873668)|HEAP_ALLOCATE|[33]|Bytes:11
+12:24:59.042 (21042901938)|VARIABLE_ASSIGNMENT|[33]|this.City|"Los Angeles"|0x2c532360
+12:24:59.042 (21042907216)|STATEMENT_EXECUTE|[34]
+12:24:59.042 (21042912414)|HEAP_ALLOCATE|[34]|Bytes:2
+12:24:59.042 (21042938316)|VARIABLE_ASSIGNMENT|[34]|this.State|"CA"|0x2c532360
+12:24:59.042 (21042943396)|STATEMENT_EXECUTE|[35]
+12:24:59.042 (21042949103)|HEAP_ALLOCATE|[35]|Bytes:5
+12:24:59.042 (21042974975)|VARIABLE_ASSIGNMENT|[35]|this.PostalCode|"93304"|0x2c532360
+12:24:59.042 (21042980160)|STATEMENT_EXECUTE|[36]
+12:24:59.042 (21042985670)|HEAP_ALLOCATE|[36]|Bytes:2
+12:24:59.043 (21043016325)|VARIABLE_ASSIGNMENT|[36]|this.Department_Code__c|"SP"|0x2c532360
+12:24:59.043 (21043022566)|STATEMENT_EXECUTE|[37]
+12:24:59.043 (21043028722)|HEAP_ALLOCATE|[37]|Bytes:3
+12:24:59.043 (21043059029)|VARIABLE_ASSIGNMENT|[37]|this.Division_Code__c|"SON"|0x2c532360
+12:24:59.043 (21043064195)|STATEMENT_EXECUTE|[38]
+12:24:59.043 (21043070267)|HEAP_ALLOCATE|[38]|Bytes:6
+12:24:59.043 (21043099264)|VARIABLE_ASSIGNMENT|[38]|this.Company_Mailing_Name__c|"Tester"|0x2c532360
+12:24:59.043 (21043104431)|STATEMENT_EXECUTE|[39]
+12:24:59.043 (21043110454)|HEAP_ALLOCATE|[39]|Bytes:12
+12:24:59.043 (21043140706)|VARIABLE_ASSIGNMENT|[39]|this.Phone|"123-456-7890"|0x2c532360
+12:24:59.043 (21043146724)|STATEMENT_EXECUTE|[40]
+12:24:59.043 (21043152409)|HEAP_ALLOCATE|[40]|Bytes:1
+12:24:59.043 (21043182930)|VARIABLE_ASSIGNMENT|[40]|this.Is_user_a_rep__c|"Y"|0x2c532360
+12:24:59.043 (21043188230)|STATEMENT_EXECUTE|[41]
+12:24:59.043 (21043193684)|HEAP_ALLOCATE|[41]|Bytes:4
+12:24:59.043 (21043222531)|VARIABLE_ASSIGNMENT|[41]|this.Rep_Is_Active__c|"True"|0x2c532360
+12:24:59.043 (21043227665)|STATEMENT_EXECUTE|[42]
+12:24:59.043 (21043233527)|HEAP_ALLOCATE|[42]|Bytes:6
+12:24:59.043 (21043263129)|VARIABLE_ASSIGNMENT|[42]|this.Job_Title__c|"INTERN"|0x2c532360
+12:24:59.043 (21043268557)|STATEMENT_EXECUTE|[43]
+12:24:59.043 (21043274324)|HEAP_ALLOCATE|[43]|Bytes:3
+12:24:59.043 (21043303693)|VARIABLE_ASSIGNMENT|[43]|this.Lead_Project_Team_Title__c|"N/A"|0x2c532360
+12:24:59.043 (21043308740)|STATEMENT_EXECUTE|[45]
+12:24:59.043 (21043324438)|METHOD_EXIT|[14]|01pL0000000LhKH|createTestUser.createUser()
+12:24:59.043 (21043333274)|VARIABLE_SCOPE_BEGIN|[14]|u|User|true|false
+12:24:59.043 (21043371130)|VARIABLE_ASSIGNMENT|[14]|u|{"FirstName":"Invalid","LastName":"Active","Alias":"tester","Email":"tester@testorg.org","Username":"tester@testorg.org","CommunityNickname":"Tester9","ProfileId":"00eE0000000xnjhIAA","TimeZoneSidKey":"America/Los_Angeles","LocaleSidKey":"en_US","EmailEncodingKey":"ISO-8859-1","LanguageLocaleKey":"en_US","LAN_ID__c":"AEFG","Street":"123 Fake Street","City":"Los Angeles","State":"CA","PostalCode":"93304","Department_Code__c":"SP","Division_Code__c":"SON","Company_Mailing_Name (3 more) ...":"Tester","Phone":"123-456-7890","Is_user_a_rep__c":"Y","Rep_Is_Active__c":"True","Job_Title__c":"INTERN","Lead_Project_Team_Ti (6 more) ...":"N/A"}|0x2c532360
+12:24:59.043 (21043381474)|STATEMENT_EXECUTE|[17]
+12:24:59.043 (21043423155)|HEAP_ALLOCATE|[17]|Bytes:8
+12:24:59.043 (21043442177)|DML_BEGIN|[17]|Op:Insert|Type:User|Rows:1
+12:24:59.043 (21043459986)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:8
+12:24:59.327 (21327586368)|CODE_UNIT_STARTED|[EXTERNAL]|01qE0000000RqnA|DateBeforeUserModified on User trigger event BeforeInsert for [new]
+12:24:59.327 (21327663915)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:8
+12:24:59.327 (21327799749)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:4
+12:24:59.327 (21327825534)|VARIABLE_SCOPE_BEGIN|[1]|this|DateBeforeUserModified|true|false
+12:24:59.327 (21327872394)|VARIABLE_ASSIGNMENT|[1]|this|{}|0x7dacf67c
+12:24:59.327 (21327935303)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:4
+12:24:59.327 (21327948599)|VARIABLE_SCOPE_BEGIN|[1]|this|DateBeforeUserModified|true|false
+12:24:59.327 (21327965806)|VARIABLE_ASSIGNMENT|[1]|this|{}|0x7dacf67c
+12:24:59.327 (21327973270)|STATEMENT_EXECUTE|[1]
+12:24:59.328 (21328119691)|SYSTEM_METHOD_ENTRY|[3]|List<User>.iterator()
+12:24:59.328 (21328298237)|SYSTEM_METHOD_EXIT|[3]|List<User>.iterator()
+12:24:59.328 (21328328392)|SYSTEM_METHOD_ENTRY|[3]|system.ListIterator.hasNext()
+12:24:59.328 (21328357090)|HEAP_ALLOCATE|[3]|Bytes:5
+12:24:59.328 (21328367756)|SYSTEM_METHOD_EXIT|[3]|system.ListIterator.hasNext()
+12:24:59.328 (21328386154)|HEAP_ALLOCATE|[3]|Bytes:4
+12:24:59.328 (21328396387)|VARIABLE_SCOPE_BEGIN|[3]|u|User|true|false
+12:24:59.336 (21336734627)|VARIABLE_ASSIGNMENT|[3]|u|{"ProfileId":"00eE0000000xnjhIAA","ReceivesAdminInfoEma (3 more) ...":false,"Email":"tester@testorg.org","TimeZoneSidKey":"America/Los_Angeles","LanguageLocaleKey":"en_US","Department_Descripti (5 more) ...":"Service Planning","Lead_Project_Team_Ti (6 more) ...":"N/A","Rep_Is_Active_Formul (4 more) ...":"Y","IsActive":true,"Job_Title__c":"INTERN","LastModifiedbyLanId_ (2 more) ...":"AEFG","PostalCode":"93304","ForecastEnabled":false,"Rep_Is_Active__c":"True","CommunityNickname":"Tester9","Company_Mailing_Name (3 more) ...":"Tester","Phone":"123-456-7890","Division_Code__c":"SON","Street":"123 Fake Street","LocaleSidKey":"en_US","Job_Title_Code__c":"IN","FirstName":"Invalid","LAN_ID__c":"AEFG","Is_user_a_rep__c":"Y","City":"Los Angeles","EmailEncodingKey":"ISO-8859-1","Phone_Last_Char__c":"0","ReceivesInfoEmails":false,"Was_Recently_Modifie (4 more) ...":"false","IsPortalEnabled":false,"Username":"tester@testorg.org","State":"CA","Alias":"tester","Phone_Formula__c":"1234567890","LastName":"Active","Department_Code__c":"SP","Is_User_ES_S_Admin__ (1 more) ...":false}|0x3f23b181
+12:24:59.336 (21336762413)|STATEMENT_EXECUTE|[4]
+12:24:59.336 (21336766645)|STATEMENT_EXECUTE|[5]
+12:24:59.336 (21336800085)|SYSTEM_METHOD_ENTRY|[5]|System.now()
+12:24:59.336 (21336834992)|HEAP_ALLOCATE|[5]|Bytes:56
+12:24:59.336 (21336846546)|SYSTEM_METHOD_EXIT|[5]|System.now()
+12:24:59.337 (21337607322)|VARIABLE_ASSIGNMENT|[5]|this.Last_Modified_Date__c|"2015-08-06T19:24:39.025Z"|0x3f23b181
+12:24:59.337 (21337630630)|SYSTEM_METHOD_ENTRY|[3]|system.ListIterator.hasNext()
+12:24:59.337 (21337647091)|HEAP_ALLOCATE|[3]|Bytes:5
+12:24:59.337 (21337655474)|SYSTEM_METHOD_EXIT|[3]|system.ListIterator.hasNext()
+12:24:59.337 (21337671444)|VARIABLE_ASSIGNMENT|[3]|u|null|
+12:24:59.337 (21337699049)|CUMULATIVE_LIMIT_USAGE
+12:24:59.337 (21337699049)|LIMIT_USAGE_FOR_NS|(default)|
+  Number of SOQL queries: 1 out of 100
+  Number of query rows: 1 out of 50000
+  Number of SOSL queries: 0 out of 20
+  Number of DML statements: 1 out of 150
+  Number of DML rows: 1 out of 10000
+  Maximum CPU time: 0 out of 10000
+  Maximum heap size: 0 out of 6000000
+  Number of callouts: 0 out of 100
+  Number of Email Invocations: 0 out of 10
+  Number of future calls: 0 out of 50
+  Number of queueable jobs added to the queue: 0 out of 50
+  Number of Mobile Apex push calls: 0 out of 10
+
+12:24:59.337 (21337699049)|CUMULATIVE_LIMIT_USAGE_END
+
+12:24:59.337 (21337999343)|CODE_UNIT_FINISHED|DateBeforeUserModified on User trigger event BeforeInsert for [new]
+12:24:59.396 (21396140342)|CODE_UNIT_STARTED|[EXTERNAL]|01qE0000000RqnY|ValidateRepActiveFlag on User trigger event BeforeInsert for [new]
+12:24:59.396 (21396181687)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:8
+12:24:59.396 (21396319128)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:12
+12:24:59.396 (21396338994)|VARIABLE_SCOPE_BEGIN|[1]|this|ValidateRepActiveFlag|true|false
+12:24:59.396 (21396410735)|VARIABLE_ASSIGNMENT|[1]|this|{}|0xc2c7ae5
+12:24:59.396 (21396474113)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:12
+12:24:59.396 (21396488396)|VARIABLE_SCOPE_BEGIN|[1]|this|ValidateRepActiveFlag|true|false
+12:24:59.396 (21396508799)|VARIABLE_ASSIGNMENT|[1]|this|{}|0xc2c7ae5
+12:24:59.396 (21396516822)|STATEMENT_EXECUTE|[1]
+12:24:59.396 (21396520477)|STATEMENT_EXECUTE|[3]
+12:24:59.396 (21396532763)|HEAP_ALLOCATE|[3]|Bytes:4
+12:24:59.396 (21396558316)|SYSTEM_CONSTRUCTOR_ENTRY|[3]|<init>()
+12:24:59.396 (21396586418)|SYSTEM_CONSTRUCTOR_EXIT|[3]|<init>()
+12:24:59.396 (21396638378)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:4
+12:24:59.396 (21396668321)|VARIABLE_ASSIGNMENT|[3]|this.useridList|{"s":1,"v":[]}|0xc2c7ae5
+12:24:59.396 (21396674187)|STATEMENT_EXECUTE|[4]
+12:24:59.396 (21396686701)|HEAP_ALLOCATE|[4]|Bytes:4
+12:24:59.396 (21396721136)|VARIABLE_ASSIGNMENT|[4]|this.userLANIDMap|{"s":1,"v":{}}|0xc2c7ae5
+12:24:59.396 (21396736667)|STATEMENT_EXECUTE|[17]
+12:24:59.396 (21396757008)|CUMULATIVE_LIMIT_USAGE
+12:24:59.396 (21396757008)|LIMIT_USAGE_FOR_NS|(default)|
+  Number of SOQL queries: 1 out of 100
+  Number of query rows: 1 out of 50000
+  Number of SOSL queries: 0 out of 20
+  Number of DML statements: 1 out of 150
+  Number of DML rows: 1 out of 10000
+  Maximum CPU time: 0 out of 10000
+  Maximum heap size: 0 out of 6000000
+  Number of callouts: 0 out of 100
+  Number of Email Invocations: 0 out of 10
+  Number of future calls: 0 out of 50
+  Number of queueable jobs added to the queue: 0 out of 50
+  Number of Mobile Apex push calls: 0 out of 10
+
+12:24:59.396 (21396757008)|CUMULATIVE_LIMIT_USAGE_END
+
+12:24:59.396 (21396829342)|CODE_UNIT_FINISHED|ValidateRepActiveFlag on User trigger event BeforeInsert for [new]
+12:24:59.822 (21822559824)|CODE_UNIT_STARTED|[EXTERNAL]|Validation:User:new
+12:24:59.822 (21822582166)|VALIDATION_RULE|03dL00000004h2A|StateAbbr
+12:24:59.822 (21822792992)|VALIDATION_FORMULA|AND(State!='',OR(
+LEN(State) <> 2,
+NOT(
+CONTAINS("AL:AK:AZ:AR:CA:CO:CT:DE:DC:FL:GA:HI:ID:" &
+"IL:IN:IA:KS:KY:LA:ME:MD:MA:MI:MN:MS:MO:MT:NE:NV:NH:" &
+"NJ:NM:NY:NC:ND:OH:OK:OR:PA:RI:SC:SD:TN:TX:UT:VT:VA:" &
+"WA:WV:WI:WY:PR", State)
+)))|State=CA
+12:24:59.822 (21822804582)|VALIDATION_PASS
+12:24:59.822 (21822807446)|VALIDATION_RULE|03dE0000000EfYy|Phone_and_Fax_Validation
+12:24:59.823 (21823074120)|VALIDATION_FORMULA|AND(ISPICKVAL(Is_user_a_rep__c,'Y'),
+OR(
+
+AND(NOT(ISBLANK(Phone)), NOT(REGEX(Phone, "\\D*?(\\d\\D*?){10}"))),
+
+AND(NOT(ISBLANK(Fax)), NOT(REGEX(Fax, "\\D*?(\\d\\D*?){10}"))),
+
+AND(NOT(ISBLANK(MobilePhone)), NOT(REGEX(MobilePhone, "\\D*?(\\d\\D*?){10}")))
+)
+)|Is_user_a_rep__c=Y , Phone=123-456-7890 , Fax=null , MobilePhone=null
+12:24:59.823 (21823084176)|VALIDATION_PASS
+12:24:59.823 (21823086882)|VALIDATION_RULE|03dE0000000EfYz|Required_Fields_Not_Empty
+12:24:59.823 (21823674123)|VALIDATION_FORMULA|AND(ISPICKVAL(Is_user_a_rep__c,'Y'),
+OR(
+ISBLANK(LAN_ID__c),
+ISBLANK(FirstName ),
+AND(ISBLANK(Phone),ISBLANK(MobilePhone)),
+ISPICKVAL(Job_Title__c,''),
+ISBLANK(Street),
+ISBLANK(City),
+ISBLANK(State),
+ISBLANK(PostalCode),
+ISPICKVAL(Department_Code__c,''),
+ISPICKVAL(Division_Code__c,''),
+ISBLANK(Company_Mailing_Name__c),
+ISBLANK(Rep_Is_Active_Formula__c)
+)
+)|FirstName=Invalid , PostalCode=93304 , Rep_Is_Active_Formula__c=Y , City=Los Angeles , MobilePhone=null , LAN_ID__c=AEFG , Department_Code__c=SP , Company_Mailing_Name__c=Tester , Is_user_a_rep__c=Y , Phone=123-456-7890 , State=CA , Street=123 Fake Street , Division_Code__c=SON , Job_Title__c=INTERN
+12:24:59.823 (21823689054)|VALIDATION_PASS
+12:24:59.823 (21823711027)|CODE_UNIT_FINISHED|Validation:User:new
+12:25:01.072 (23072670286)|CODE_UNIT_STARTED|[EXTERNAL]|Workflow:User
+12:25:01.104 (23104055296)|WF_RULE_EVAL_BEGIN|Workflow
+12:25:01.104 (23104083852)|WF_CRITERIA_BEGIN|[User: Invalid Active 005L0000002wvYo]|Fix Lan id values to Uppercase|01QE00000000uZq|ON_ALL_CHANGES|0
+12:25:01.104 (23104348680)|WF_FORMULA|Formula:ENCODED:[treatNullAsNull]ISCHANGED({!ID:00NE0000003PLId}) &#124;&#124; ISCHANGED( {!ID:00NE00000044BoE} )|Values:LAN_ID__c=AEFG, Manager_LAN_ID__c=null
+12:25:01.104 (23104360253)|WF_CRITERIA_END|false
+12:25:01.104 (23104378028)|WF_SPOOL_ACTION_BEGIN|Workflow
+12:25:01.104 (23104385055)|WF_ACTION| None
+12:25:01.104 (23104388560)|WF_RULE_EVAL_END
+12:25:01.104 (23104437515)|WF_ACTIONS_END| None
+12:25:01.104 (23104444419)|CODE_UNIT_FINISHED|Workflow:User
+12:25:01.104 (23104566913)|DML_END|[17]
+12:25:01.104 (23104595943)|STATEMENT_EXECUTE|[20]
+12:25:01.104 (23104668692)|VARIABLE_ASSIGNMENT|[20]|this.Is_user_a_rep__c|"Y"|0x2c532360
+12:25:01.104 (23104676087)|STATEMENT_EXECUTE|[21]
+12:25:01.104 (23104712342)|VARIABLE_ASSIGNMENT|[21]|this.Rep_Is_Active__c|"True"|0x2c532360
+12:25:01.104 (23104718042)|STATEMENT_EXECUTE|[22]
+12:25:01.104 (23104755442)|HEAP_ALLOCATE|[22]|Bytes:8
+12:25:01.104 (23104773829)|DML_BEGIN|[22]|Op:Update|Type:User|Rows:1
+12:25:01.104 (23104791092)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:8
+12:25:01.356 (23356442179)|CODE_UNIT_STARTED|[EXTERNAL]|01qE0000000RqnA|DateBeforeUserModified on User trigger event BeforeUpdate for [005L0000002wvYo]
+12:25:01.356 (23356487800)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:8
+12:25:01.356 (23356517029)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:8
+12:25:01.356 (23356604918)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:4
+12:25:01.356 (23356618918)|VARIABLE_SCOPE_BEGIN|[1]|this|DateBeforeUserModified|true|false
+12:25:01.356 (23356659331)|VARIABLE_ASSIGNMENT|[1]|this|{}|0x56122458
+12:25:01.356 (23356698073)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:4
+12:25:01.356 (23356707345)|VARIABLE_SCOPE_BEGIN|[1]|this|DateBeforeUserModified|true|false
+12:25:01.356 (23356722949)|VARIABLE_ASSIGNMENT|[1]|this|{}|0x56122458
+12:25:01.356 (23356730484)|STATEMENT_EXECUTE|[1]
+12:25:01.356 (23356776490)|SYSTEM_METHOD_ENTRY|[3]|List<User>.iterator()
+12:25:01.356 (23356790082)|SYSTEM_METHOD_EXIT|[3]|List<User>.iterator()
+12:25:01.356 (23356800551)|SYSTEM_METHOD_ENTRY|[3]|system.ListIterator.hasNext()
+12:25:01.356 (23356819484)|HEAP_ALLOCATE|[3]|Bytes:5
+12:25:01.356 (23356828325)|SYSTEM_METHOD_EXIT|[3]|system.ListIterator.hasNext()
+12:25:01.356 (23356841322)|HEAP_ALLOCATE|[3]|Bytes:4
+12:25:01.356 (23356851491)|VARIABLE_SCOPE_BEGIN|[3]|u|User|true|false
+12:25:01.358 (23358211969)|VARIABLE_ASSIGNMENT|[3]|u|{"ProfileId":"00eE0000000xnjhIAA","LastModifiedDate":"2015-08-06T19:24:39.000Z","ReceivesAdminInfoEma (3 more) ...":false,"Email":"tester@testorg.org","TimeZoneSidKey":"America/Los_Angeles","LanguageLocaleKey":"en_US","Department_Descripti (5 more) ...":"Service Planning","Lead_Project_Team_Ti (6 more) ...":"N/A","Rep_Is_Active_Formul (4 more) ...":"Y","IsActive":true,"Job_Title__c":"INTERN","LastModifiedbyLanId_ (2 more) ...":"AEFG","PostalCode":"93304","ForecastEnabled":false,"DigestFrequency":"D","Rep_Is_Active__c":"True","CommunityNickname":"Tester9","Company_Mailing_Name (3 more) ...":"Tester","CreatedById":"005L0000002izAsIAI","Last_Modified_by_Lan (6 more) ...":"OXSC","Phone":"123-456-7890","Division_Code__c":"SON","Street":"123 Fake Street","LocaleSidKey":"en_US","Job_Title_Code__c":"IN","FirstName":"Invalid","LAN_ID__c":"AEFG","Is_user_a_rep__c":"Y","City":"Los Angeles","EmailEncodingKey":"ISO-8859-1","Phone_Last_Char__c":"0","ReceivesInfoEmails":false,"Last_Modified_Date__ (1 more) ...":"2015-08-06T19:24:39.000Z","SystemModstamp":"2015-08-06T19:24:39.000Z","Was_Recently_Modifie (4 more) ...":"true","IsPortalEnabled":false,"Username":"tester@testorg.org","State":"CA","Alias":"tester","Phone_Formula__c":"1234567890","DefaultGroupNotifica (13 more) ...":"N","CreatedDate":"2015-08-06T19:24:39.000Z","LastName":"Active","Id":"005L0000002wvYoIAI","UserType":"Standard","LastModifiedById":"005L0000002izAsIAI","Department_Code__c":"SP","Is_User_ES_S_Admin__ (1 more) ...":false}|0x3de33d92
+12:25:01.358 (23358232168)|STATEMENT_EXECUTE|[4]
+12:25:01.358 (23358235524)|STATEMENT_EXECUTE|[5]
+12:25:01.358 (23358251055)|SYSTEM_METHOD_ENTRY|[5]|System.now()
+12:25:01.358 (23358262557)|HEAP_ALLOCATE|[5]|Bytes:56
+12:25:01.358 (23358269281)|SYSTEM_METHOD_EXIT|[5]|System.now()
+12:25:01.358 (23358847884)|VARIABLE_ASSIGNMENT|[5]|this.Last_Modified_Date__c|"2015-08-06T19:24:41.047Z"|0x3de33d92
+12:25:01.358 (23358865071)|SYSTEM_METHOD_ENTRY|[3]|system.ListIterator.hasNext()
+12:25:01.358 (23358878116)|HEAP_ALLOCATE|[3]|Bytes:5
+12:25:01.358 (23358886117)|SYSTEM_METHOD_EXIT|[3]|system.ListIterator.hasNext()
+12:25:01.358 (23358899318)|VARIABLE_ASSIGNMENT|[3]|u|null|
+12:25:01.358 (23358918451)|CUMULATIVE_LIMIT_USAGE
+12:25:01.358 (23358918451)|LIMIT_USAGE_FOR_NS|(default)|
+  Number of SOQL queries: 1 out of 100
+  Number of query rows: 1 out of 50000
+  Number of SOSL queries: 0 out of 20
+  Number of DML statements: 2 out of 150
+  Number of DML rows: 2 out of 10000
+  Maximum CPU time: 0 out of 10000
+  Maximum heap size: 0 out of 6000000
+  Number of callouts: 0 out of 100
+  Number of Email Invocations: 0 out of 10
+  Number of future calls: 0 out of 50
+  Number of queueable jobs added to the queue: 0 out of 50
+  Number of Mobile Apex push calls: 0 out of 10
+
+12:25:01.358 (23358918451)|CUMULATIVE_LIMIT_USAGE_END
+
+12:25:01.359 (23359157394)|CODE_UNIT_FINISHED|DateBeforeUserModified on User trigger event BeforeUpdate for [005L0000002wvYo]
+12:25:01.361 (23361266677)|CODE_UNIT_STARTED|[EXTERNAL]|01qE0000000RqnY|ValidateRepActiveFlag on User trigger event BeforeUpdate for [005L0000002wvYo]
+12:25:01.361 (23361289135)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:8
+12:25:01.361 (23361297968)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:8
+12:25:01.361 (23361340573)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:12
+12:25:01.361 (23361348535)|VARIABLE_SCOPE_BEGIN|[1]|this|ValidateRepActiveFlag|true|false
+12:25:01.361 (23361375485)|VARIABLE_ASSIGNMENT|[1]|this|{}|0x7b0d7e80
+12:25:01.361 (23361411255)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:12
+12:25:01.361 (23361419362)|VARIABLE_SCOPE_BEGIN|[1]|this|ValidateRepActiveFlag|true|false
+12:25:01.361 (23361437708)|VARIABLE_ASSIGNMENT|[1]|this|{}|0x7b0d7e80
+12:25:01.361 (23361444435)|STATEMENT_EXECUTE|[1]
+12:25:01.361 (23361447460)|STATEMENT_EXECUTE|[3]
+12:25:01.361 (23361456797)|HEAP_ALLOCATE|[3]|Bytes:4
+12:25:01.361 (23361469502)|SYSTEM_CONSTRUCTOR_ENTRY|[3]|<init>()
+12:25:01.361 (23361477985)|SYSTEM_CONSTRUCTOR_EXIT|[3]|<init>()
+12:25:01.361 (23361512575)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:4
+12:25:01.361 (23361535893)|VARIABLE_ASSIGNMENT|[3]|this.useridList|{"s":1,"v":[]}|0x7b0d7e80
+12:25:01.361 (23361542204)|STATEMENT_EXECUTE|[4]
+12:25:01.361 (23361554062)|HEAP_ALLOCATE|[4]|Bytes:4
+12:25:01.361 (23361582696)|VARIABLE_ASSIGNMENT|[4]|this.userLANIDMap|{"s":1,"v":{}}|0x7b0d7e80
+12:25:01.361 (23361593866)|STATEMENT_EXECUTE|[18]
+12:25:01.361 (23361627951)|SYSTEM_METHOD_ENTRY|[19]|List<User>.iterator()
+12:25:01.361 (23361657793)|SYSTEM_METHOD_EXIT|[19]|List<User>.iterator()
+12:25:01.361 (23361670178)|SYSTEM_METHOD_ENTRY|[19]|system.ListIterator.hasNext()
+12:25:01.361 (23361681685)|HEAP_ALLOCATE|[19]|Bytes:5
+12:25:01.361 (23361688931)|SYSTEM_METHOD_EXIT|[19]|system.ListIterator.hasNext()
+12:25:01.361 (23361704770)|VARIABLE_SCOPE_BEGIN|[19]|u|User|true|false
+12:25:01.363 (23363178164)|VARIABLE_ASSIGNMENT|[19]|u|{"ProfileId":"00eE0000000xnjhIAA","LastModifiedDate":"2015-08-06T19:24:39.000Z","ReceivesAdminInfoEma (3 more) ...":false,"Email":"tester@testorg.org","TimeZoneSidKey":"America/Los_Angeles","LanguageLocaleKey":"en_US","Department_Descripti (5 more) ...":"Service Planning","Lead_Project_Team_Ti (6 more) ...":"N/A","Rep_Is_Active_Formul (4 more) ...":"Y","IsActive":true,"Job_Title__c":"INTERN","LastModifiedbyLanId_ (2 more) ...":"AEFG","PostalCode":"93304","ForecastEnabled":false,"DigestFrequency":"D","Rep_Is_Active__c":"True","CommunityNickname":"Tester9","Company_Mailing_Name (3 more) ...":"Tester","CreatedById":"005L0000002izAsIAI","Last_Modified_by_Lan (6 more) ...":"OXSC","Phone":"123-456-7890","Division_Code__c":"SON","Street":"123 Fake Street","LocaleSidKey":"en_US","Job_Title_Code__c":"IN","FirstName":"Invalid","LAN_ID__c":"AEFG","Is_user_a_rep__c":"Y","City":"Los Angeles","EmailEncodingKey":"ISO-8859-1","Phone_Last_Char__c":"0","ReceivesInfoEmails":false,"Last_Modified_Date__ (1 more) ...":"2015-08-06T19:24:39.000Z","SystemModstamp":"2015-08-06T19:24:39.000Z","Was_Recently_Modifie (4 more) ...":"true","IsPortalEnabled":false,"Username":"tester@testorg.org","State":"CA","Alias":"tester","Phone_Formula__c":"1234567890","DefaultGroupNotifica (13 more) ...":"N","CreatedDate":"2015-08-06T19:24:39.000Z","LastName":"Active","Id":"005L0000002wvYoIAI","UserType":"Standard","LastModifiedById":"005L0000002izAsIAI","Department_Code__c":"SP","Is_User_ES_S_Admin__ (1 more) ...":false}|0x75f86f84
+12:25:01.363 (23363199275)|STATEMENT_EXECUTE|[20]
+12:25:01.363 (23363202687)|STATEMENT_EXECUTE|[21]
+12:25:01.363 (23363365875)|SYSTEM_METHOD_ENTRY|[21]|Map<Id,User>.get(Object)
+12:25:01.363 (23363399111)|SYSTEM_METHOD_EXIT|[21]|Map<Id,User>.get(Object)
+12:25:01.363 (23363407703)|VARIABLE_SCOPE_BEGIN|[21]|updatedU|User|true|false
+12:25:01.364 (23364040431)|VARIABLE_ASSIGNMENT|[21]|updatedU|{"ProfileId":"00eE0000000xnjhIAA","LastModifiedDate":"2015-08-06T19:24:39.000Z","ReceivesAdminInfoEma (3 more) ...":false,"Email":"tester@testorg.org","TimeZoneSidKey":"America/Los_Angeles","LanguageLocaleKey":"en_US","Department_Descripti (5 more) ...":"Service Planning","Lead_Project_Team_Ti (6 more) ...":"N/A","Rep_Is_Active_Formul (4 more) ...":"Y","IsActive":true,"Job_Title__c":"INTERN","LastModifiedbyLanId_ (2 more) ...":"AEFG","PostalCode":"93304","ForecastEnabled":false,"DigestFrequency":"D","Rep_Is_Active__c":"True","CommunityNickname":"Tester9","Company_Mailing_Name (3 more) ...":"Tester","CreatedById":"005L0000002izAsIAI","Last_Modified_by_Lan (6 more) ...":"OXSC","Phone":"123-456-7890","Division_Code__c":"SON","Street":"123 Fake Street","LocaleSidKey":"en_US","Job_Title_Code__c":"IN","FirstName":"Invalid","LAN_ID__c":"AEFG","Is_user_a_rep__c":"Y","City":"Los Angeles","EmailEncodingKey":"ISO-8859-1","Phone_Last_Char__c":"0","ReceivesInfoEmails":false,"Last_Modified_Date__ (1 more) ...":"2015-08-06T19:24:41.047Z","SystemModstamp":"2015-08-06T19:24:39.000Z","Was_Recently_Modifie (4 more) ...":"true","IsPortalEnabled":false,"Username":"tester@testorg.org","State":"CA","Alias":"tester","Phone_Formula__c":"1234567890","DefaultGroupNotifica (13 more) ...":"N","CreatedDate":"2015-08-06T19:24:39.000Z","LastName":"Active","Id":"005L0000002wvYoIAI","UserType":"Standard","LastModifiedById":"005L0000002izAsIAI","Department_Code__c":"SP","Is_User_ES_S_Admin__ (1 more) ...":false}|0x6591e6c5
+12:25:01.364 (23364101101)|STATEMENT_EXECUTE|[22]
+12:25:01.364 (23364134568)|STATEMENT_EXECUTE|[28]
+12:25:01.364 (23364148081)|SYSTEM_METHOD_ENTRY|[19]|system.ListIterator.hasNext()
+12:25:01.364 (23364160666)|HEAP_ALLOCATE|[19]|Bytes:5
+12:25:01.364 (23364168939)|SYSTEM_METHOD_EXIT|[19]|system.ListIterator.hasNext()
+12:25:01.364 (23364182259)|VARIABLE_ASSIGNMENT|[19]|u|null|
+12:25:01.364 (23364187273)|STATEMENT_EXECUTE|[36]
+12:25:01.364 (23364194547)|HEAP_ALLOCATE|[36]|Bytes:57
+12:25:01.364 (23364204836)|HEAP_ALLOCATE|[36]|Bytes:4
+12:25:01.364 (23364212474)|HEAP_ALLOCATE|[36]|Bytes:7
+12:25:01.364 (23364482614)|SOQL_EXECUTE_BEGIN|[36]|Aggregations:0|SELECT id, Ownerid FROM Account WHERE Ownerid IN :tmpVar1
+12:25:01.370 (23370844067)|SOQL_EXECUTE_END|[36]|Rows:0
+12:25:01.370 (23370861021)|HEAP_ALLOCATE|[36]|Bytes:4
+12:25:01.370 (23370869931)|HEAP_ALLOCATE|[36]|Bytes:0
+12:25:01.370 (23370938110)|HEAP_ALLOCATE|[36]|Bytes:4
+12:25:01.370 (23370951014)|VARIABLE_SCOPE_BEGIN|[36]|repAccounts|List<Account>|true|false
+12:25:01.370 (23370972172)|VARIABLE_ASSIGNMENT|[36]|repAccounts|{"s":1,"v":[]}|0x73292649
+12:25:01.371 (23371039150)|SYSTEM_METHOD_ENTRY|[37]|List<Account>.size()
+12:25:01.371 (23371065119)|SYSTEM_METHOD_EXIT|[37]|List<Account>.size()
+12:25:01.371 (23371073591)|STATEMENT_EXECUTE|[37]
+12:25:01.371 (23371098048)|SYSTEM_METHOD_ENTRY|[47]|List<User>.size()
+12:25:01.371 (23371115856)|SYSTEM_METHOD_EXIT|[47]|List<User>.size()
+12:25:01.371 (23371123111)|STATEMENT_EXECUTE|[48]
+12:25:01.371 (23371125706)|STATEMENT_EXECUTE|[49]
+12:25:01.371 (23371152169)|VARIABLE_SCOPE_BEGIN|[49]|u|User|true|false
+12:25:01.371 (23371772194)|VARIABLE_ASSIGNMENT|[49]|u|{"ProfileId":"00eE0000000xnjhIAA","LastModifiedDate":"2015-08-06T19:24:39.000Z","ReceivesAdminInfoEma (3 more) ...":false,"Email":"tester@testorg.org","TimeZoneSidKey":"America/Los_Angeles","LanguageLocaleKey":"en_US","Department_Descripti (5 more) ...":"Service Planning","Lead_Project_Team_Ti (6 more) ...":"N/A","Rep_Is_Active_Formul (4 more) ...":"Y","IsActive":true,"Job_Title__c":"INTERN","LastModifiedbyLanId_ (2 more) ...":"AEFG","PostalCode":"93304","ForecastEnabled":false,"DigestFrequency":"D","Rep_Is_Active__c":"True","CommunityNickname":"Tester9","Company_Mailing_Name (3 more) ...":"Tester","CreatedById":"005L0000002izAsIAI","Last_Modified_by_Lan (6 more) ...":"OXSC","Phone":"123-456-7890","Division_Code__c":"SON","Street":"123 Fake Street","LocaleSidKey":"en_US","Job_Title_Code__c":"IN","FirstName":"Invalid","LAN_ID__c":"AEFG","Is_user_a_rep__c":"Y","City":"Los Angeles","EmailEncodingKey":"ISO-8859-1","Phone_Last_Char__c":"0","ReceivesInfoEmails":false,"Last_Modified_Date__ (1 more) ...":"2015-08-06T19:24:39.000Z","SystemModstamp":"2015-08-06T19:24:39.000Z","Was_Recently_Modifie (4 more) ...":"true","IsPortalEnabled":false,"Username":"tester@testorg.org","State":"CA","Alias":"tester","Phone_Formula__c":"1234567890","DefaultGroupNotifica (13 more) ...":"N","CreatedDate":"2015-08-06T19:24:39.000Z","LastName":"Active","Id":"005L0000002wvYoIAI","UserType":"Standard","LastModifiedById":"005L0000002izAsIAI","Department_Code__c":"SP","Is_User_ES_S_Admin__ (1 more) ...":false}|0x75f86f84
+12:25:01.371 (23371791634)|STATEMENT_EXECUTE|[50]
+12:25:01.371 (23371833294)|SYSTEM_METHOD_ENTRY|[50]|Map<Id,User>.get(Object)
+12:25:01.371 (23371864518)|SYSTEM_METHOD_EXIT|[50]|Map<Id,User>.get(Object)
+12:25:01.371 (23371872833)|VARIABLE_SCOPE_BEGIN|[50]|updatedU|User|true|false
+12:25:01.372 (23372494373)|VARIABLE_ASSIGNMENT|[50]|updatedU|{"ProfileId":"00eE0000000xnjhIAA","LastModifiedDate":"2015-08-06T19:24:39.000Z","ReceivesAdminInfoEma (3 more) ...":false,"Email":"tester@testorg.org","TimeZoneSidKey":"America/Los_Angeles","LanguageLocaleKey":"en_US","Department_Descripti (5 more) ...":"Service Planning","Lead_Project_Team_Ti (6 more) ...":"N/A","Rep_Is_Active_Formul (4 more) ...":"Y","IsActive":true,"Job_Title__c":"INTERN","LastModifiedbyLanId_ (2 more) ...":"AEFG","PostalCode":"93304","ForecastEnabled":false,"DigestFrequency":"D","Rep_Is_Active__c":"True","CommunityNickname":"Tester9","Company_Mailing_Name (3 more) ...":"Tester","CreatedById":"005L0000002izAsIAI","Last_Modified_by_Lan (6 more) ...":"OXSC","Phone":"123-456-7890","Division_Code__c":"SON","Street":"123 Fake Street","LocaleSidKey":"en_US","Job_Title_Code__c":"IN","FirstName":"Invalid","LAN_ID__c":"AEFG","Is_user_a_rep__c":"Y","City":"Los Angeles","EmailEncodingKey":"ISO-8859-1","Phone_Last_Char__c":"0","ReceivesInfoEmails":false,"Last_Modified_Date__ (1 more) ...":"2015-08-06T19:24:41.047Z","SystemModstamp":"2015-08-06T19:24:39.000Z","Was_Recently_Modifie (4 more) ...":"true","IsPortalEnabled":false,"Username":"tester@testorg.org","State":"CA","Alias":"tester","Phone_Formula__c":"1234567890","DefaultGroupNotifica (13 more) ...":"N","CreatedDate":"2015-08-06T19:24:39.000Z","LastName":"Active","Id":"005L0000002wvYoIAI","UserType":"Standard","LastModifiedById":"005L0000002izAsIAI","Department_Code__c":"SP","Is_User_ES_S_Admin__ (1 more) ...":false}|0x6591e6c5
+12:25:01.372 (23372531889)|STATEMENT_EXECUTE|[52]
+12:25:01.372 (23372551655)|STATEMENT_EXECUTE|[67]
+12:25:01.372 (23372571858)|CUMULATIVE_LIMIT_USAGE
+12:25:01.372 (23372571858)|LIMIT_USAGE_FOR_NS|(default)|
+  Number of SOQL queries: 2 out of 100
+  Number of query rows: 1 out of 50000
+  Number of SOSL queries: 0 out of 20
+  Number of DML statements: 2 out of 150
+  Number of DML rows: 2 out of 10000
+  Maximum CPU time: 0 out of 10000
+  Maximum heap size: 0 out of 6000000
+  Number of callouts: 0 out of 100
+  Number of Email Invocations: 0 out of 10
+  Number of future calls: 0 out of 50
+  Number of queueable jobs added to the queue: 0 out of 50
+  Number of Mobile Apex push calls: 0 out of 10
+
+12:25:01.372 (23372571858)|CUMULATIVE_LIMIT_USAGE_END
+
+12:25:01.372 (23372633215)|CODE_UNIT_FINISHED|ValidateRepActiveFlag on User trigger event BeforeUpdate for [005L0000002wvYo]
+12:25:01.395 (23395788768)|CODE_UNIT_STARTED|[EXTERNAL]|Validation:User:005L0000002wvYo
+12:25:01.395 (23395807877)|VALIDATION_RULE|03dL00000004h2A|StateAbbr
+12:25:01.396 (23396017496)|VALIDATION_FORMULA|AND(State!='',OR(
+LEN(State) <> 2,
+NOT(
+CONTAINS("AL:AK:AZ:AR:CA:CO:CT:DE:DC:FL:GA:HI:ID:" &
+"IL:IN:IA:KS:KY:LA:ME:MD:MA:MI:MN:MS:MO:MT:NE:NV:NH:" &
+"NJ:NM:NY:NC:ND:OH:OK:OR:PA:RI:SC:SD:TN:TX:UT:VT:VA:" &
+"WA:WV:WI:WY:PR", State)
+)))|State=CA
+12:25:01.396 (23396028180)|VALIDATION_PASS
+12:25:01.396 (23396031231)|VALIDATION_RULE|03dE0000000EfYy|Phone_and_Fax_Validation
+12:25:01.396 (23396292437)|VALIDATION_FORMULA|AND(ISPICKVAL(Is_user_a_rep__c,'Y'),
+OR(
+
+AND(NOT(ISBLANK(Phone)), NOT(REGEX(Phone, "\\D*?(\\d\\D*?){10}"))),
+
+AND(NOT(ISBLANK(Fax)), NOT(REGEX(Fax, "\\D*?(\\d\\D*?){10}"))),
+
+AND(NOT(ISBLANK(MobilePhone)), NOT(REGEX(MobilePhone, "\\D*?(\\d\\D*?){10}")))
+)
+)|Is_user_a_rep__c=Y , Phone=123-456-7890 , Fax=null , MobilePhone=null
+12:25:01.396 (23396301500)|VALIDATION_PASS
+12:25:01.396 (23396304230)|VALIDATION_RULE|03dE0000000EfYz|Required_Fields_Not_Empty
+12:25:01.396 (23396882249)|VALIDATION_FORMULA|AND(ISPICKVAL(Is_user_a_rep__c,'Y'),
+OR(
+ISBLANK(LAN_ID__c),
+ISBLANK(FirstName ),
+AND(ISBLANK(Phone),ISBLANK(MobilePhone)),
+ISPICKVAL(Job_Title__c,''),
+ISBLANK(Street),
+ISBLANK(City),
+ISBLANK(State),
+ISBLANK(PostalCode),
+ISPICKVAL(Department_Code__c,''),
+ISPICKVAL(Division_Code__c,''),
+ISBLANK(Company_Mailing_Name__c),
+ISBLANK(Rep_Is_Active_Formula__c)
+)
+)|FirstName=Invalid , PostalCode=93304 , Rep_Is_Active_Formula__c=Y , City=Los Angeles , MobilePhone=null , LAN_ID__c=AEFG , Department_Code__c=SP , Company_Mailing_Name__c=Tester , Is_user_a_rep__c=Y , Phone=123-456-7890 , State=CA , Street=123 Fake Street , Division_Code__c=SON , Job_Title__c=INTERN
+12:25:01.396 (23396894199)|VALIDATION_PASS
+12:25:01.396 (23396913651)|CODE_UNIT_FINISHED|Validation:User:005L0000002wvYo
+12:25:01.692 (23692112508)|CODE_UNIT_STARTED|[EXTERNAL]|01qL00000004tuU|pge_user_trigger on User trigger event AfterUpdate for [005L0000002wvYo]
+12:25:01.692 (23692160396)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:8
+12:25:01.692 (23692207400)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:8
+12:25:01.692 (23692357292)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:4
+12:25:01.692 (23692379144)|VARIABLE_SCOPE_BEGIN|[1]|this|pge_user_trigger|true|false
+12:25:01.692 (23692427654)|VARIABLE_ASSIGNMENT|[1]|this|{}|0x7e8387f2
+12:25:01.692 (23692494312)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:4
+12:25:01.692 (23692507679)|VARIABLE_SCOPE_BEGIN|[1]|this|pge_user_trigger|true|false
+12:25:01.692 (23692525094)|VARIABLE_ASSIGNMENT|[1]|this|{}|0x7e8387f2
+12:25:01.692 (23692533280)|STATEMENT_EXECUTE|[1]
+12:25:01.692 (23692580634)|STATEMENT_EXECUTE|[3]
+12:25:01.692 (23692598602)|STATEMENT_EXECUTE|[4]
+12:25:01.692 (23692602185)|STATEMENT_EXECUTE|[6]
+12:25:01.692 (23692614544)|HEAP_ALLOCATE|[6]|Bytes:23
+12:25:01.692 (23692798832)|SYSTEM_METHOD_ENTRY|[6]|Project_Reference_CS__c.getValues(String)
+12:25:01.692 (23692999308)|SYSTEM_METHOD_EXIT|[6]|Project_Reference_CS__c.getValues(String)
+12:25:01.693 (23693009479)|VARIABLE_SCOPE_BEGIN|[6]|pr_cs|Project_Reference_CS__c|true|false
+12:25:01.693 (23693023548)|VARIABLE_ASSIGNMENT|[6]|pr_cs|null|
+12:25:01.693 (23693028313)|STATEMENT_EXECUTE|[7]
+12:25:01.693 (23693100073)|EXCEPTION_THROWN|[7]|System.NullPointerException: Attempt to de-reference a null object
+12:25:01.693 (23693192630)|HEAP_ALLOCATE|[7]|Bytes:41
+12:25:01.693 (23693254300)|FATAL_ERROR|System.NullPointerException: Attempt to de-reference a null object
+
+Trigger.pge_user_trigger: line 7, column 1
+12:25:01.693 (23693270109)|FATAL_ERROR|System.NullPointerException: Attempt to de-reference a null object
+
+Trigger.pge_user_trigger: line 7, column 1
+12:25:01.693 (23693307590)|CUMULATIVE_LIMIT_USAGE
+12:25:01.693 (23693307590)|LIMIT_USAGE_FOR_NS|(default)|
+  Number of SOQL queries: 2 out of 100
+  Number of query rows: 1 out of 50000
+  Number of SOSL queries: 0 out of 20
+  Number of DML statements: 2 out of 150
+  Number of DML rows: 2 out of 10000
+  Maximum CPU time: 0 out of 10000
+  Maximum heap size: 0 out of 6000000
+  Number of callouts: 0 out of 100
+  Number of Email Invocations: 0 out of 10
+  Number of future calls: 0 out of 50
+  Number of queueable jobs added to the queue: 0 out of 50
+  Number of Mobile Apex push calls: 0 out of 10
+
+12:25:01.693 (23693307590)|CUMULATIVE_LIMIT_USAGE_END
+
+12:25:01.693 (23693388208)|CODE_UNIT_FINISHED|pge_user_trigger on User trigger event AfterUpdate for [005L0000002wvYo]
+12:25:01.695 (23695634584)|DML_END|[22]
+12:25:01.695 (23695717164)|EXCEPTION_THROWN|[22]|System.DmlException: Update failed. First exception on row 0 with id 005L0000002wvYoIAI; first error: CANNOT_INSERT_UPDATE_ACTIVATE_ENTITY, pge_user_trigger: execution of AfterUpdate
+
+caused by: System.NullPointerException: Attempt to de-reference a null object
+
+Trigger.pge_user_trigger: line 7, column 1: []
+12:25:01.696 (23696245813)|HEAP_ALLOCATE|[22]|Bytes:292
+12:25:01.696 (23696289377)|FATAL_ERROR|System.DmlException: Update failed. First exception on row 0 with id 005L0000002wvYoIAI; first error: CANNOT_INSERT_UPDATE_ACTIVATE_ENTITY, pge_user_trigger: execution of AfterUpdate
+
+caused by: System.NullPointerException: Attempt to de-reference a null object
+
+Trigger.pge_user_trigger: line 7, column 1: []
+
+Class.lab2_ValidateRepActiveFlagTest.activeRepsAreRepsTest: line 22, column 1
+12:25:01.696 (23696303571)|FATAL_ERROR|System.DmlException: Update failed. First exception on row 0 with id 005L0000002wvYoIAI; first error: CANNOT_INSERT_UPDATE_ACTIVATE_ENTITY, pge_user_trigger: execution of AfterUpdate
+
+caused by: System.NullPointerException: Attempt to de-reference a null object
+
+Trigger.pge_user_trigger: line 7, column 1: []
+
+Class.lab2_ValidateRepActiveFlagTest.activeRepsAreRepsTest: line 22, column 1
+12:25:01.696 (23696316392)|CUMULATIVE_LIMIT_USAGE
+12:25:01.696 (23696316392)|LIMIT_USAGE_FOR_NS|(default)|
+  Number of SOQL queries: 1 out of 100
+  Number of query rows: 1 out of 50000
+  Number of SOSL queries: 0 out of 20
+  Number of DML statements: 2 out of 150
+  Number of DML rows: 2 out of 10000
+  Maximum CPU time: 0 out of 10000
+  Maximum heap size: 0 out of 6000000
+  Number of callouts: 0 out of 100
+  Number of Email Invocations: 0 out of 10
+  Number of future calls: 0 out of 50
+  Number of queueable jobs added to the queue: 0 out of 50
+  Number of Mobile Apex push calls: 0 out of 10
+
+12:25:01.696 (23696316392)|CUMULATIVE_LIMIT_USAGE_END
+
+12:25:01.696 (23696336923)|CODE_UNIT_FINISHED|lab2_ValidateRepActiveFlagTest.activeRepsAreRepsTest
+12:25:01.698 (23698039044)|EXECUTION_FINISHED
+12:25:09.013 (31013367775)|EXECUTION_STARTED
+12:25:09.013 (31013381677)|CODE_UNIT_STARTED|[EXTERNAL]|01pL0000000Le4G|lab2_ValidateRepActiveFlagTest.inactiveRepAssociationTest
+12:25:09.013 (31013578728)|HEAP_ALLOCATE|[72]|Bytes:3
+12:25:09.013 (31013625304)|HEAP_ALLOCATE|[77]|Bytes:152
+12:25:09.013 (31013645943)|HEAP_ALLOCATE|[342]|Bytes:408
+12:25:09.013 (31013667706)|HEAP_ALLOCATE|[355]|Bytes:408
+12:25:09.013 (31013688462)|HEAP_ALLOCATE|[467]|Bytes:48
+12:25:09.013 (31013721449)|HEAP_ALLOCATE|[139]|Bytes:6
+12:25:09.013 (31013743571)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:74
+12:25:09.013 (31013759448)|METHOD_ENTRY|[9]|01pL0000000Le4G|lab2_ValidateRepActiveFlagTest.lab2_ValidateRepActiveFlagTest()
+12:25:09.013 (31013766126)|STATEMENT_EXECUTE|[9]
+12:25:09.013 (31013771425)|STATEMENT_EXECUTE|[9]
+12:25:09.013 (31013775734)|METHOD_EXIT|[9]|lab2_ValidateRepActiveFlagTest
+12:25:09.013 (31013804082)|HEAP_ALLOCATE|[50]|Bytes:5
+12:25:09.013 (31013837590)|HEAP_ALLOCATE|[56]|Bytes:5
+12:25:09.013 (31013849643)|HEAP_ALLOCATE|[64]|Bytes:7
+12:25:09.013 (31013885188)|STATEMENT_EXECUTE|[41]
+12:25:09.013 (31013889371)|STATEMENT_EXECUTE|[43]
+12:25:09.013 (31013905289)|HEAP_ALLOCATE|[43]|Bytes:1
+12:25:09.013 (31013914351)|METHOD_ENTRY|[8]|01pL0000000LhKH|createTestUser.createTestUser()
+12:25:09.013 (31013918313)|STATEMENT_EXECUTE|[8]
+12:25:09.013 (31013921807)|STATEMENT_EXECUTE|[8]
+12:25:09.013 (31013925486)|METHOD_EXIT|[8]|createTestUser
+12:25:09.013 (31013932378)|HEAP_ALLOCATE|[43]|Bytes:4
+12:25:09.013 (31013944741)|CONSTRUCTOR_ENTRY|[43]|01pL0000000LhKH|<init>()
+12:25:09.013 (31013970752)|VARIABLE_SCOPE_BEGIN|[8]|this|createTestUser|true|false
+12:25:09.014 (31014007538)|VARIABLE_ASSIGNMENT|[8]|this|{}|0x284b94e
+12:25:09.014 (31014022884)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:6
+12:25:09.014 (31014037678)|VARIABLE_SCOPE_BEGIN|[2]|this|System.ApexBaseClass|true|false
+12:25:09.014 (31014053414)|VARIABLE_ASSIGNMENT|[2]|this|{}|0x284b94e
+12:25:09.014 (31014062913)|STATEMENT_EXECUTE|[8]
+12:25:09.014 (31014069104)|CONSTRUCTOR_EXIT|[43]|01pL0000000LhKH|<init>()
+12:25:09.014 (31014085233)|METHOD_ENTRY|[43]|01pL0000000LhKH|createTestUser.createUser()
+12:25:09.014 (31014091854)|VARIABLE_SCOPE_BEGIN|[9]|this|createTestUser|true|false
+12:25:09.014 (31014105266)|VARIABLE_ASSIGNMENT|[9]|this|{}|0x284b94e
+12:25:09.014 (31014113804)|STATEMENT_EXECUTE|[9]
+12:25:09.014 (31014116538)|STATEMENT_EXECUTE|[10]
+12:25:09.014 (31014148891)|HEAP_ALLOCATE|[10]|Bytes:4
+12:25:09.014 (31014188548)|VARIABLE_SCOPE_BEGIN|[10]|u|User|true|false
+12:25:09.014 (31014206998)|VARIABLE_ASSIGNMENT|[10]|u|{}|0x60e539bf
+12:25:09.014 (31014211403)|STATEMENT_EXECUTE|[13]
+12:25:09.014 (31014217705)|HEAP_ALLOCATE|[13]|Bytes:7
+12:25:09.014 (31014292777)|VARIABLE_ASSIGNMENT|[13]|this.FirstName|"Invalid"|0x60e539bf
+12:25:09.014 (31014299415)|STATEMENT_EXECUTE|[14]
+12:25:09.014 (31014305633)|HEAP_ALLOCATE|[14]|Bytes:6
+12:25:09.014 (31014333943)|VARIABLE_ASSIGNMENT|[14]|this.LastName|"Active"|0x60e539bf
+12:25:09.014 (31014339610)|STATEMENT_EXECUTE|[15]
+12:25:09.014 (31014344992)|HEAP_ALLOCATE|[15]|Bytes:6
+12:25:09.014 (31014372892)|VARIABLE_ASSIGNMENT|[15]|this.Alias|"tester"|0x60e539bf
+12:25:09.014 (31014377949)|STATEMENT_EXECUTE|[16]
+12:25:09.014 (31014383384)|HEAP_ALLOCATE|[16]|Bytes:18
+12:25:09.014 (31014410424)|VARIABLE_ASSIGNMENT|[16]|this.Email|"tester@testorg.org"|0x60e539bf
+12:25:09.014 (31014415715)|STATEMENT_EXECUTE|[17]
+12:25:09.014 (31014443150)|VARIABLE_ASSIGNMENT|[17]|this.Username|"tester@testorg.org"|0x60e539bf
+12:25:09.014 (31014448431)|STATEMENT_EXECUTE|[18]
+12:25:09.014 (31014453826)|HEAP_ALLOCATE|[18]|Bytes:7
+12:25:09.014 (31014481860)|VARIABLE_ASSIGNMENT|[18]|this.CommunityNickname|"Tester9"|0x60e539bf
+12:25:09.014 (31014487047)|STATEMENT_EXECUTE|[21]
+12:25:09.014 (31014492967)|HEAP_ALLOCATE|[21]|Bytes:51
+12:25:09.014 (31014507692)|HEAP_ALLOCATE|[21]|Bytes:4
+12:25:09.014 (31014718025)|SOQL_EXECUTE_BEGIN|[21]|Aggregations:0|SELECT Id FROM Profile WHERE Name = 'Standard User'
+12:25:09.040 (31040146499)|SOQL_EXECUTE_END|[21]|Rows:1
+12:25:09.040 (31040162428)|HEAP_ALLOCATE|[21]|Bytes:8
+12:25:09.040 (31040174722)|HEAP_ALLOCATE|[21]|Bytes:29
+12:25:09.040 (31040209995)|HEAP_ALLOCATE|[21]|Bytes:8
+12:25:09.040 (31040220485)|HEAP_ALLOCATE|[21]|Bytes:33
+12:25:09.040 (31040259375)|HEAP_ALLOCATE|[21]|Bytes:8
+12:25:09.040 (31040269533)|VARIABLE_SCOPE_BEGIN|[21]|p|Profile|true|false
+12:25:09.040 (31040296616)|VARIABLE_ASSIGNMENT|[21]|p|{"s":1,"v":{"Id":"00eE0000000xnjhIAA"}}|0x6a1e7220
+12:25:09.040 (31040302367)|STATEMENT_EXECUTE|[22]
+12:25:09.040 (31040359957)|VARIABLE_ASSIGNMENT|[22]|this.ProfileId|"00eE0000000xnjhIAA"|0x60e539bf
+12:25:09.040 (31040366367)|STATEMENT_EXECUTE|[25]
+12:25:09.040 (31040372747)|HEAP_ALLOCATE|[25]|Bytes:19
+12:25:09.040 (31040405331)|VARIABLE_ASSIGNMENT|[25]|this.TimeZoneSidKey|"America/Los_Angeles"|0x60e539bf
+12:25:09.040 (31040411641)|STATEMENT_EXECUTE|[26]
+12:25:09.040 (31040417691)|HEAP_ALLOCATE|[26]|Bytes:5
+12:25:09.040 (31040447228)|VARIABLE_ASSIGNMENT|[26]|this.LocaleSidKey|"en_US"|0x60e539bf
+12:25:09.040 (31040452594)|STATEMENT_EXECUTE|[27]
+12:25:09.040 (31040458269)|HEAP_ALLOCATE|[27]|Bytes:10
+12:25:09.040 (31040487495)|VARIABLE_ASSIGNMENT|[27]|this.EmailEncodingKey|"ISO-8859-1"|0x60e539bf
+12:25:09.040 (31040492617)|STATEMENT_EXECUTE|[28]
+12:25:09.040 (31040520323)|VARIABLE_ASSIGNMENT|[28]|this.LanguageLocaleKey|"en_US"|0x60e539bf
+12:25:09.040 (31040525261)|STATEMENT_EXECUTE|[31]
+12:25:09.040 (31040530755)|HEAP_ALLOCATE|[31]|Bytes:4
+12:25:09.040 (31040576479)|VARIABLE_ASSIGNMENT|[31]|this.LAN_ID__c|"AEFG"|0x60e539bf
+12:25:09.040 (31040581927)|STATEMENT_EXECUTE|[32]
+12:25:09.040 (31040587710)|HEAP_ALLOCATE|[32]|Bytes:15
+12:25:09.040 (31040621029)|VARIABLE_ASSIGNMENT|[32]|this.Street|"123 Fake Street"|0x60e539bf
+12:25:09.040 (31040626282)|STATEMENT_EXECUTE|[33]
+12:25:09.040 (31040632753)|HEAP_ALLOCATE|[33]|Bytes:11
+12:25:09.040 (31040659433)|VARIABLE_ASSIGNMENT|[33]|this.City|"Los Angeles"|0x60e539bf
+12:25:09.040 (31040664842)|STATEMENT_EXECUTE|[34]
+12:25:09.040 (31040670200)|HEAP_ALLOCATE|[34]|Bytes:2
+12:25:09.040 (31040696116)|VARIABLE_ASSIGNMENT|[34]|this.State|"CA"|0x60e539bf
+12:25:09.040 (31040701315)|STATEMENT_EXECUTE|[35]
+12:25:09.040 (31040706718)|HEAP_ALLOCATE|[35]|Bytes:5
+12:25:09.040 (31040732649)|VARIABLE_ASSIGNMENT|[35]|this.PostalCode|"93304"|0x60e539bf
+12:25:09.040 (31040737710)|STATEMENT_EXECUTE|[36]
+12:25:09.040 (31040743091)|HEAP_ALLOCATE|[36]|Bytes:2
+12:25:09.040 (31040772069)|VARIABLE_ASSIGNMENT|[36]|this.Department_Code__c|"SP"|0x60e539bf
+12:25:09.040 (31040777314)|STATEMENT_EXECUTE|[37]
+12:25:09.040 (31040782887)|HEAP_ALLOCATE|[37]|Bytes:3
+12:25:09.040 (31040810638)|VARIABLE_ASSIGNMENT|[37]|this.Division_Code__c|"SON"|0x60e539bf
+12:25:09.040 (31040820210)|STATEMENT_EXECUTE|[38]
+12:25:09.040 (31040826568)|HEAP_ALLOCATE|[38]|Bytes:6
+12:25:09.040 (31040857175)|VARIABLE_ASSIGNMENT|[38]|this.Company_Mailing_Name__c|"Tester"|0x60e539bf
+12:25:09.040 (31040862480)|STATEMENT_EXECUTE|[39]
+12:25:09.040 (31040868355)|HEAP_ALLOCATE|[39]|Bytes:12
+12:25:09.040 (31040898247)|VARIABLE_ASSIGNMENT|[39]|this.Phone|"123-456-7890"|0x60e539bf
+12:25:09.040 (31040903593)|STATEMENT_EXECUTE|[40]
+12:25:09.040 (31040909125)|HEAP_ALLOCATE|[40]|Bytes:1
+12:25:09.040 (31040939482)|VARIABLE_ASSIGNMENT|[40]|this.Is_user_a_rep__c|"Y"|0x60e539bf
+12:25:09.040 (31040944733)|STATEMENT_EXECUTE|[41]
+12:25:09.040 (31040950346)|HEAP_ALLOCATE|[41]|Bytes:4
+12:25:09.040 (31040979248)|VARIABLE_ASSIGNMENT|[41]|this.Rep_Is_Active__c|"True"|0x60e539bf
+12:25:09.040 (31040984491)|STATEMENT_EXECUTE|[42]
+12:25:09.040 (31040989884)|HEAP_ALLOCATE|[42]|Bytes:6
+12:25:09.041 (31041018417)|VARIABLE_ASSIGNMENT|[42]|this.Job_Title__c|"INTERN"|0x60e539bf
+12:25:09.041 (31041024290)|STATEMENT_EXECUTE|[43]
+12:25:09.041 (31041030098)|HEAP_ALLOCATE|[43]|Bytes:3
+12:25:09.041 (31041059680)|VARIABLE_ASSIGNMENT|[43]|this.Lead_Project_Team_Title__c|"N/A"|0x60e539bf
+12:25:09.041 (31041065444)|STATEMENT_EXECUTE|[45]
+12:25:09.041 (31041076419)|METHOD_EXIT|[43]|01pL0000000LhKH|createTestUser.createUser()
+12:25:09.041 (31041083363)|VARIABLE_SCOPE_BEGIN|[43]|u|User|true|false
+12:25:09.041 (31041118656)|VARIABLE_ASSIGNMENT|[43]|u|{"FirstName":"Invalid","LastName":"Active","Alias":"tester","Email":"tester@testorg.org","Username":"tester@testorg.org","CommunityNickname":"Tester9","ProfileId":"00eE0000000xnjhIAA","TimeZoneSidKey":"America/Los_Angeles","LocaleSidKey":"en_US","EmailEncodingKey":"ISO-8859-1","LanguageLocaleKey":"en_US","LAN_ID__c":"AEFG","Street":"123 Fake Street","City":"Los Angeles","State":"CA","PostalCode":"93304","Department_Code__c":"SP","Division_Code__c":"SON","Company_Mailing_Name (3 more) ...":"Tester","Phone":"123-456-7890","Is_user_a_rep__c":"Y","Rep_Is_Active__c":"True","Job_Title__c":"INTERN","Lead_Project_Team_Ti (6 more) ...":"N/A"}|0x60e539bf
+12:25:09.041 (31041128674)|STATEMENT_EXECUTE|[44]
+12:25:09.041 (31041158246)|HEAP_ALLOCATE|[44]|Bytes:8
+12:25:09.041 (31041175616)|DML_BEGIN|[44]|Op:Insert|Type:User|Rows:1
+12:25:09.041 (31041191321)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:8
+12:25:09.045 (31045763642)|CODE_UNIT_STARTED|[EXTERNAL]|01qE0000000RqnA|DateBeforeUserModified on User trigger event BeforeInsert for [new]
+12:25:09.045 (31045790689)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:8
+12:25:09.045 (31045852286)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:4
+12:25:09.045 (31045861308)|VARIABLE_SCOPE_BEGIN|[1]|this|DateBeforeUserModified|true|false
+12:25:09.045 (31045883241)|VARIABLE_ASSIGNMENT|[1]|this|{}|0x9958a59
+12:25:09.045 (31045917417)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:4
+12:25:09.045 (31045925749)|VARIABLE_SCOPE_BEGIN|[1]|this|DateBeforeUserModified|true|false
+12:25:09.045 (31045941053)|VARIABLE_ASSIGNMENT|[1]|this|{}|0x9958a59
+12:25:09.045 (31045947506)|STATEMENT_EXECUTE|[1]
+12:25:09.045 (31045987096)|SYSTEM_METHOD_ENTRY|[3]|List<User>.iterator()
+12:25:09.046 (31046005782)|SYSTEM_METHOD_EXIT|[3]|List<User>.iterator()
+12:25:09.046 (31046020947)|SYSTEM_METHOD_ENTRY|[3]|system.ListIterator.hasNext()
+12:25:09.046 (31046051142)|HEAP_ALLOCATE|[3]|Bytes:5
+12:25:09.046 (31046060873)|SYSTEM_METHOD_EXIT|[3]|system.ListIterator.hasNext()
+12:25:09.046 (31046079465)|HEAP_ALLOCATE|[3]|Bytes:4
+12:25:09.046 (31046090473)|VARIABLE_SCOPE_BEGIN|[3]|u|User|true|false
+12:25:09.047 (31047422163)|VARIABLE_ASSIGNMENT|[3]|u|{"ProfileId":"00eE0000000xnjhIAA","ReceivesAdminInfoEma (3 more) ...":false,"Email":"tester@testorg.org","TimeZoneSidKey":"America/Los_Angeles","LanguageLocaleKey":"en_US","Department_Descripti (5 more) ...":"Service Planning","Lead_Project_Team_Ti (6 more) ...":"N/A","Rep_Is_Active_Formul (4 more) ...":"Y","IsActive":true,"Job_Title__c":"INTERN","LastModifiedbyLanId_ (2 more) ...":"AEFG","PostalCode":"93304","ForecastEnabled":false,"Rep_Is_Active__c":"True","CommunityNickname":"Tester9","Company_Mailing_Name (3 more) ...":"Tester","Phone":"123-456-7890","Division_Code__c":"SON","Street":"123 Fake Street","LocaleSidKey":"en_US","Job_Title_Code__c":"IN","FirstName":"Invalid","LAN_ID__c":"AEFG","Is_user_a_rep__c":"Y","City":"Los Angeles","EmailEncodingKey":"ISO-8859-1","Phone_Last_Char__c":"0","ReceivesInfoEmails":false,"Was_Recently_Modifie (4 more) ...":"false","IsPortalEnabled":false,"Username":"tester@testorg.org","State":"CA","Alias":"tester","Phone_Formula__c":"1234567890","LastName":"Active","Department_Code__c":"SP","Is_User_ES_S_Admin__ (1 more) ...":false}|0x2b15433c
+12:25:09.047 (31047440644)|STATEMENT_EXECUTE|[4]
+12:25:09.047 (31047443862)|STATEMENT_EXECUTE|[5]
+12:25:09.047 (31047463191)|SYSTEM_METHOD_ENTRY|[5]|System.now()
+12:25:09.047 (31047477046)|HEAP_ALLOCATE|[5]|Bytes:56
+12:25:09.047 (31047483645)|SYSTEM_METHOD_EXIT|[5]|System.now()
+12:25:09.048 (31048174717)|VARIABLE_ASSIGNMENT|[5]|this.Last_Modified_Date__c|"2015-08-06T19:24:48.736Z"|0x2b15433c
+12:25:09.048 (31048192947)|SYSTEM_METHOD_ENTRY|[3]|system.ListIterator.hasNext()
+12:25:09.048 (31048205613)|HEAP_ALLOCATE|[3]|Bytes:5
+12:25:09.048 (31048213856)|SYSTEM_METHOD_EXIT|[3]|system.ListIterator.hasNext()
+12:25:09.048 (31048227769)|VARIABLE_ASSIGNMENT|[3]|u|null|
+12:25:09.048 (31048247251)|CUMULATIVE_LIMIT_USAGE
+12:25:09.048 (31048247251)|LIMIT_USAGE_FOR_NS|(default)|
+  Number of SOQL queries: 1 out of 100
+  Number of query rows: 1 out of 50000
+  Number of SOSL queries: 0 out of 20
+  Number of DML statements: 1 out of 150
+  Number of DML rows: 1 out of 10000
+  Maximum CPU time: 0 out of 10000
+  Maximum heap size: 0 out of 6000000
+  Number of callouts: 0 out of 100
+  Number of Email Invocations: 0 out of 10
+  Number of future calls: 0 out of 50
+  Number of queueable jobs added to the queue: 0 out of 50
+  Number of Mobile Apex push calls: 0 out of 10
+
+12:25:09.048 (31048247251)|CUMULATIVE_LIMIT_USAGE_END
+
+12:25:09.048 (31048486730)|CODE_UNIT_FINISHED|DateBeforeUserModified on User trigger event BeforeInsert for [new]
+12:25:09.050 (31050607693)|CODE_UNIT_STARTED|[EXTERNAL]|01qE0000000RqnY|ValidateRepActiveFlag on User trigger event BeforeInsert for [new]
+12:25:09.050 (31050627323)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:8
+12:25:09.050 (31050669595)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:12
+12:25:09.050 (31050677449)|VARIABLE_SCOPE_BEGIN|[1]|this|ValidateRepActiveFlag|true|false
+12:25:09.050 (31050704197)|VARIABLE_ASSIGNMENT|[1]|this|{}|0x27592253
+12:25:09.050 (31050735602)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:12
+12:25:09.050 (31050743670)|VARIABLE_SCOPE_BEGIN|[1]|this|ValidateRepActiveFlag|true|false
+12:25:09.050 (31050761419)|VARIABLE_ASSIGNMENT|[1]|this|{}|0x27592253
+12:25:09.050 (31050767919)|STATEMENT_EXECUTE|[1]
+12:25:09.050 (31050771158)|STATEMENT_EXECUTE|[3]
+12:25:09.050 (31050783222)|HEAP_ALLOCATE|[3]|Bytes:4
+12:25:09.050 (31050797124)|SYSTEM_CONSTRUCTOR_ENTRY|[3]|<init>()
+12:25:09.050 (31050804730)|SYSTEM_CONSTRUCTOR_EXIT|[3]|<init>()
+12:25:09.050 (31050845532)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:4
+12:25:09.050 (31050868746)|VARIABLE_ASSIGNMENT|[3]|this.useridList|{"s":1,"v":[]}|0x27592253
+12:25:09.050 (31050874476)|STATEMENT_EXECUTE|[4]
+12:25:09.050 (31050887327)|HEAP_ALLOCATE|[4]|Bytes:4
+12:25:09.050 (31050918453)|VARIABLE_ASSIGNMENT|[4]|this.userLANIDMap|{"s":1,"v":{}}|0x27592253
+12:25:09.050 (31050933410)|STATEMENT_EXECUTE|[17]
+12:25:09.050 (31050949157)|CUMULATIVE_LIMIT_USAGE
+12:25:09.050 (31050949157)|LIMIT_USAGE_FOR_NS|(default)|
+  Number of SOQL queries: 1 out of 100
+  Number of query rows: 1 out of 50000
+  Number of SOSL queries: 0 out of 20
+  Number of DML statements: 1 out of 150
+  Number of DML rows: 1 out of 10000
+  Maximum CPU time: 0 out of 10000
+  Maximum heap size: 0 out of 6000000
+  Number of callouts: 0 out of 100
+  Number of Email Invocations: 0 out of 10
+  Number of future calls: 0 out of 50
+  Number of queueable jobs added to the queue: 0 out of 50
+  Number of Mobile Apex push calls: 0 out of 10
+
+12:25:09.050 (31050949157)|CUMULATIVE_LIMIT_USAGE_END
+
+12:25:09.050 (31050998832)|CODE_UNIT_FINISHED|ValidateRepActiveFlag on User trigger event BeforeInsert for [new]
+12:25:09.061 (31061311157)|CODE_UNIT_STARTED|[EXTERNAL]|Validation:User:new
+12:25:09.061 (31061322292)|VALIDATION_RULE|03dL00000004h2A|StateAbbr
+12:25:09.061 (31061570071)|VALIDATION_FORMULA|AND(State!='',OR(
+LEN(State) <> 2,
+NOT(
+CONTAINS("AL:AK:AZ:AR:CA:CO:CT:DE:DC:FL:GA:HI:ID:" &
+"IL:IN:IA:KS:KY:LA:ME:MD:MA:MI:MN:MS:MO:MT:NE:NV:NH:" &
+"NJ:NM:NY:NC:ND:OH:OK:OR:PA:RI:SC:SD:TN:TX:UT:VT:VA:" &
+"WA:WV:WI:WY:PR", State)
+)))|State=CA
+12:25:09.061 (31061584047)|VALIDATION_PASS
+12:25:09.061 (31061589080)|VALIDATION_RULE|03dE0000000EfYy|Phone_and_Fax_Validation
+12:25:09.061 (31061973031)|VALIDATION_FORMULA|AND(ISPICKVAL(Is_user_a_rep__c,'Y'),
+OR(
+
+AND(NOT(ISBLANK(Phone)), NOT(REGEX(Phone, "\\D*?(\\d\\D*?){10}"))),
+
+AND(NOT(ISBLANK(Fax)), NOT(REGEX(Fax, "\\D*?(\\d\\D*?){10}"))),
+
+AND(NOT(ISBLANK(MobilePhone)), NOT(REGEX(MobilePhone, "\\D*?(\\d\\D*?){10}")))
+)
+)|Is_user_a_rep__c=Y , Phone=123-456-7890 , Fax=null , MobilePhone=null
+12:25:09.061 (31061983784)|VALIDATION_PASS
+12:25:09.061 (31061986655)|VALIDATION_RULE|03dE0000000EfYz|Required_Fields_Not_Empty
+12:25:09.062 (31062557139)|VALIDATION_FORMULA|AND(ISPICKVAL(Is_user_a_rep__c,'Y'),
+OR(
+ISBLANK(LAN_ID__c),
+ISBLANK(FirstName ),
+AND(ISBLANK(Phone),ISBLANK(MobilePhone)),
+ISPICKVAL(Job_Title__c,''),
+ISBLANK(Street),
+ISBLANK(City),
+ISBLANK(State),
+ISBLANK(PostalCode),
+ISPICKVAL(Department_Code__c,''),
+ISPICKVAL(Division_Code__c,''),
+ISBLANK(Company_Mailing_Name__c),
+ISBLANK(Rep_Is_Active_Formula__c)
+)
+)|FirstName=Invalid , PostalCode=93304 , Rep_Is_Active_Formula__c=Y , City=Los Angeles , MobilePhone=null , LAN_ID__c=AEFG , Department_Code__c=SP , Company_Mailing_Name__c=Tester , Is_user_a_rep__c=Y , Phone=123-456-7890 , State=CA , Street=123 Fake Street , Division_Code__c=SON , Job_Title__c=INTERN
+12:25:09.062 (31062570429)|VALIDATION_PASS
+12:25:09.062 (31062589278)|CODE_UNIT_FINISHED|Validation:User:new
+12:25:09.219 (31219402977)|CODE_UNIT_STARTED|[EXTERNAL]|Workflow:User
+12:25:09.224 (31224428850)|WF_RULE_EVAL_BEGIN|Workflow
+12:25:09.224 (31224452253)|WF_CRITERIA_BEGIN|[User: Invalid Active 005L0000002wvYp]|Fix Lan id values to Uppercase|01QE00000000uZq|ON_ALL_CHANGES|0
+12:25:09.224 (31224594518)|WF_FORMULA|Formula:ENCODED:[treatNullAsNull]ISCHANGED({!ID:00NE0000003PLId}) &#124;&#124; ISCHANGED( {!ID:00NE00000044BoE} )|Values:LAN_ID__c=AEFG, Manager_LAN_ID__c=null
+12:25:09.224 (31224605429)|WF_CRITERIA_END|false
+12:25:09.224 (31224622966)|WF_SPOOL_ACTION_BEGIN|Workflow
+12:25:09.224 (31224629605)|WF_ACTION| None
+12:25:09.224 (31224633150)|WF_RULE_EVAL_END
+12:25:09.224 (31224675549)|WF_ACTIONS_END| None
+12:25:09.224 (31224681336)|CODE_UNIT_FINISHED|Workflow:User
+12:25:09.224 (31224761890)|DML_END|[44]
+12:25:09.224 (31224794204)|STATEMENT_EXECUTE|[47]
+12:25:09.224 (31224825823)|HEAP_ALLOCATE|[47]|Bytes:4
+12:25:09.224 (31224933982)|VARIABLE_SCOPE_BEGIN|[47]|a|Account|true|false
+12:25:09.224 (31224960070)|VARIABLE_ASSIGNMENT|[47]|a|{}|0x2f0eba91
+12:25:09.224 (31224965046)|STATEMENT_EXECUTE|[48]
+12:25:09.224 (31224972953)|HEAP_ALLOCATE|[48]|Bytes:12
+12:25:09.225 (31225037700)|VARIABLE_ASSIGNMENT|[48]|this.Name|"Test Account"|0x2f0eba91
+12:25:09.225 (31225044853)|STATEMENT_EXECUTE|[49]
+12:25:09.225 (31225089581)|VARIABLE_ASSIGNMENT|[49]|this.OwnerId|"005L0000002wvYpIAI"|0x2f0eba91
+12:25:09.225 (31225095624)|STATEMENT_EXECUTE|[50]
+12:25:09.225 (31225127268)|HEAP_ALLOCATE|[50]|Bytes:8
+12:25:09.225 (31225145518)|DML_BEGIN|[50]|Op:Insert|Type:Account|Rows:1
+12:25:09.225 (31225161015)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:8
+12:25:09.582 (31582747625)|ENTERING_MANAGED_PKG|eo3
+12:25:09.583 (31583058758)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:4
+12:25:09.583 (31583076117)|VARIABLE_SCOPE_BEGIN|[1]|this|eo3.Account_Trigger|true|false
+12:25:09.583 (31583138025)|VARIABLE_ASSIGNMENT|[1]|this|{}|0x6ecd703d
+12:25:09.593 (31593139198)|SOQL_EXECUTE_BEGIN|[252]|Aggregations:0|SELECT Id FROM Folder WHERE (Name = :tmpVar1 AND Type = 'Document') LIMIT 1
+12:25:09.600 (31600934179)|SOQL_EXECUTE_END|[252]|Rows:1
+12:25:09.664 (31664338453)|CODE_UNIT_STARTED|[EXTERNAL]|Validation:Account:new
+12:25:09.664 (31664359632)|VALIDATION_RULE|03dL00000004h1C|Account_Name_Update
+12:25:09.802 (31802749784)|VALIDATION_FORMULA|AND(
+	$RecordType.Name="Trade Pros",
+	ISCHANGED( Name ),
+	OR(
+		NOT($Profile.Name = "System Administrator"),
+		NOT($Profile.Name = "Program Mgr")
+	)
+)|$RecordType.Name=Customer , $Profile.Name=System Administrator , Name=Test Account
+12:25:09.802 (31802774540)|VALIDATION_PASS
+12:25:09.802 (31802779521)|VALIDATION_RULE|03dE0000000Ecd8|Co_ownership_only_for_Type_of_Designated
+12:25:09.803 (31803142556)|VALIDATION_FORMULA|AND(
+   NOT( ISPICKVAL( Type , "Designated")),
+
+OR(
+NOT(ISBLANK(Co_owner__c)),
+NOT(ISPICKVAL( Co_ownership_Type__c ,""))
+)
+)|Type=null , Co_ownership_Type__c=null , Co_owner__c=null
+12:25:09.803 (31803152404)|VALIDATION_PASS
+12:25:09.803 (31803155380)|VALIDATION_RULE|03dE0000000Ei3X|Enter_Tax_ID_Status
+12:25:09.804 (31804937429)|VALIDATION_FORMULA|OR( AND( LEN(Tax_ID__c )>0,
+	$RecordType.Name = "Contractor",
+	ISPICKVAL(Tax_ID_Status__c, ""),
+
+	OR(
+	ISPICKVAL( Type, "3rd Party"),
+	ISPICKVAL( Type, "Gov't Partnership"),
+	ISPICKVAL( Type, "Both 3P/GP")
+	)
+	),
+
+	AND( LEN(Tax_ID__c )>0,
+	OR( $RecordType.Name = "Paper TradePro Alliance",
+           $RecordType.Name = "TradePro Alliance",
+            $RecordType.Name = "Non-TradePro Alliance"),
+	ISPICKVAL(Tax_ID_Status__c, "")))|$RecordType.Name=Customer , Type=null , Tax_ID__c=***** , Tax_ID_Status__c=null
+12:25:09.804 (31804950758)|VALIDATION_PASS
+12:25:09.804 (31804953992)|VALIDATION_RULE|03dE0000000Ecd9|If_3P_or_GP_is_not_active_comments_req
+12:25:09.805 (31805237024)|VALIDATION_FORMULA|((RecordType.Name = "Contractor" ) &&
+ISPICKVAL(eo3__Active__c, "No")  &&  ISBLANK( Comments__c ))
+ &&
+(ISPICKVAL( Type, "3rd Party")  &#124;&#124; ISPICKVAL( Type, "Gov't Partnership")  &#124;&#124; ISPICKVAL( Type, "Both 3P/GP"))|Type=null , RecordType.Name=Customer , Comments__c=null , eo3__Active__c=Yes
+12:25:09.805 (31805250695)|VALIDATION_PASS
+12:25:09.805 (31805253717)|VALIDATION_RULE|03dE0000000DTML|Program_Required
+12:25:09.805 (31805379837)|VALIDATION_FORMULA|AND(eo3__Create_Default_Site_and_Project__c ==true, eo3__Default_Program__c ==Null)|eo3__Default_Program__c=null , eo3__Create_Default_Site_and_Project__c=0
+12:25:09.805 (31805388441)|VALIDATION_PASS
+12:25:09.805 (31805391227)|VALIDATION_RULE|03dL0000000556z|TPA_Account_Name_No_update_TPM
+12:25:09.805 (31805559134)|VALIDATION_FORMULA|AND(
+	$RecordType.Name="TradePro Alliance",
+	ISCHANGED( Name ),
+	$Profile.Name = "TradePro Program Manager"
+)|$RecordType.Name=Customer , $Profile.Name=System Administrator , Name=Test Account
+12:25:09.805 (31805567520)|VALIDATION_PASS
+12:25:09.805 (31805570313)|VALIDATION_RULE|03dL000000054wk|TPA_Business_License_Required
+12:25:09.805 (31805727425)|VALIDATION_FORMULA|AND(
+    ($RecordType.Name = "Paper TradePro Alliance"&#124;&#124;$RecordType.Name = "TradePro Alliance"),
+(LEN( California_Business_License__c ) = 0 )
+)|$RecordType.Name=Customer , California_Business_License__c=null
+12:25:09.805 (31805737333)|VALIDATION_PASS
+12:25:09.805 (31805740047)|VALIDATION_RULE|03dL000000054wV|TPA_City_Required
+12:25:09.805 (31805910140)|VALIDATION_FORMULA|AND(
+    (OR
+	(($RecordType.Name = "Paper TradePro Alliance"),($RecordType.Name = "TradePro Alliance"))),
+(LEN( Mailing_City__c ) = 0 )
+)|$RecordType.Name=Customer , Mailing_City__c=null
+12:25:09.805 (31805919151)|VALIDATION_PASS
+12:25:09.805 (31805921921)|VALIDATION_RULE|03dL000000054wG|TPA_Contact_FirstName_required
+12:25:09.806 (31806073617)|VALIDATION_FORMULA|AND(
+    ($RecordType.Name = "Paper TradePro Alliance"&#124;&#124;$RecordType.Name = "TradePro Alliance"),
+(LEN( Primary_Contact_First_Name__c ) = 0 )
+)|$RecordType.Name=Customer , Primary_Contact_First_Name__c=null
+12:25:09.806 (31806084252)|VALIDATION_PASS
+12:25:09.806 (31806086916)|VALIDATION_RULE|03dL000000054wL|TPA_Contact_LastName_required
+12:25:09.806 (31806237377)|VALIDATION_FORMULA|AND(
+    ($RecordType.Name = "Paper TradePro Alliance"&#124;&#124;$RecordType.Name = "TradePro Alliance"),
+(LEN( Primary_Contact_Last_Name__c ) = 0 )
+)|$RecordType.Name=Customer , Primary_Contact_Last_Name__c=null
+12:25:09.806 (31806247119)|VALIDATION_PASS
+12:25:09.806 (31806250546)|VALIDATION_RULE|03dL000000054wf|TPA_Contractor_License_Required
+12:25:09.806 (31806402248)|VALIDATION_FORMULA|AND(
+    ($RecordType.Name = "Paper TradePro Alliance"&#124;&#124;$RecordType.Name = "TradePro Alliance"),
+(LEN( California_Contractors_License__c ) = 0 )
+)|$RecordType.Name=Customer , California_Contractors_License__c=null
+12:25:09.806 (31806412069)|VALIDATION_PASS
+12:25:09.806 (31806414713)|VALIDATION_RULE|03dL00000005516|TPA_Counties_Served_Required
+12:25:09.807 (31807743392)|VALIDATION_FORMULA|AND(
+    ($RecordType.Name = "Paper TradePro Alliance"&#124;&#124;$RecordType.Name = "TradePro Alliance"),
+OR((ISBLANK(  Counties_Served__c  ) = true ),
+   (OR((
+
+IF(INCLUDES(Counties_Served__c, "Alameda"),1,0) +
+IF(INCLUDES(Counties_Served__c, "Alpine"),1,0) +
+IF(INCLUDES(Counties_Served__c, "Amador"),1,0) +
+IF(INCLUDES(Counties_Served__c, "Butte"),1,0) +
+IF(INCLUDES(Counties_Served__c, "Calaveras"),1,0) +
+IF(INCLUDES(Counties_Served__c, "Colusa"),1,0) +
+IF(INCLUDES(Counties_Served__c, "Contra Costa"),1,0) +
+IF(INCLUDES(Counties_Served__c, "El Dorado"),1,0) +
+IF(INCLUDES(Counties_Served__c, "Fresno"),1,0) +
+IF(INCLUDES(Counties_Served__c, "Glenn"),1,0) +
+IF(INCLUDES(Counties_Served__c, "Humboldt"),1,0) +
+IF(INCLUDES(Counties_Served__c, "Kern"),1,0) +
+IF(INCLUDES(Counties_Served__c, "Kings"),1,0) +
+IF(INCLUDES(Counties_Served__c, "Lake"),1,0) +
+IF(INCLUDES(Counties_Served__c, "Lassen"),1,0) +
+IF(INCLUDES(Counties_Served__c, "Madera"),1,0) +
+IF(INCLUDES(Counties_Served__c, "Marin"),1,0) +
+IF(INCLUDES(Counties_Served__c, "Mariposa"),1,0) +
+IF(INCLUDES(Counties_Served__c, "Mendocino"),1,0) +
+IF(INCLUDES(Counties_Served__c, "Merced"),1,0) +
+IF(INCLUDES(Counties_Served__c, "Monterey"),1,0) +
+IF(INCLUDES(Counties_Served__c, "Napa"),1,0) +
+IF(INCLUDES(Counties_Served__c, "Nevada"),1,0) +
+IF(INCLUDES(Counties_Served__c, "Placer"),1,0) +
+IF(INCLUDES(Counties_Served__c, "Plumas"),1,0) +
+IF(INCLUDES(Counties_Served__c, "Sacramento"),1,0) +
+IF(INCLUDES(Counties_Served__c, "San Benito"),1,0) +
+IF(INCLUDES(Counties_Served__c, "San Francisco"),1,0) +
+IF(INCLUDES(Counties_Served__c, "San Joaquin"),1,0) +
+IF(INCLUDES(Counties_Served__c, "San Luis Obispo"),1,0) +
+IF(INCLUDES(Counties_Served__c, "San Mateo"),1,0) +
+IF(INCLUDES(Counties_Served__c, "Santa Barbara"),1,0) +
+IF(INCLUDES(Counties_Served__c, "Santa Clara"),1,0) +
+IF(INCLUDES(Counties_Served__c, "Santa Cruz"),1,0) +
+IF(INCLUDES(Counties_Served__c, "Shasta"),1,0) +
+IF(INCLUDES(Counties_Served__c, "Sierra"),1,0) +
+IF(INCLUDES(Counties_Served__c, "Siskiyou"),1,0) +
+IF(INCLUDES(Counties_Served__c, "Solano"),1,0) +
+IF(INCLUDES(Counties_Served__c, "Sonoma"),1,0) +
+IF(INCLUDES(Counties_Served__c, "Stanislaus"),1,0) +
+IF(INCLUDES(Counties_Served__c, "Sutter"),1,0) +
+IF(INCLUDES(Counties_Served__c, "Tehama"),1,0) +
+IF(INCLUDES(Counties_Served__c, "Trinity"),1,0) +
+IF(INCLUDES(Counties_Served__c, "Tulare"),1,0) +
+IF(INCLUDES(Counties_Served__c, "Tuolumne"),1,0) +
+IF(INCLUDES(Counties_Served__c, "Yolo"),1,0) +
+IF(INCLUDES( Counties_Served__c, "Yuba"),1,0) >10 )
+
+) )
+))|$RecordType.Name=Customer , Counties_Served__c=null
+12:25:09.807 (31807785084)|VALIDATION_PASS
+12:25:09.807 (31807788030)|VALIDATION_RULE|03dL0000000550X|TPA_Industries_Worked_Required
+12:25:09.809 (31809219545)|VALIDATION_FORMULA|AND(
+    ($RecordType.Name = "Paper TradePro Alliance"&#124;&#124;$RecordType.Name = "TradePro Alliance"),
+OR(
+	(IF(INCLUDES(Industries_Worked_In__c, "Agriculture"),1,0) +
+	IF(INCLUDES( Industries_Worked_In__c, "Any Commercial Lighting"),1,0) +
+	IF(INCLUDES( Industries_Worked_In__c, "Dairies"),1,0) +
+	IF(INCLUDES( Industries_Worked_In__c, "Data Centers"),1,0) +
+	IF(INCLUDES( Industries_Worked_In__c, "Food Processing"),1,0) +
+	IF(INCLUDES( Industries_Worked_In__c, "Food Service"),1,0) +
+	IF(INCLUDES( Industries_Worked_In__c, "Government"),1,0) +
+	IF(INCLUDES( Industries_Worked_In__c, "Hi-Tech/Biotech/Clean Tech"),1,0) +
+	IF(INCLUDES( Industries_Worked_In__c, "Hospitals/Medical Office Building"),1,0) +
+	IF(INCLUDES( Industries_Worked_In__c, "Hotels and Hospitality"),1,0) +
+	IF(INCLUDES( Industries_Worked_In__c, "Large Commercial Property"),1,0) +
+	IF(INCLUDES( Industries_Worked_In__c, "Manufacturing"),1,0) +
+	IF(INCLUDES( Industries_Worked_In__c, "Multifamily/Residential"),1,0) +
+	IF(INCLUDES( Industries_Worked_In__c, "Oil and Gas"),1,0) +
+	IF(INCLUDES( Industries_Worked_In__c, "Processing"),1,0) +
+	IF(INCLUDES( Industries_Worked_In__c, "Schools"),1,0) +
+	IF(INCLUDES( Industries_Worked_In__c, "Small Commercial Property"),1,0) +
+	IF(INCLUDES( Industries_Worked_In__c, "Transportation"),1,0) +
+	IF(INCLUDES( Industries_Worked_In__c, "Warehouses"),1,0) +
+	IF(INCLUDES( Industries_Worked_In__c, "Water Treatment"),1,0) +
+	IF(INCLUDES( Industries_Worked_In__c, "Whole Building Solutions"),1,0) +
+	IF(INCLUDES( Technologies_Served__c, "Wineries/Breweries/Distilleries"),1,0) = 0 ),
+
+	(IF(INCLUDES(Industries_Worked_In__c, "Agriculture"),1,0) +
+	IF(INCLUDES( Industries_Worked_In__c, "Any Commercial Lighting"),1,0) +
+	IF(INCLUDES( Industries_Worked_In__c, "Dairies"),1,0) +
+	IF(INCLUDES( Industries_Worked_In__c, "Data Centers"),1,0) +
+	IF(INCLUDES( Industries_Worked_In__c, "Food Processing"),1,0) +
+	IF(INCLUDES( Industries_Worked_In__c, "Food Service"),1,0) +
+	IF(INCLUDES( Industries_Worked_In__c, "Government"),1,0) +
+	IF(INCLUDES( Industries_Worked_In__c, "Hi-Tech/Biotech/Clean Tech"),1,0) +
+	IF(INCLUDES( Industries_Worked_In__c, "Hospitals/Medical Office Building"),1,0) +
+	IF(INCLUDES( Industries_Worked_In__c, "Hotels and Hospitality"),1,0) +
+	IF(INCLUDES( Industries_Worked_In__c, "Large Commercial Property"),1,0) +
+	IF(INCLUDES( Industries_Worked_In__c, "Manufacturing"),1,0) +
+	IF(INCLUDES( Industries_Worked_In__c, "Multifamily/Residential"),1,0) +
+	IF(INCLUDES( Industries_Worked_In__c, "Oil and Gas"),1,0) +
+	IF(INCLUDES( Industries_Worked_In__c, "Processing"),1,0) +
+	IF(INCLUDES( Industries_Worked_In__c, "Schools"),1,0) +
+	IF(INCLUDES( Industries_Worked_In__c, "Small Commercial Property"),1,0) +
+	IF(INCLUDES( Industries_Worked_In__c, "Transportation"),1,0) +
+	IF(INCLUDES( Industries_Worked_In__c, "Warehouses"),1,0) +
+	IF(INCLUDES( Industries_Worked_In__c, "Water Treatment"),1,0) +
+	IF(INCLUDES( Industries_Worked_In__c, "Whole Building Solutions"),1,0) +
+	IF(INCLUDES( Technologies_Served__c, "Wineries/Breweries/Distilleries"),1,0) >4 )
+	)
+)|$RecordType.Name=Customer , Industries_Worked_In__c=null , Technologies_Served__c=null
+12:25:09.809 (31809267583)|VALIDATION_PASS
+12:25:09.809 (31809270615)|VALIDATION_RULE|03dL000000054wp|TPA_License_ExpDate_Required
+12:25:09.809 (31809452532)|VALIDATION_FORMULA|AND(
+    ($RecordType.Name = "Paper TradePro Alliance"&#124;&#124;$RecordType.Name = "TradePro Alliance"),
+ (ISNULL(California_Business_License_expiration_d__c) &#124;&#124;(California_Business_License_expiration_d__c < DATEVALUE( NOW()))  )
+
+)|$RecordType.Name=Customer , California_Business_License_expiration_d__c=null
+12:25:09.809 (31809464229)|VALIDATION_PASS
+12:25:09.809 (31809466996)|VALIDATION_RULE|03dL000000054wa|TPA_Mailing_Street_Required
+12:25:09.809 (31809626606)|VALIDATION_FORMULA|AND(
+    (OR
+	(($RecordType.Name = "Paper TradePro Alliance"),($RecordType.Name = "TradePro Alliance"))),
+(LEN( Mailing_Street_Ln_1__c ) = 0 )
+)|$RecordType.Name=Customer , Mailing_Street_Ln_1__c=null
+12:25:09.809 (31809634808)|VALIDATION_PASS
+12:25:09.809 (31809637537)|VALIDATION_RULE|03dL000000054wB|TPA_Phone_Required
+12:25:09.809 (31809807794)|VALIDATION_FORMULA|AND(
+    ($RecordType.Name = "Paper TradePro Alliance"&#124;&#124;$RecordType.Name = "TradePro Alliance"), (NOT( REGEX(Phone, "^\\d{10}"))),  (NOT( REGEX(Phone, "^\\([0-9]{3}\\)\\s[0-9]{3}-[0-9]{4}") )))|$RecordType.Name=Customer , Phone=null
+12:25:09.809 (31809823458)|VALIDATION_PASS
+12:25:09.809 (31809826478)|VALIDATION_RULE|03dL000000054w6|TPA_State_required
+12:25:09.810 (31810005597)|VALIDATION_FORMULA|AND(
+    (OR
+	(($RecordType.Name = "Paper TradePro Alliance"),($RecordType.Name = "TradePro Alliance"))),
+LEN( TEXT(Mailing_State_Picklist__c) ) = 0)|$RecordType.Name=Customer , Mailing_State_Picklist__c=null
+12:25:09.810 (31810016362)|VALIDATION_PASS
+12:25:09.810 (31810019161)|VALIDATION_RULE|03dL000000054bc|TPA_tax_id_required
+12:25:09.810 (31810222217)|VALIDATION_FORMULA|AND( OR($RecordType.Name = "Paper TradePro Alliance",
+	    $RecordType.Name = "Non-TradePro Alliance" ) ,
+    OR((LEN( Tax_ID__c ) = 0), NOT(ISNUMBER(Tax_ID__c)))
+         )|$RecordType.Name=Customer , Tax_ID__c=*****
+12:25:09.810 (31810231062)|VALIDATION_PASS
+12:25:09.810 (31810233749)|VALIDATION_RULE|03dL0000000550S|TPA_Technologies_Served_Required
+12:25:09.810 (31810405506)|VALIDATION_FORMULA|AND(
+    ($RecordType.Name = "Paper TradePro Alliance"&#124;&#124;$RecordType.Name = "TradePro Alliance"),
+(ISBLANK(   Technologies_Served__c   ) = true ))|$RecordType.Name=Customer , Technologies_Served__c=null
+12:25:09.810 (31810416476)|VALIDATION_PASS
+12:25:09.810 (31810419358)|VALIDATION_RULE|03dL000000054vw|TPA_Zip_required
+12:25:09.810 (31810628073)|VALIDATION_FORMULA|AND(
+	($RecordType.Name = "Paper TradePro Alliance"&#124;&#124;$RecordType.Name = "TradePro Alliance"),
+    ((LEN( Mailing_Zip__c ) = 0)&#124;&#124;(LEN(Mailing_Zip__c ) > 5) &#124;&#124; (LEN(Mailing_Zip__c ) < 5 )),
+	NOT( ISNUMBER(Mailing_Zip__c) )
+	)|$RecordType.Name=Customer , Mailing_Zip__c=null
+12:25:09.810 (31810639199)|VALIDATION_PASS
+12:25:09.810 (31810641923)|VALIDATION_RULE|03dE0000000Ei3Y|Validate_Tax_ID
+12:25:09.811 (31811005174)|VALIDATION_FORMULA|AND
+(
+	OR
+	(
+		AND
+		(
+			$RecordType.Name = "Contractor",
+			OR
+			(
+				ISPICKVAL( Type, "3rd Party"),
+				ISPICKVAL( Type, "Gov't Partnership"),
+				ISPICKVAL( Type, "Both 3P/GP")
+			)
+		),
+		$RecordType.Name = "Paper TradePro Alliance",
+		$RecordType.Name = "Non-TradePro Alliance",
+		$RecordType.Name = "TradePro Alliance"
+
+	),
+	AND
+	(
+		LEN(Tax_ID__c )>0,
+		((LEN(Tax_ID__c ) > 9) &#124;&#124; (LEN(Tax_ID__c ) < 9 ))
+	)
+)|$RecordType.Name=Customer , Type=null , Tax_ID__c=*****
+12:25:09.811 (31811020407)|VALIDATION_PASS
+12:25:09.811 (31811023263)|VALIDATION_RULE|03dE0000000Ei3Z|Validate_Tax_ID_no_dashes
+12:25:09.811 (31811402439)|VALIDATION_FORMULA|AND
+(
+	OR
+	(
+		AND
+		(
+			$RecordType.Name = "Contractor",
+			OR
+			(
+				ISPICKVAL( Type, "3rd Party"),
+				ISPICKVAL( Type, "Gov't Partnership"),
+				ISPICKVAL( Type, "Both 3P/GP")
+			)
+		),
+		$RecordType.Name = "Paper TradePro Alliance",
+		$RecordType.Name = "Non-TradePro Alliance",
+		$RecordType.Name = "TradePro Alliance"
+
+	),
+	AND
+	(
+
+		LEN(Tax_ID__c )>0,
+                NOT( ISNUMBER(Tax_ID__c) ),
+		((LEN(Tax_ID__c ) > 9) &#124;&#124; (LEN(Tax_ID__c ) < 9 ))
+
+	)
+)|$RecordType.Name=Customer , Type=null , Tax_ID__c=*****
+12:25:09.811 (31811417344)|VALIDATION_PASS
+12:25:09.811 (31811420020)|VALIDATION_RULE|03dE0000000Ecd7|CMT_Account_Lock
+12:25:09.866 (31866692882)|VALIDATION_FORMULA|AND (
+
+ISPICKVAL( Owner_System__c, "CMT"),
+ISPICKVAL (   Hierarchy_Type__c , "CMT"),
+
+OR (
+
+ ISCHANGED( Name ) ,
+ ISCHANGED( AccountNumber ) ,
+ ISCHANGED(  eo3__Active__c  ) ,
+ ISCHANGED( Owner_Type__c ) ,
+ ISCHANGED( Co_ownership_Type__c ) ,
+ ISCHANGED( Description ) ,
+ ISCHANGED( Customer_Division__c ) ,
+ ISCHANGED( Noncore_Gas_Contract_Flag__c ) ,
+ ISCHANGED( Nonfirm_Electric_Service_Flag__c ) ,
+ ISCHANGED( Power_Quality_Sensitive_Flag__c ) ,
+ ISCHANGED( Outage_Sensitive_Flag__c ) ,
+ ISCHANGED( Elec_Service_is_Bundled__c ) ,
+ ISCHANGED( PGE_Gas_Supply_GCSP_Rate__c ) ,
+ ISCHANGED( Strategic_Segment__c ) ,
+ ISCHANGED( Is_Tcos__c ) ,
+ ISCHANGED( Account_Level__c ) ,
+ ISCHANGED( Customer_Type__c ) ,
+ ISCHANGED( CEE_Sub_Segment__c ) ,
+ ISCHANGED( Customer_Category__c ) ,
+ ISCHANGED( Gas_Service_is_Bundled__c ) ,
+ ISCHANGED( Mailing_Street_Ln_1__c ) ,
+ ISCHANGED( Mailing_Street_Ln_2__c ) ,
+ ISCHANGED( Mailing_City__c ) ,
+ ISCHANGED( Fed_Tax_Id__c ) ,
+ ISCHANGED( Elec_Third_Party_Supplier_Name__c ) ,
+ ISCHANGED( Gas_Third_Party_Supplier_Name__c ) ,
+ ISCHANGED( Electric_Outage_Comments__c ) ,
+ ISCHANGED( Eep_Comments__c ) ,
+ ISCHANGED( Esp_Comments__c ) ,
+ ISCHANGED( Customer_Comments__c ) ,
+ ISCHANGED( PGE_Elec_Supply_HPX_Rate__c ) ,
+ ISCHANGED( Elec_Supply_is_Third_Party__c ) ,
+ ISCHANGED( Strat_Seg_Code__c ) ,
+ ISCHANGED( Gas_Supply_is_Third_Party__c ) ,
+ ISCHANGED( Customer_Type_Code__c ) ,
+ ISCHANGED( CEE_Sub_Seg_Code__c ) ,
+ ISCHANGED( Customer_Category_Code__c ) ,
+ ISCHANGED( Rep_Sync_Flag__c ) ,
+ ISCHANGED( Mailing_State__c ) ,
+ ISCHANGED( Mailing_Country__c ) ,
+ ISCHANGED( Mailing_Zip__c ) ,
+ ISCHANGED( Mailing_Zip4__c ) ,
+ ISCHANGED( Web_Address__c ) ,
+ ISCHANGED( Electric_Service_Facility_Description__c ) ,
+ ISCHANGED( Gas_Service_Facility_Description__c ) ,
+ ISCHANGED( Facilities_Description__c ) ,
+ ISCHANGED( Business_Description__c ) ,
+ ISCHANGED( Hierarchy_Type__c ) ,
+ ISCHANGED( Owner_System__c ),
+ ISCHANGED(Imported_Corp_Rep__c),
+ ISCHANGED(Imported_Local_Rep__c),
+ ISCHANGED(  OwnerId ) )
+)|Customer_Category__c=Customer , PGE_Elec_Supply_HPX_Rate__c=N , Owner_System__c=EI , Customer_Category_Code__c=14 , Owner_Type__c=null , OwnerId=005L0000002wvYp , PGE_Gas_Supply_GCSP_Rate__c=N , Customer_Comments__c=null , Customer_Division__c=null , Power_Quality_Sensitive_Flag__c=N , Customer_Type__c=null , Customer_Type_Code__c=null , CEE_Sub_Segment__c=null , Mailing_Zip4__c=null , Mailing_Street_Ln_2__c=null , CEE_Sub_Seg_Code__c=null , Co_ownership_Type__c=null , Mailing_Zip__c=null , Nonfirm_Electric_Service_Flag__c=N , Noncore_Gas_Contract_Flag__c=N , Outage_Sensitive_Flag__c=N , Is_Tcos__c=N , Mailing_Country__c=null , Account_Level__c=1 – Local , Mailing_City__c=null , Mailing_Street_Ln_1__c=null , Business_Description__c=null , Mailing_State__c=null , Hierarchy_Type__c=EI , Gas_Third_Party_Supplier_Name__c=null , Imported_Local_Rep__c=null , Imported_Corp_Rep__c=null , Web_Address__c=null , Elec_Service_is_Bundled__c=N , Strat_Seg_Code__c=0 , Eep_Comments__c=null , Rep_Sync_Flag__c=null , Elec_Third_Party_Supplier_Name__c=null , Strategic_Segment__c=Miscellaneous , Elec_Supply_is_Third_Party__c=N , Electric_Service_Facility_Description__c=null , Electric_Outage_Comments__c=null , Description=null , eo3__Active__c=Yes , Facilities_Description__c=null , Esp_Comments__c=null , Gas_Service_Facility_Description__c=null , Fed_Tax_Id__c=null , Gas_Supply_is_Third_Party__c=N , Gas_Service_is_Bundled__c=N , AccountNumber=null , Name=Test Account
+12:25:09.866 (31866723824)|VALIDATION_PASS
+12:25:09.866 (31866727482)|VALIDATION_RULE|03dE0000000Ei09|Financing_Manager_Restrictions
+12:25:09.866 (31866974404)|VALIDATION_FORMULA|AND (
+  $Profile.Name  = "Financing Manager",
+  RecordType.DeveloperName    <>  "Contractor"
+)|$Profile.Name=System Administrator , RecordType.DeveloperName=Customer
+12:25:09.866 (31866983540)|VALIDATION_PASS
+12:25:09.866 (31866986496)|VALIDATION_RULE|03dL00000004h1D|StateAbbr
+12:25:09.867 (31867181642)|VALIDATION_FORMULA|AND(BillingState!='',OR(
+LEN(BillingState) <> 2,
+NOT(
+CONTAINS("AL:AK:AZ:AR:CA:CO:CT:DE:DC:FL:GA:HI:ID:" &
+"IL:IN:IA:KS:KY:LA:ME:MD:MA:MI:MN:MS:MO:MT:NE:NV:NH:" &
+"NJ:NM:NY:NC:ND:OH:OK:OR:PA:RI:SC:SD:TN:TX:UT:VT:VA:" &
+"WA:WV:WI:WY:PR", BillingState)
+)))|BillingState=null
+12:25:09.867 (31867192342)|VALIDATION_PASS
+12:25:09.867 (31867210804)|CODE_UNIT_FINISHED|Validation:Account:new
+12:25:10.488 (32488331419)|ENTERING_MANAGED_PKG|eo3
+12:25:10.488 (32488477621)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:4
+12:25:10.488 (32488490003)|VARIABLE_SCOPE_BEGIN|[1]|this|eo3.Account_Trigger|true|false
+12:25:10.488 (32488523021)|VARIABLE_ASSIGNMENT|[1]|this|{}|0x6f38cea9
+12:25:10.494 (32494134648)|SOQL_EXECUTE_BEGIN|[173]|Aggregations:0| Select Id, IsPortalEnabled From User where Id = '005L0000002izAsIAI'
+12:25:10.519 (32519597283)|SOQL_EXECUTE_END|[173]|Rows:1
+12:25:10.525 (32525540973)|CODE_UNIT_STARTED|[EXTERNAL]|Workflow:Account
+12:25:10.595 (32595403118)|WF_RULE_EVAL_BEGIN|Workflow
+12:25:10.595 (32595449644)|WF_CRITERIA_BEGIN|[Account: Test Account 001L000000jhpzA]|Clear Object Creation Flag|01QE00000000O01|ON_CREATE_OR_TRIGGERING_UPDATE|0
+12:25:10.599 (32599170772)|WF_RULE_FILTER|[Account : Initiate Energy Efficiency Project equals true]
+12:25:10.599 (32599189527)|WF_RULE_EVAL_VALUE|0
+12:25:10.599 (32599194462)|WF_CRITERIA_END|false
+12:25:10.599 (32599213798)|WF_CRITERIA_BEGIN|[Account: Test Account 001L000000jhpzA]|[DEFAULT] Set External ID|01QE00000000O00|ON_ALL_CHANGES|0
+12:25:10.599 (32599263773)|WF_RULE_FILTER|[Account : ExternalID equals ]
+AND [Account : Account Number not equal to ]
+12:25:10.599 (32599276104)|WF_RULE_EVAL_VALUE|
+12:25:10.599 (32599281736)|WF_RULE_EVAL_VALUE|
+12:25:10.599 (32599284860)|WF_CRITERIA_END|false
+12:25:10.599 (32599300775)|WF_CRITERIA_BEGIN|[Account: Test Account 001L000000jhpzA]|TPA_acct_state_picklist_update|01QL00000005GwK|ON_CREATE_OR_TRIGGERING_UPDATE|0
+12:25:10.599 (32599646844)|WF_FORMULA|Formula:ENCODED:[treatNullAsNull]( {!ID:00NE0000005BbtD} != text({!ID:00NL0000003S8ss}) && text({!ID:00NL0000003S8ss}) != null   ) &#124;&#124; (
+  {!ID:00NE0000005BbtD} = null && text({!ID:00NL0000003S8ss}) != null
+)|Values:Mailing_State_Picklist__c=null, Mailing_State__c=null
+12:25:10.599 (32599657893)|WF_CRITERIA_END|false
+12:25:10.599 (32599679914)|WF_CRITERIA_BEGIN|[Account: Test Account 001L000000jhpzA]|Account External ID Assignment|01QE00000000o5b|ON_CREATE_ONLY|0
+12:25:10.599 (32599807050)|WF_FORMULA|Formula:ENCODED:[treatNullAsNull]ISBLANK({!ID:00NE0000003MvCf})|Values:eo3__ExternalID__c=null
+12:25:10.599 (32599813212)|WF_CRITERIA_END|true
+12:25:10.654 (32654655199)|WF_CRITERIA_BEGIN|[Account: Test Account 001L000000jhpzA]|Corp Rep - Uncheck|01QE00000000o5d|ON_CREATE_OR_TRIGGERING_UPDATE|0
+12:25:10.654 (32654726667)|WF_RULE_FILTER|[Account : Type not equal to Corporate, Strategic]
+AND [Account : Account Record Type equals 02 - Primary Account]
+12:25:10.654 (32654741474)|WF_RULE_EVAL_VALUE|
+12:25:10.654 (32654752868)|WF_RULE_EVAL_VALUE|012E00000005Obm
+12:25:10.654 (32654756987)|WF_CRITERIA_END|false
+12:25:10.654 (32654774584)|WF_CRITERIA_BEGIN|[Account: Test Account 001L000000jhpzA]|Corp Rep - Check|01QE00000000o5c|ON_CREATE_OR_TRIGGERING_UPDATE|0
+12:25:10.654 (32654833581)|WF_RULE_FILTER|[Account : Type equals Corporate, Strategic]
+AND [Account : Account Record Type equals 02 - Primary Account]
+12:25:10.654 (32654844969)|WF_RULE_EVAL_VALUE|
+12:25:10.654 (32654848684)|WF_CRITERIA_END|false
+12:25:10.654 (32654864285)|WF_CRITERIA_BEGIN|[Account: Test Account 001L000000jhpzA]|Local Rep - Uncheck|01QE00000000o5f|ON_CREATE_OR_TRIGGERING_UPDATE|0
+12:25:10.654 (32654914318)|WF_RULE_FILTER|[Account : Type not equal to Assigned]
+AND [Account : Account Record Type equals Customer]
+12:25:10.654 (32654924594)|WF_RULE_EVAL_VALUE|
+12:25:10.654 (32654933857)|WF_RULE_EVAL_VALUE|012E00000005Obm
+12:25:10.654 (32654937572)|WF_CRITERIA_END|true
+12:25:10.654 (32654956668)|WF_CRITERIA_BEGIN|[Account: Test Account 001L000000jhpzA]|Local Rep - Check|01QE00000000o5e|ON_CREATE_OR_TRIGGERING_UPDATE|0
+12:25:10.655 (32655006659)|WF_RULE_FILTER|[Account : Type equals Assigned]
+AND [Account : Account Record Type equals Customer]
+12:25:10.655 (32655018611)|WF_RULE_EVAL_VALUE|
+12:25:10.655 (32655022746)|WF_CRITERIA_END|false
+12:25:10.655 (32655038292)|WF_CRITERIA_BEGIN|[Account: Test Account 001L000000jhpzA]|Set Unassigned Type|01QL00000004oeJ|ON_CREATE_OR_TRIGGERING_UPDATE|0
+12:25:10.655 (32655564855)|WF_FORMULA|Formula:ENCODED:[treatNullAsNull]{!ID:Owner.00NE0000003PLId} = 'UNASSIGNED' &&   ISPICKVAL({!ID:00NE0000005BbtN} , 'EI') && ({!ID:$RecordType.Name} = 'Customer' &#124;&#124; {!ID:$RecordType.Name} = '02 - Primary Account')|Values:Owner_System__c=EI, $RecordType.Name=Customer, Owner.LAN_ID__c=AEFG
+12:25:10.655 (32655575853)|WF_CRITERIA_END|false
+12:25:10.655 (32655597846)|WF_CRITERIA_BEGIN|[Account: Test Account 001L000000jhpzA]|Set Unassigned Account Owner|01QL00000004oeI|ON_CREATE_OR_TRIGGERING_UPDATE|0
+12:25:10.655 (32655711029)|WF_RULE_FILTER|[Account : Type equals Unassigned] AND
+ [Account : Owner Type equals Unassigned] AND
+ [Account : Batch Reference equals null]
+12:25:10.655 (32655740513)|WF_RULE_EVAL_VALUE|
+12:25:10.655 (32655744780)|WF_CRITERIA_END|false
+12:25:10.655 (32655763896)|WF_CRITERIA_BEGIN|[Account: Test Account 001L000000jhpzA]|Set Partner Sharing_acct|01QE00000000o5g|ON_ALL_CHANGES|0
+12:25:10.655 (32655798270)|WF_RULE_FILTER|[Account : Account Record Type equals Contractor]
+12:25:10.655 (32655811215)|WF_RULE_EVAL_VALUE|012E00000005Obm
+12:25:10.655 (32655820362)|WF_CRITERIA_END|false
+12:25:10.655 (32655837104)|WF_CRITERIA_BEGIN|[Account: Test Account 001L000000jhpzA]|State update|01QL00000005GXe|ON_ALL_CHANGES|0
+12:25:10.655 (32655870942)|WF_RULE_FILTER|[Account : Account Record Type equals TradePro Alliance, Non-TradePro Alliance, Paper TradePro Alliance]
+12:25:10.655 (32655884484)|WF_RULE_EVAL_VALUE|012E00000005Obm
+12:25:10.655 (32655888342)|WF_CRITERIA_END|false
+12:25:10.655 (32655903778)|WF_CRITERIA_BEGIN|[Account: Test Account 001L000000jhpzA]|Fix Up Account Email|01QE00000000Syi|ON_ALL_CHANGES|0
+12:25:10.656 (32656135819)|WF_FORMULA|Formula:ENCODED:[treatNullAsNull]AND(  NOT(ISNULL({!ID:00NE0000003PYPe})),  NOT(ISBLANK({!ID:00NE0000003PYPe})),  REGEX( {!ID:00NE0000003PYPe} , "[a-zA-Z0-9\\._\\-]+@[a-zA-Z0-9\\.\\-]+\\.[a-zA-Z]{2,4}")  )|Values:Imported_Email__c=null
+12:25:10.656 (32656145521)|WF_CRITERIA_END|false
+12:25:10.656 (32656165546)|WF_SPOOL_ACTION_BEGIN|Workflow
+12:25:10.656 (32656492157)|WF_FIELD_UPDATE|[Account: Test Account 001L000000jhpzA]|Field:Account: ExternalID|Value:101308365|Id=04YE0000000DQZn|CurrentRule:Account External ID Assignment (Id=01QE00000000o5b)
+12:25:10.656 (32656585271)|WF_FIELD_UPDATE|[Account: Test Account 001L000000jhpzA]|Field:Account: Account Number|Value:101308365|Id=04YE0000000DQpq|CurrentRule:Account External ID Assignment (Id=01QE00000000o5b)
+12:25:10.656 (32656654336)|WF_ACTION| Field Update: 3;
+12:25:10.656 (32656660084)|WF_RULE_EVAL_END
+12:25:10.659 (32659260169)|ENTERING_MANAGED_PKG|eo3
+12:25:10.659 (32659418029)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:4
+12:25:10.659 (32659429924)|VARIABLE_SCOPE_BEGIN|[1]|this|eo3.Account_Trigger|true|false
+12:25:10.659 (32659461905)|VARIABLE_ASSIGNMENT|[1]|this|{}|0x6b2bea3
+12:25:10.695 (32695071397)|ENTERING_MANAGED_PKG|eo3
+12:25:10.695 (32695193721)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:4
+12:25:10.695 (32695204021)|VARIABLE_SCOPE_BEGIN|[1]|this|eo3.Account_Trigger|true|false
+12:25:10.695 (32695228363)|VARIABLE_ASSIGNMENT|[1]|this|{}|0x42f6ff15
+12:25:10.697 (32697453894)|SOQL_EXECUTE_BEGIN|[173]|Aggregations:0| Select Id, IsPortalEnabled From User where Id = '005L0000002izAsIAI'
+12:25:10.700 (32700979612)|SOQL_EXECUTE_END|[173]|Rows:1
+12:25:10.705 (32705974207)|WF_ACTIONS_END| Field Update: 3;
+12:25:10.705 (32705982520)|CODE_UNIT_FINISHED|Workflow:Account
+12:25:10.706 (32706088855)|DML_END|[50]
+12:25:10.706 (32706113569)|STATEMENT_EXECUTE|[53]
+12:25:10.706 (32706117240)|STATEMENT_EXECUTE|[53]
+12:25:10.706 (32706119843)|STATEMENT_EXECUTE|[54]
+12:25:10.706 (32706127886)|HEAP_ALLOCATE|[54]|Bytes:5
+12:25:10.706 (32706200590)|VARIABLE_ASSIGNMENT|[54]|this.Rep_Is_Active__c|"False"|0x60e539bf
+12:25:10.706 (32706207289)|STATEMENT_EXECUTE|[55]
+12:25:10.706 (32706241321)|HEAP_ALLOCATE|[55]|Bytes:8
+12:25:10.706 (32706260503)|DML_BEGIN|[55]|Op:Update|Type:User|Rows:1
+12:25:10.706 (32706276336)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:8
+12:25:10.723 (32723092528)|CODE_UNIT_STARTED|[EXTERNAL]|01qE0000000RqnA|DateBeforeUserModified on User trigger event BeforeUpdate for [005L0000002wvYp]
+12:25:10.723 (32723117363)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:8
+12:25:10.723 (32723141898)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:8
+12:25:10.723 (32723207771)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:4
+12:25:10.723 (32723216916)|VARIABLE_SCOPE_BEGIN|[1]|this|DateBeforeUserModified|true|false
+12:25:10.723 (32723244904)|VARIABLE_ASSIGNMENT|[1]|this|{}|0x6fca1ea8
+12:25:10.723 (32723278508)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:4
+12:25:10.723 (32723286758)|VARIABLE_SCOPE_BEGIN|[1]|this|DateBeforeUserModified|true|false
+12:25:10.723 (32723302260)|VARIABLE_ASSIGNMENT|[1]|this|{}|0x6fca1ea8
+12:25:10.723 (32723308843)|STATEMENT_EXECUTE|[1]
+12:25:10.723 (32723335587)|SYSTEM_METHOD_ENTRY|[3]|List<User>.iterator()
+12:25:10.723 (32723346786)|SYSTEM_METHOD_EXIT|[3]|List<User>.iterator()
+12:25:10.723 (32723357347)|SYSTEM_METHOD_ENTRY|[3]|system.ListIterator.hasNext()
+12:25:10.723 (32723369607)|HEAP_ALLOCATE|[3]|Bytes:5
+12:25:10.723 (32723377293)|SYSTEM_METHOD_EXIT|[3]|system.ListIterator.hasNext()
+12:25:10.723 (32723390456)|HEAP_ALLOCATE|[3]|Bytes:4
+12:25:10.723 (32723399402)|VARIABLE_SCOPE_BEGIN|[3]|u|User|true|false
+12:25:10.724 (32724819306)|VARIABLE_ASSIGNMENT|[3]|u|{"ProfileId":"00eE0000000xnjhIAA","LastModifiedDate":"2015-08-06T19:24:48.000Z","ReceivesAdminInfoEma (3 more) ...":false,"Email":"tester@testorg.org","TimeZoneSidKey":"America/Los_Angeles","LanguageLocaleKey":"en_US","Department_Descripti (5 more) ...":"Service Planning","Lead_Project_Team_Ti (6 more) ...":"N/A","Rep_Is_Active_Formul (4 more) ...":"N","IsActive":true,"Job_Title__c":"INTERN","LastModifiedbyLanId_ (2 more) ...":"AEFG","PostalCode":"93304","ForecastEnabled":false,"DigestFrequency":"D","Rep_Is_Active__c":"False","CommunityNickname":"Tester9","Company_Mailing_Name (3 more) ...":"Tester","CreatedById":"005L0000002izAsIAI","Last_Modified_by_Lan (6 more) ...":"OXSC","Phone":"123-456-7890","Division_Code__c":"SON","Street":"123 Fake Street","LocaleSidKey":"en_US","Job_Title_Code__c":"IN","FirstName":"Invalid","LAN_ID__c":"AEFG","Is_user_a_rep__c":"Y","City":"Los Angeles","EmailEncodingKey":"ISO-8859-1","Phone_Last_Char__c":"0","ReceivesInfoEmails":false,"Last_Modified_Date__ (1 more) ...":"2015-08-06T19:24:48.000Z","SystemModstamp":"2015-08-06T19:24:48.000Z","Was_Recently_Modifie (4 more) ...":"true","IsPortalEnabled":false,"Username":"tester@testorg.org","State":"CA","Alias":"tester","Phone_Formula__c":"1234567890","DefaultGroupNotifica (13 more) ...":"N","CreatedDate":"2015-08-06T19:24:48.000Z","LastName":"Active","Id":"005L0000002wvYpIAI","UserType":"Standard","LastModifiedById":"005L0000002izAsIAI","Department_Code__c":"SP","Is_User_ES_S_Admin__ (1 more) ...":false}|0x5f32badd
+12:25:10.724 (32724838433)|STATEMENT_EXECUTE|[4]
+12:25:10.724 (32724841725)|STATEMENT_EXECUTE|[5]
+12:25:10.724 (32724855058)|SYSTEM_METHOD_ENTRY|[5]|System.now()
+12:25:10.724 (32724870232)|HEAP_ALLOCATE|[5]|Bytes:56
+12:25:10.724 (32724876905)|SYSTEM_METHOD_EXIT|[5]|System.now()
+12:25:10.725 (32725452006)|VARIABLE_ASSIGNMENT|[5]|this.Last_Modified_Date__c|"2015-08-06T19:24:50.413Z"|0x5f32badd
+12:25:10.725 (32725469731)|SYSTEM_METHOD_ENTRY|[3]|system.ListIterator.hasNext()
+12:25:10.725 (32725482211)|HEAP_ALLOCATE|[3]|Bytes:5
+12:25:10.725 (32725490117)|SYSTEM_METHOD_EXIT|[3]|system.ListIterator.hasNext()
+12:25:10.725 (32725503571)|VARIABLE_ASSIGNMENT|[3]|u|null|
+12:25:10.725 (32725522685)|CUMULATIVE_LIMIT_USAGE
+12:25:10.725 (32725522685)|LIMIT_USAGE_FOR_NS|(default)|
+  Number of SOQL queries: 1 out of 100
+  Number of query rows: 1 out of 50000
+  Number of SOSL queries: 0 out of 20
+  Number of DML statements: 3 out of 150
+  Number of DML rows: 3 out of 10000
+  Maximum CPU time: 8 out of 10000
+  Maximum heap size: 0 out of 6000000
+  Number of callouts: 0 out of 100
+  Number of Email Invocations: 0 out of 10
+  Number of future calls: 0 out of 50
+  Number of queueable jobs added to the queue: 0 out of 50
+  Number of Mobile Apex push calls: 0 out of 10
+
+12:25:10.725 (32725522685)|LIMIT_USAGE_FOR_NS|eo3|
+  Number of SOQL queries: 3 out of 100
+  Number of query rows: 3 out of 50000
+  Number of SOSL queries: 0 out of 20
+  Number of DML statements: 0 out of 150
+  Number of DML rows: 0 out of 10000
+  Maximum CPU time: 0 out of 10000
+  Maximum heap size: 0 out of 6000000
+  Number of callouts: 0 out of 100
+  Number of Email Invocations: 0 out of 10
+  Number of future calls: 0 out of 50
+  Number of queueable jobs added to the queue: 0 out of 50
+  Number of Mobile Apex push calls: 0 out of 10
+
+12:25:10.725 (32725522685)|CUMULATIVE_LIMIT_USAGE_END
+
+12:25:10.725 (32725758910)|CODE_UNIT_FINISHED|DateBeforeUserModified on User trigger event BeforeUpdate for [005L0000002wvYp]
+12:25:10.727 (32727900107)|CODE_UNIT_STARTED|[EXTERNAL]|01qE0000000RqnY|ValidateRepActiveFlag on User trigger event BeforeUpdate for [005L0000002wvYp]
+12:25:10.727 (32727919415)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:8
+12:25:10.727 (32727928569)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:8
+12:25:10.727 (32727970117)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:12
+12:25:10.727 (32727977593)|VARIABLE_SCOPE_BEGIN|[1]|this|ValidateRepActiveFlag|true|false
+12:25:10.728 (32728003832)|VARIABLE_ASSIGNMENT|[1]|this|{}|0x5c16b235
+12:25:10.728 (32728036473)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:12
+12:25:10.728 (32728043995)|VARIABLE_SCOPE_BEGIN|[1]|this|ValidateRepActiveFlag|true|false
+12:25:10.728 (32728061710)|VARIABLE_ASSIGNMENT|[1]|this|{}|0x5c16b235
+12:25:10.728 (32728068652)|STATEMENT_EXECUTE|[1]
+12:25:10.728 (32728071708)|STATEMENT_EXECUTE|[3]
+12:25:10.728 (32728079209)|HEAP_ALLOCATE|[3]|Bytes:4
+12:25:10.728 (32728091440)|SYSTEM_CONSTRUCTOR_ENTRY|[3]|<init>()
+12:25:10.728 (32728099279)|SYSTEM_CONSTRUCTOR_EXIT|[3]|<init>()
+12:25:10.728 (32728125510)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:4
+12:25:10.728 (32728149177)|VARIABLE_ASSIGNMENT|[3]|this.useridList|{"s":1,"v":[]}|0x5c16b235
+12:25:10.728 (32728154628)|STATEMENT_EXECUTE|[4]
+12:25:10.728 (32728164303)|HEAP_ALLOCATE|[4]|Bytes:4
+12:25:10.728 (32728190984)|VARIABLE_ASSIGNMENT|[4]|this.userLANIDMap|{"s":1,"v":{}}|0x5c16b235
+12:25:10.728 (32728201582)|STATEMENT_EXECUTE|[18]
+12:25:10.728 (32728228804)|SYSTEM_METHOD_ENTRY|[19]|List<User>.iterator()
+12:25:10.728 (32728238307)|SYSTEM_METHOD_EXIT|[19]|List<User>.iterator()
+12:25:10.728 (32728248197)|SYSTEM_METHOD_ENTRY|[19]|system.ListIterator.hasNext()
+12:25:10.728 (32728259158)|HEAP_ALLOCATE|[19]|Bytes:5
+12:25:10.728 (32728266382)|SYSTEM_METHOD_EXIT|[19]|system.ListIterator.hasNext()
+12:25:10.728 (32728281499)|VARIABLE_SCOPE_BEGIN|[19]|u|User|true|false
+12:25:10.729 (32729467851)|VARIABLE_ASSIGNMENT|[19]|u|{"ProfileId":"00eE0000000xnjhIAA","LastModifiedDate":"2015-08-06T19:24:48.000Z","ReceivesAdminInfoEma (3 more) ...":false,"Email":"tester@testorg.org","TimeZoneSidKey":"America/Los_Angeles","LanguageLocaleKey":"en_US","Department_Descripti (5 more) ...":"Service Planning","Lead_Project_Team_Ti (6 more) ...":"N/A","Rep_Is_Active_Formul (4 more) ...":"Y","IsActive":true,"Job_Title__c":"INTERN","LastModifiedbyLanId_ (2 more) ...":"AEFG","PostalCode":"93304","ForecastEnabled":false,"DigestFrequency":"D","Rep_Is_Active__c":"True","CommunityNickname":"Tester9","Company_Mailing_Name (3 more) ...":"Tester","CreatedById":"005L0000002izAsIAI","Last_Modified_by_Lan (6 more) ...":"OXSC","Phone":"123-456-7890","Division_Code__c":"SON","Street":"123 Fake Street","LocaleSidKey":"en_US","Job_Title_Code__c":"IN","FirstName":"Invalid","LAN_ID__c":"AEFG","Is_user_a_rep__c":"Y","City":"Los Angeles","EmailEncodingKey":"ISO-8859-1","Phone_Last_Char__c":"0","ReceivesInfoEmails":false,"Last_Modified_Date__ (1 more) ...":"2015-08-06T19:24:48.000Z","SystemModstamp":"2015-08-06T19:24:48.000Z","Was_Recently_Modifie (4 more) ...":"true","IsPortalEnabled":false,"Username":"tester@testorg.org","State":"CA","Alias":"tester","Phone_Formula__c":"1234567890","DefaultGroupNotifica (13 more) ...":"N","CreatedDate":"2015-08-06T19:24:48.000Z","LastName":"Active","Id":"005L0000002wvYpIAI","UserType":"Standard","LastModifiedById":"005L0000002izAsIAI","Department_Code__c":"SP","Is_User_ES_S_Admin__ (1 more) ...":false}|0x173f9ba
+12:25:10.729 (32729486859)|STATEMENT_EXECUTE|[20]
+12:25:10.729 (32729490293)|STATEMENT_EXECUTE|[21]
+12:25:10.729 (32729541953)|SYSTEM_METHOD_ENTRY|[21]|Map<Id,User>.get(Object)
+12:25:10.729 (32729560861)|SYSTEM_METHOD_EXIT|[21]|Map<Id,User>.get(Object)
+12:25:10.729 (32729568743)|VARIABLE_SCOPE_BEGIN|[21]|updatedU|User|true|false
+12:25:10.730 (32730195272)|VARIABLE_ASSIGNMENT|[21]|updatedU|{"ProfileId":"00eE0000000xnjhIAA","LastModifiedDate":"2015-08-06T19:24:48.000Z","ReceivesAdminInfoEma (3 more) ...":false,"Email":"tester@testorg.org","TimeZoneSidKey":"America/Los_Angeles","LanguageLocaleKey":"en_US","Department_Descripti (5 more) ...":"Service Planning","Lead_Project_Team_Ti (6 more) ...":"N/A","Rep_Is_Active_Formul (4 more) ...":"N","IsActive":true,"Job_Title__c":"INTERN","LastModifiedbyLanId_ (2 more) ...":"AEFG","PostalCode":"93304","ForecastEnabled":false,"DigestFrequency":"D","Rep_Is_Active__c":"False","CommunityNickname":"Tester9","Company_Mailing_Name (3 more) ...":"Tester","CreatedById":"005L0000002izAsIAI","Last_Modified_by_Lan (6 more) ...":"OXSC","Phone":"123-456-7890","Division_Code__c":"SON","Street":"123 Fake Street","LocaleSidKey":"en_US","Job_Title_Code__c":"IN","FirstName":"Invalid","LAN_ID__c":"AEFG","Is_user_a_rep__c":"Y","City":"Los Angeles","EmailEncodingKey":"ISO-8859-1","Phone_Last_Char__c":"0","ReceivesInfoEmails":false,"Last_Modified_Date__ (1 more) ...":"2015-08-06T19:24:50.413Z","SystemModstamp":"2015-08-06T19:24:48.000Z","Was_Recently_Modifie (4 more) ...":"true","IsPortalEnabled":false,"Username":"tester@testorg.org","State":"CA","Alias":"tester","Phone_Formula__c":"1234567890","DefaultGroupNotifica (13 more) ...":"N","CreatedDate":"2015-08-06T19:24:48.000Z","LastName":"Active","Id":"005L0000002wvYpIAI","UserType":"Standard","LastModifiedById":"005L0000002izAsIAI","Department_Code__c":"SP","Is_User_ES_S_Admin__ (1 more) ...":false}|0x689d74bb
+12:25:10.730 (32730238510)|STATEMENT_EXECUTE|[23]
+12:25:10.730 (32730242615)|STATEMENT_EXECUTE|[24]
+12:25:10.730 (32730274054)|SYSTEM_METHOD_ENTRY|[24]|List<Id>.add(Object)
+12:25:10.730 (32730300840)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:4
+12:25:10.730 (32730313640)|SYSTEM_METHOD_EXIT|[24]|List<Id>.add(Object)
+12:25:10.730 (32730319616)|STATEMENT_EXECUTE|[25]
+12:25:10.730 (32730368088)|SYSTEM_METHOD_ENTRY|[25]|Map<String,Id>.put(Object, Object)
+12:25:10.730 (32730390902)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:-4
+12:25:10.730 (32730404798)|SYSTEM_METHOD_EXIT|[25]|Map<String,Id>.put(Object, Object)
+12:25:10.730 (32730425366)|STATEMENT_EXECUTE|[28]
+12:25:10.730 (32730436739)|SYSTEM_METHOD_ENTRY|[19]|system.ListIterator.hasNext()
+12:25:10.730 (32730448577)|HEAP_ALLOCATE|[19]|Bytes:5
+12:25:10.730 (32730456164)|SYSTEM_METHOD_EXIT|[19]|system.ListIterator.hasNext()
+12:25:10.730 (32730468957)|VARIABLE_ASSIGNMENT|[19]|u|null|
+12:25:10.730 (32730474116)|STATEMENT_EXECUTE|[36]
+12:25:10.730 (32730480149)|HEAP_ALLOCATE|[36]|Bytes:57
+12:25:10.730 (32730490000)|HEAP_ALLOCATE|[36]|Bytes:4
+12:25:10.730 (32730659646)|SOQL_EXECUTE_BEGIN|[36]|Aggregations:0|SELECT id, Ownerid FROM Account WHERE Ownerid IN :tmpVar1
+12:25:10.739 (32739837277)|SOQL_EXECUTE_END|[36]|Rows:1
+12:25:10.739 (32739854452)|HEAP_ALLOCATE|[36]|Bytes:8
+12:25:10.739 (32739868762)|HEAP_ALLOCATE|[36]|Bytes:58
+12:25:10.739 (32739891614)|HEAP_ALLOCATE|[36]|Bytes:8
+12:25:10.739 (32739904003)|VARIABLE_SCOPE_BEGIN|[36]|repAccounts|List<Account>|true|false
+12:25:10.739 (32739939655)|VARIABLE_ASSIGNMENT|[36]|repAccounts|{"s":1,"v":[{"s":2,"v":{"Id":"001L000000jhpzAIAQ","OwnerId":"005L0000002wvYpIAI"}}]}|0x505eafb1
+12:25:10.739 (32739960066)|SYSTEM_METHOD_ENTRY|[37]|List<Account>.size()
+12:25:10.739 (32739970192)|SYSTEM_METHOD_EXIT|[37]|List<Account>.size()
+12:25:10.739 (32739978613)|STATEMENT_EXECUTE|[38]
+12:25:10.739 (32739986638)|SYSTEM_METHOD_ENTRY|[39]|List<Account>.iterator()
+12:25:10.740 (32740013562)|SYSTEM_METHOD_EXIT|[39]|List<Account>.iterator()
+12:25:10.740 (32740029006)|SYSTEM_METHOD_ENTRY|[39]|system.ListIterator.hasNext()
+12:25:10.740 (32740044602)|HEAP_ALLOCATE|[39]|Bytes:5
+12:25:10.740 (32740052566)|SYSTEM_METHOD_EXIT|[39]|system.ListIterator.hasNext()
+12:25:10.740 (32740078818)|HEAP_ALLOCATE|[39]|Bytes:12
+12:25:10.740 (32740090658)|VARIABLE_SCOPE_BEGIN|[39]|a|Account|true|false
+12:25:10.740 (32740108676)|VARIABLE_ASSIGNMENT|[39]|a|{"s":1,"v":{"Id":"001L000000jhpzAIAQ","OwnerId":"005L0000002wvYpIAI"}}|0x1b470fcf
+12:25:10.740 (32740114913)|STATEMENT_EXECUTE|[40]
+12:25:10.740 (32740117882)|STATEMENT_EXECUTE|[41]
+12:25:10.740 (32740182855)|SYSTEM_METHOD_ENTRY|[41]|Map<Id,User>.get(Object)
+12:25:10.740 (32740215621)|SYSTEM_METHOD_EXIT|[41]|Map<Id,User>.get(Object)
+12:25:10.740 (32740223731)|VARIABLE_SCOPE_BEGIN|[41]|u|User|true|false
+12:25:10.740 (32740950558)|VARIABLE_ASSIGNMENT|[41]|u|{"ProfileId":"00eE0000000xnjhIAA","LastModifiedDate":"2015-08-06T19:24:48.000Z","ReceivesAdminInfoEma (3 more) ...":false,"Email":"tester@testorg.org","TimeZoneSidKey":"America/Los_Angeles","LanguageLocaleKey":"en_US","Department_Descripti (5 more) ...":"Service Planning","Lead_Project_Team_Ti (6 more) ...":"N/A","Rep_Is_Active_Formul (4 more) ...":"N","IsActive":true,"Job_Title__c":"INTERN","LastModifiedbyLanId_ (2 more) ...":"AEFG","PostalCode":"93304","ForecastEnabled":false,"DigestFrequency":"D","Rep_Is_Active__c":"False","CommunityNickname":"Tester9","Company_Mailing_Name (3 more) ...":"Tester","CreatedById":"005L0000002izAsIAI","Last_Modified_by_Lan (6 more) ...":"OXSC","Phone":"123-456-7890","Division_Code__c":"SON","Street":"123 Fake Street","LocaleSidKey":"en_US","Job_Title_Code__c":"IN","FirstName":"Invalid","LAN_ID__c":"AEFG","Is_user_a_rep__c":"Y","City":"Los Angeles","EmailEncodingKey":"ISO-8859-1","Phone_Last_Char__c":"0","ReceivesInfoEmails":false,"Last_Modified_Date__ (1 more) ...":"2015-08-06T19:24:50.413Z","SystemModstamp":"2015-08-06T19:24:48.000Z","Was_Recently_Modifie (4 more) ...":"true","IsPortalEnabled":false,"Username":"tester@testorg.org","State":"CA","Alias":"tester","Phone_Formula__c":"1234567890","DefaultGroupNotifica (13 more) ...":"N","CreatedDate":"2015-08-06T19:24:48.000Z","LastName":"Active","Id":"005L0000002wvYpIAI","UserType":"Standard","LastModifiedById":"005L0000002izAsIAI","Department_Code__c":"SP","Is_User_ES_S_Admin__ (1 more) ...":false}|0x689d74bb
+12:25:10.740 (32740968491)|STATEMENT_EXECUTE|[42]
+12:25:10.740 (32740977759)|HEAP_ALLOCATE|[42]|Bytes:16
+12:25:10.740 (32740983655)|HEAP_ALLOCATE|[42]|Bytes:76
+12:25:10.741 (32741017554)|SYSTEM_METHOD_ENTRY|[42]|SObject.addError(String, String)
+12:25:10.741 (32741184869)|VF_PAGE_MESSAGE|Can not make this Rep Inactive because the Rep is associated with an Account
+12:25:10.741 (32741208941)|SYSTEM_METHOD_EXIT|[42]|SObject.addError(String, String)
+12:25:10.741 (32741220685)|SYSTEM_METHOD_ENTRY|[39]|system.ListIterator.hasNext()
+12:25:10.741 (32741232297)|HEAP_ALLOCATE|[39]|Bytes:5
+12:25:10.741 (32741240073)|SYSTEM_METHOD_EXIT|[39]|system.ListIterator.hasNext()
+12:25:10.741 (32741253347)|VARIABLE_ASSIGNMENT|[39]|a|null|
+12:25:10.741 (32741281150)|SYSTEM_METHOD_ENTRY|[47]|List<User>.size()
+12:25:10.741 (32741289081)|SYSTEM_METHOD_EXIT|[47]|List<User>.size()
+12:25:10.741 (32741295885)|STATEMENT_EXECUTE|[48]
+12:25:10.741 (32741298715)|STATEMENT_EXECUTE|[49]
+12:25:10.741 (32741322226)|VARIABLE_SCOPE_BEGIN|[49]|u|User|true|false
+12:25:10.741 (32741924461)|VARIABLE_ASSIGNMENT|[49]|u|{"ProfileId":"00eE0000000xnjhIAA","LastModifiedDate":"2015-08-06T19:24:48.000Z","ReceivesAdminInfoEma (3 more) ...":false,"Email":"tester@testorg.org","TimeZoneSidKey":"America/Los_Angeles","LanguageLocaleKey":"en_US","Department_Descripti (5 more) ...":"Service Planning","Lead_Project_Team_Ti (6 more) ...":"N/A","Rep_Is_Active_Formul (4 more) ...":"Y","IsActive":true,"Job_Title__c":"INTERN","LastModifiedbyLanId_ (2 more) ...":"AEFG","PostalCode":"93304","ForecastEnabled":false,"DigestFrequency":"D","Rep_Is_Active__c":"True","CommunityNickname":"Tester9","Company_Mailing_Name (3 more) ...":"Tester","CreatedById":"005L0000002izAsIAI","Last_Modified_by_Lan (6 more) ...":"OXSC","Phone":"123-456-7890","Division_Code__c":"SON","Street":"123 Fake Street","LocaleSidKey":"en_US","Job_Title_Code__c":"IN","FirstName":"Invalid","LAN_ID__c":"AEFG","Is_user_a_rep__c":"Y","City":"Los Angeles","EmailEncodingKey":"ISO-8859-1","Phone_Last_Char__c":"0","ReceivesInfoEmails":false,"Last_Modified_Date__ (1 more) ...":"2015-08-06T19:24:48.000Z","SystemModstamp":"2015-08-06T19:24:48.000Z","Was_Recently_Modifie (4 more) ...":"true","IsPortalEnabled":false,"Username":"tester@testorg.org","State":"CA","Alias":"tester","Phone_Formula__c":"1234567890","DefaultGroupNotifica (13 more) ...":"N","CreatedDate":"2015-08-06T19:24:48.000Z","LastName":"Active","Id":"005L0000002wvYpIAI","UserType":"Standard","LastModifiedById":"005L0000002izAsIAI","Department_Code__c":"SP","Is_User_ES_S_Admin__ (1 more) ...":false}|0x173f9ba
+12:25:10.741 (32741941138)|STATEMENT_EXECUTE|[50]
+12:25:10.741 (32741977977)|SYSTEM_METHOD_ENTRY|[50]|Map<Id,User>.get(Object)
+12:25:10.741 (32741995630)|SYSTEM_METHOD_EXIT|[50]|Map<Id,User>.get(Object)
+12:25:10.742 (32742004095)|VARIABLE_SCOPE_BEGIN|[50]|updatedU|User|true|false
+12:25:10.742 (32742659857)|VARIABLE_ASSIGNMENT|[50]|updatedU|{"ProfileId":"00eE0000000xnjhIAA","LastModifiedDate":"2015-08-06T19:24:48.000Z","ReceivesAdminInfoEma (3 more) ...":false,"Email":"tester@testorg.org","TimeZoneSidKey":"America/Los_Angeles","LanguageLocaleKey":"en_US","Department_Descripti (5 more) ...":"Service Planning","Lead_Project_Team_Ti (6 more) ...":"N/A","Rep_Is_Active_Formul (4 more) ...":"N","IsActive":true,"Job_Title__c":"INTERN","LastModifiedbyLanId_ (2 more) ...":"AEFG","PostalCode":"93304","ForecastEnabled":false,"DigestFrequency":"D","Rep_Is_Active__c":"False","CommunityNickname":"Tester9","Company_Mailing_Name (3 more) ...":"Tester","CreatedById":"005L0000002izAsIAI","Last_Modified_by_Lan (6 more) ...":"OXSC","Phone":"123-456-7890","Division_Code__c":"SON","Street":"123 Fake Street","LocaleSidKey":"en_US","Job_Title_Code__c":"IN","FirstName":"Invalid","LAN_ID__c":"AEFG","Is_user_a_rep__c":"Y","City":"Los Angeles","EmailEncodingKey":"ISO-8859-1","Phone_Last_Char__c":"0","ReceivesInfoEmails":false,"Last_Modified_Date__ (1 more) ...":"2015-08-06T19:24:50.413Z","SystemModstamp":"2015-08-06T19:24:48.000Z","Was_Recently_Modifie (4 more) ...":"true","IsPortalEnabled":false,"Username":"tester@testorg.org","State":"CA","Alias":"tester","Phone_Formula__c":"1234567890","DefaultGroupNotifica (13 more) ...":"N","CreatedDate":"2015-08-06T19:24:48.000Z","LastName":"Active","Id":"005L0000002wvYpIAI","UserType":"Standard","LastModifiedById":"005L0000002izAsIAI","Department_Code__c":"SP","Is_User_ES_S_Admin__ (1 more) ...":false}|0x689d74bb
+12:25:10.742 (32742709637)|STATEMENT_EXECUTE|[53]
+12:25:10.742 (32742713870)|STATEMENT_EXECUTE|[54]
+12:25:10.742 (32742720910)|HEAP_ALLOCATE|[54]|Bytes:91
+12:25:10.742 (32742732671)|HEAP_ALLOCATE|[54]|Bytes:4
+12:25:10.742 (32742952157)|SOQL_EXECUTE_BEGIN|[54]|Aggregations:0|SELECT id, Imported_Corp_Rep__c FROM Account WHERE Imported_Corp_Rep__c = :tmpVar1 LIMIT 10
+12:25:10.762 (32762169993)|SOQL_EXECUTE_END|[54]|Rows:0
+12:25:10.762 (32762188203)|HEAP_ALLOCATE|[54]|Bytes:4
+12:25:10.762 (32762197936)|HEAP_ALLOCATE|[54]|Bytes:0
+12:25:10.762 (32762217249)|HEAP_ALLOCATE|[54]|Bytes:4
+12:25:10.762 (32762229237)|VARIABLE_SCOPE_BEGIN|[54]|cmtCorpAccounts|List<Account>|true|false
+12:25:10.762 (32762259489)|VARIABLE_ASSIGNMENT|[54]|cmtCorpAccounts|{"s":1,"v":[]}|0x37cdf74a
+12:25:10.762 (32762266255)|STATEMENT_EXECUTE|[57]
+12:25:10.762 (32762273458)|HEAP_ALLOCATE|[57]|Bytes:93
+12:25:10.762 (32762283391)|HEAP_ALLOCATE|[57]|Bytes:4
+12:25:10.762 (32762501825)|SOQL_EXECUTE_BEGIN|[57]|Aggregations:0|SELECT id, Imported_Local_Rep__c FROM Account WHERE Imported_Local_Rep__c = :tmpVar1 LIMIT 10
+12:25:10.785 (32785179998)|SOQL_EXECUTE_END|[57]|Rows:0
+12:25:10.785 (32785197154)|HEAP_ALLOCATE|[57]|Bytes:4
+12:25:10.785 (32785205657)|HEAP_ALLOCATE|[57]|Bytes:0
+12:25:10.785 (32785222902)|HEAP_ALLOCATE|[57]|Bytes:4
+12:25:10.785 (32785233397)|VARIABLE_SCOPE_BEGIN|[57]|cmtLocalAccounts|List<Account>|true|false
+12:25:10.785 (32785259255)|VARIABLE_ASSIGNMENT|[57]|cmtLocalAccounts|{"s":1,"v":[]}|0xe4415fd
+12:25:10.785 (32785278476)|SYSTEM_METHOD_ENTRY|[61]|List<Account>.size()
+12:25:10.785 (32785306014)|SYSTEM_METHOD_EXIT|[61]|List<Account>.size()
+12:25:10.785 (32785317625)|SYSTEM_METHOD_ENTRY|[61]|List<Account>.size()
+12:25:10.785 (32785324008)|SYSTEM_METHOD_EXIT|[61]|List<Account>.size()
+12:25:10.785 (32785330755)|STATEMENT_EXECUTE|[61]
+12:25:10.785 (32785357173)|STATEMENT_EXECUTE|[67]
+12:25:10.785 (32785379677)|CUMULATIVE_LIMIT_USAGE
+12:25:10.785 (32785379677)|LIMIT_USAGE_FOR_NS|(default)|
+  Number of SOQL queries: 4 out of 100
+  Number of query rows: 2 out of 50000
+  Number of SOSL queries: 0 out of 20
+  Number of DML statements: 3 out of 150
+  Number of DML rows: 3 out of 10000
+  Maximum CPU time: 8 out of 10000
+  Maximum heap size: 0 out of 6000000
+  Number of callouts: 0 out of 100
+  Number of Email Invocations: 0 out of 10
+  Number of future calls: 0 out of 50
+  Number of queueable jobs added to the queue: 0 out of 50
+  Number of Mobile Apex push calls: 0 out of 10
+
+12:25:10.785 (32785379677)|LIMIT_USAGE_FOR_NS|eo3|
+  Number of SOQL queries: 3 out of 100
+  Number of query rows: 3 out of 50000
+  Number of SOSL queries: 0 out of 20
+  Number of DML statements: 0 out of 150
+  Number of DML rows: 0 out of 10000
+  Maximum CPU time: 0 out of 10000
+  Maximum heap size: 0 out of 6000000
+  Number of callouts: 0 out of 100
+  Number of Email Invocations: 0 out of 10
+  Number of future calls: 0 out of 50
+  Number of queueable jobs added to the queue: 0 out of 50
+  Number of Mobile Apex push calls: 0 out of 10
+
+12:25:10.785 (32785379677)|CUMULATIVE_LIMIT_USAGE_END
+
+12:25:10.785 (32785458545)|CODE_UNIT_FINISHED|ValidateRepActiveFlag on User trigger event BeforeUpdate for [005L0000002wvYp]
+12:25:10.787 (32787445193)|DML_END|[55]
+12:25:10.787 (32787660575)|EXCEPTION_THROWN|[55]|System.DmlException: Update failed. First exception on row 0 with id 005L0000002wvYpIAI; first error: FIELD_CUSTOM_VALIDATION_EXCEPTION, Can not make this Rep Inactive because the Rep is associated with an Account: [Rep_Is_Active__c]
+12:25:10.788 (32788329327)|HEAP_ALLOCATE|[55]|Bytes:216
+12:25:10.788 (32788370138)|VARIABLE_SCOPE_BEGIN|[62]|e|Exception|true|false
+12:25:10.788 (32788453290)|VARIABLE_ASSIGNMENT|[62]|e|"common.apex.runtime.impl.DmlExecutionException: Update failed. First exception on row 0 with id 005L0000002wvYpIAI; first error: FIELD_CUSTOM_VALIDATION_EXCEPTION, Can not make this Rep Inactive because the Rep is associated with an Account: [Rep_Is_Active__c]"|0x677f88f4
+12:25:10.788 (32788464070)|STATEMENT_EXECUTE|[62]
+12:25:10.788 (32788467204)|STATEMENT_EXECUTE|[63]
+12:25:10.788 (32788488155)|SYSTEM_METHOD_ENTRY|[63]|System.DmlException.getMessage()
+12:25:10.788 (32788518955)|HEAP_ALLOCATE|[63]|Bytes:212
+12:25:10.788 (32788528243)|SYSTEM_METHOD_EXIT|[63]|System.DmlException.getMessage()
+12:25:10.788 (32788535082)|HEAP_ALLOCATE|[63]|Bytes:77
+12:25:10.788 (32788561404)|SYSTEM_METHOD_ENTRY|[63]|String.contains(String)
+12:25:10.788 (32788576078)|SYSTEM_METHOD_EXIT|[63]|String.contains(String)
+12:25:10.788 (32788583384)|VARIABLE_SCOPE_BEGIN|[63]|expectedExceptionThrown|Boolean|false|false
+12:25:10.788 (32788590593)|HEAP_ALLOCATE|[63]|Bytes:5
+12:25:10.788 (32788599907)|VARIABLE_ASSIGNMENT|[63]|expectedExceptionThrown|true
+12:25:10.788 (32788604034)|STATEMENT_EXECUTE|[64]
+12:25:10.788 (32788621583)|SYSTEM_METHOD_ENTRY|[64]|System.assertEquals(ANY, ANY)
+12:25:10.788 (32788652841)|SYSTEM_METHOD_EXIT|[64]|System.assertEquals(ANY, ANY)
+12:25:10.788 (32788670807)|CUMULATIVE_LIMIT_USAGE
+12:25:10.788 (32788670807)|LIMIT_USAGE_FOR_NS|(default)|
+  Number of SOQL queries: 1 out of 100
+  Number of query rows: 1 out of 50000
+  Number of SOSL queries: 0 out of 20
+  Number of DML statements: 3 out of 150
+  Number of DML rows: 3 out of 10000
+  Maximum CPU time: 8 out of 10000
+  Maximum heap size: 0 out of 6000000
+  Number of callouts: 0 out of 100
+  Number of Email Invocations: 0 out of 10
+  Number of future calls: 0 out of 50
+  Number of queueable jobs added to the queue: 0 out of 50
+  Number of Mobile Apex push calls: 0 out of 10
+
+12:25:10.788 (32788670807)|LIMIT_USAGE_FOR_NS|eo3|
+  Number of SOQL queries: 3 out of 100
+  Number of query rows: 3 out of 50000
+  Number of SOSL queries: 0 out of 20
+  Number of DML statements: 0 out of 150
+  Number of DML rows: 0 out of 10000
+  Maximum CPU time: 0 out of 10000
+  Maximum heap size: 0 out of 6000000
+  Number of callouts: 0 out of 100
+  Number of Email Invocations: 0 out of 10
+  Number of future calls: 0 out of 50
+  Number of queueable jobs added to the queue: 0 out of 50
+  Number of Mobile Apex push calls: 0 out of 10
+
+12:25:10.788 (32788670807)|CUMULATIVE_LIMIT_USAGE_END
+
+12:25:10.788 (32788699374)|CODE_UNIT_FINISHED|lab2_ValidateRepActiveFlagTest.inactiveRepAssociationTest
+12:25:10.789 (32789784856)|EXECUTION_FINISHED

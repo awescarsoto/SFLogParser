@@ -1,0 +1,5 @@
+* Need to find formatting for each log type
+* Need to put image in the formatting to denote the type
+* Create columns for timestamps
+* Provide ways to get extra info provided in certain debugs
+* Create classes for objects
