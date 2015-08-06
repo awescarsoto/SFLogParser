@@ -1,5 +1,32 @@
 __author__ = 'oxsc'
 
+from Tkinter import *
+import ttk
+
+# Create the initial tree
+'''
+root = Tk()
+structure = ttk.Treeview(root)
+
+structure["columns"]=("one","two")
+structure.column("one", width=100 )
+structure.column("two", width=100)
+structure.heading("one", text="coulmn A")
+structure.heading("two", text="column B")
+
+structure.insert("" , 0,    text="Line 1", values=("1A","1b"))
+
+id2 = structure.insert("", 1, "dir2", text="Dir 2")
+structure.insert(id2, "end", "dir 2", text="sub dir 2", values=("2A","2B"))
+
+##alternatively:
+structure.insert("", 3, "dir3", text="Dir 3")
+structure.insert("dir3", 3, text=" sub dir 3",values=("3A"," 3B"))
+
+structure.pack()
+root.mainloop()
+'''
+
 # Open the file for reading
 f = open("C:\Users\oxsc\Desktop\Log.txt", "r")
 
@@ -23,6 +50,11 @@ ImportantInfo = {'CALLOUT_REQUEST': 1, 'CODE_UNIT_STARTED': 1, 'CONSTRUCTOR_ENTR
 
 currLevel = 0
 
+# Initiate the tree
+root = Tk()
+structure = ttk.Treeview(root)
+structure.insert("", 1, text="root")
+
 # Iterate over the lines in the file
 for line in f:
 
@@ -32,9 +64,12 @@ for line in f:
         splitLine = line.split("|")
         if splitLine[1] in increasers:
             currLevel += 1
+            structure.insert("", 1, text=splitLine[ImportantInfo[splitLine[1]]])
             print (currLevel * '\t') + splitLine[ImportantInfo[splitLine[1]]]
         elif splitLine[1] in decreasers:
             currLevel -= 1
+            print (currLevel * '\t') + "end"
 
-
+structure.pack()
+root.mainloop()
 f.close()
