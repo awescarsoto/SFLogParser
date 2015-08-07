@@ -3,3 +3,4 @@
 * Create columns for timestamps
 * Provide ways to get extra info provided in certain debugs
 * Create classes for objects
+* Add validation rules
