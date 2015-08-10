@@ -5,6 +5,65 @@ import tkFileDialog
 import ttk
 import DebugTypeInfo
 
+
+def choosefile():
+    print "Inside choosefile"
+    f = tkFileDialog.askopenfile(parent=root,mode='rb',title='Choose a file')
+    while f is None:
+        f = tkFileDialog.askopenfile(parent=root,mode='rb',title='Choose a file')
+
+    structure = ttk.Treeview(root, selectmode="extended")
+
+    # Format the tree with columns and scrollbars that resize
+    structure.column("#0", stretch=TRUE)
+    ysb = ttk.Scrollbar(root, orient='vertical', command=structure.yview)
+    xsb = ttk.Scrollbar(root, orient='horizontal', command=structure.xview)
+    structure.configure(yscroll=ysb.set, xscroll=xsb.set)
+    structure.heading('#0', text="Methods Tree", anchor='w')
+    structure.grid(row=0, column=0, sticky='nsew')
+    structure.columnconfigure(0, weight=1)
+    ysb.grid(row=0, column=1, sticky='nse')
+    xsb.grid(row=1, column=0, sticky='sew')
+    structure.grid(sticky="nesw")
+    root.columnconfigure(0, weight=1)
+    root.rowconfigure(0, weight=1)
+    structure.columnconfigure(0, weight=1)
+    structure.rowconfigure(0, weight=1)
+
+    # Variables
+    currLevel = 0
+    currChild = 0
+    stack = []
+
+    # Iterate over the rest of lines in the file
+    for line in f:
+        # Separate lines by the pipe and remove newline characters
+        if "|" in line:
+            line = line.rstrip('\n')
+            splitLine = line.split("|")
+            if splitLine[1] in increasers:
+                currLevel += 1
+                if len(stack) == 0:
+                    stack.append(structure.insert('', 'end', text=DebugTypeInfo.process(splitLine)))
+                else:
+                    stack.append(structure.insert(stack[len(stack)-1], 'end', text=DebugTypeInfo.process(splitLine)))
+            elif splitLine[1] in decreasers:
+                currLevel -= 1
+                stack.pop()
+
+    f.close()  # close the file when everything is done
+    root.mainloop()  # Keeps the window open and running
+
+def initialMenu(root):
+    button = ttk.Button(root, text="Choose File", command="choosefile()")
+    button.grid()
+    #button.bind(choosefile())
+    print "Done with initial"
+
+
+
+
+
 # Global variables for things that increase, decrease, and the level of hierarchy currently at
 increasers = ['CALLOUT_REQUEST', 'CODE_UNIT_STARTED',
               'CUMULATIVE_PROFILING_BEGIN', 'DML_BEGIN', 'METHOD_ENTRY', 'SOQL_EXECUTE_BEGIN',
@@ -41,50 +100,12 @@ formatting = {'CALLOUT_REQUEST': 1,
 # Initiate the tree
 root = Tk()
 root.title("Salesforce Debug Methods Tree")
-f = tkFileDialog.askopenfile(parent=root,mode='rb',title='Choose a file')
-while f is None:
-    f = tkFileDialog.askopenfile(parent=root,mode='rb',title='Choose a file')
+root.geometry("800x600")
+initialMenu(root)
+root.mainloop()
 
-structure = ttk.Treeview(root, selectmode="extended")
 
-# Format the tree with columns and scrollbars that resize
-structure.column("#0", stretch=TRUE)
-ysb = ttk.Scrollbar(root, orient='vertical', command=structure.yview)
-xsb = ttk.Scrollbar(root, orient='horizontal', command=structure.xview)
-structure.configure(yscroll=ysb.set, xscroll=xsb.set)
-structure.heading('#0', text="Methods Tree", anchor='w')
-structure.grid(row=0, column=0, sticky='nsew')
-structure.columnconfigure(0, weight=1)
-ysb.grid(row=0, column=1, sticky='nse')
-xsb.grid(row=1, column=0, sticky='sew')
-structure.grid(sticky="nesw")
-root.columnconfigure(0, weight=1)
-root.rowconfigure(0, weight=1)
-structure.columnconfigure(0, weight=1)
-structure.rowconfigure(0, weight=1)
 
-# Variables
-currLevel = 0
-currChild = 0
-stack = []
 
-# Iterate over the rest of lines in the file
-for line in f:
-    print line
-    # Separate lines by the pipe and remove newline characters
-    if "|" in line:
-        line = line.rstrip('\n')
-        splitLine = line.split("|")
-        if splitLine[1] in increasers:
-            currLevel += 1
-            if len(stack) == 0:
-                stack.append(structure.insert('', 'end', text=DebugTypeInfo.process(splitLine)))
-            else:
-                stack.append(structure.insert(stack[len(stack)-1], 'end', text=DebugTypeInfo.process(splitLine)))
-        elif splitLine[1] in decreasers:
-            currLevel -= 1
-            stack.pop()
 
-f.close()  # close the file when everything is done
-root.mainloop()  # Keeps the window open and running
 

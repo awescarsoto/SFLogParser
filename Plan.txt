@@ -4,3 +4,25 @@
 * Provide ways to get extra info provided in certain debugs
 * Create classes for objects
 * Add validation rules
+
+Start of Program:
+* Two buttons: Select File and Paste Log
+* Filtering checkboxes
+* Create two methods for each button action
+* the command attribute relates directly to calling a function
+
+Filtering:
+* Use checkbox to select which to include
+* Use that to create the increasers and decreasers
+
+Pasting Log:
+http://www.tkdocs.com/tutorial/text.html
+
+Icons next to types:
+http://www.tkdocs.com/tutorial/widgets.html#label
+
+Buttons for file:
+http://www.tkdocs.com/tutorial/widgets.html#button
+
+Options checkboxes:
+http://www.tkdocs.com/tutorial/widgets.html#checkbutton
