@@ -1,7 +1,8 @@
 __author__ = 'oxsc'
 
+from Tkinter import *
 
-def process(infoArray):
+def getInfo(infoArray):
     infoArray = infoArray
     debugType = infoArray[1]
 
@@ -45,3 +46,16 @@ def process(infoArray):
         return "Workflow Rule: " + infoArray[3]
     elif debugType == 'WF_RULE_EVAL_BEGIN':
         return infoArray[1]
+
+def getImage(debugType):
+
+
+    if debugType == 'WF_CRITERIA_BEGIN':
+        gear = PhotoImage(file='gear_happy2.gif')
+        return gear
+    elif debugType == 'WF_RULE_EVAL_BEGIN':
+        gear = PhotoImage(file='gear_happy2.gif')
+        return gear
+
+    blank = PhotoImage(file='gear_happy2.gif')
+    return blank

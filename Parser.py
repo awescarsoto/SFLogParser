@@ -32,7 +32,6 @@ def choosefile():
     # Variables
     currLevel = 0
     stack = []
-    gear = PhotoImage(file='C:\Users\oscar\.PyCharm40\SFLogParser\gear_happy2.gif')
 
     # Iterate over the rest of lines in the file
     for line in f:
@@ -42,11 +41,10 @@ def choosefile():
             splitLine = line.split("|")
             if splitLine[1] in increasers:
                 currLevel += 1
-                label = ttk.Label(root)
                 if len(stack) == 0:
-                    stack.append(structure.insert('', 'end', text=DebugTypeInfo.process(splitLine), image=gear))
+                    stack.append(structure.insert('', 'end', text=DebugTypeInfo.getInfo(splitLine), image=images[splitLine[1]]))
                 else:
-                    stack.append(structure.insert(stack[len(stack)-1], 'end', image=gear, text=DebugTypeInfo.process(splitLine)))
+                    stack.append(structure.insert(stack[len(stack)-1], 'end', text=DebugTypeInfo.getInfo(splitLine), image=images[splitLine[1]]))
             elif splitLine[1] in decreasers:
                 currLevel -= 1
                 stack.pop()
@@ -58,6 +56,7 @@ def initialMenu():
     pasteButton = ttk.Button(root, text="Paste Log")
     fileButton.grid()
     pasteButton.grid()
+
 
 
 # Global variables for things that increase, decrease, and the level of hierarchy currently at
@@ -93,10 +92,42 @@ formatting = {'CALLOUT_REQUEST': 1,
               'WF_CRITERIA_BEGIN': 1,
               'WF_RULE_EVAL_BEGIN': 1}
 
+
+
 # Initiate the tree
 root = Tk()
 root.title("Salesforce Debug Methods Tree")
 root.geometry("800x600")
+blank = PhotoImage(file='blank.gif')
+gear = PhotoImage(file='gear_happy2.gif')
+validation = PhotoImage(file='VR.gif')
+vf = PhotoImage(file='VF.gif')
+dml = PhotoImage(file='DML.gif')
+sosl = PhotoImage(file='SOSL.gif')
+soql = PhotoImage(file='SOQL.gif')
+
+images = {'CALLOUT_REQUEST': blank,
+              'CODE_UNIT_STARTED': blank,
+              'CONSTRUCTOR_ENTRY': blank,
+              'CUMULATIVE_LIMIT_USAGE': blank,
+              'CUMULATIVE_PROFILING_BEGIN': blank,
+              'DML_BEGIN': dml,
+              'EXECUTION_STARTED': blank,
+              'METHOD_ENTRY': blank,
+              'SOQL_EXECUTE_BEGIN': soql,
+              'SOSL_EXECUTE_BEGIN': sosl,
+              'SYSTEM_CONSTRUCTOR_ENTRY': blank,
+              'SYSTEM_METHOD_ENTRY': blank,
+              'SYSTEM_MODE_ENTER': blank,
+              'VARIABLE_SCOPE_BEGIN': blank,
+              'VALIDATION_RULE': validation,
+              'VF_DESERIALIZE_VIEWSTATE_BEGIN': vf,
+              'VF_EVALUATE_FORMULA_BEGIN': vf,
+              'VF_SERIALIZE_VIEWSTATE_BEGIN': vf,
+              'WF_CRITERIA_BEGIN': gear,
+              'WF_RULE_EVAL_BEGIN': gear}
+
+
 initialMenu()
 root.mainloop()
 
