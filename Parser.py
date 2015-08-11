@@ -7,20 +7,34 @@ import DebugTypeInfo
 
 
 ########################################################################################################################
-def choosefile():
-    # Remove other widgets
+def checkSelectedKeywords():
+    # Clear the list
+    keywordsChosen[:] = []
+
+    # check if a button was selected and use the value to add it to the list of keywords chosen
+    for button in checkButtonArray:
+        if button.instate(['selected']):
+            keywordsChosen.append(button['onvalue'])
+    return
+
+
+########################################################################################################################
+def processLog(logFile):
+    # Clear the tree
+    treeStructure.delete(*treeStructure.get_children())
+
+    # Remove other widgets from view
     fileButton.grid_remove()
     pasteButton.grid_remove()
+    resetButton.grid_remove()
+    for button in checkButtonArray:
+        button.grid_remove()
 
-    # Prompt for the file
-    f = tkFileDialog.askopenfile(parent=root, mode='rb', title='Choose a file')
-    while f is None:
-        f = tkFileDialog.askopenfile(parent=root, mode='rb', title='Choose a file')
+    # Add the keywords to be looked for
+    checkSelectedKeywords()
 
-    # Format the tree with columns and scrollbars that resize
+    # Add in tree structure settings to expand
     treeStructure.column("#0", stretch=TRUE)
-    ysb = ttk.Scrollbar(root, orient='vertical', command=treeStructure.yview)
-    xsb = ttk.Scrollbar(root, orient='horizontal', command=treeStructure.xview)
     treeStructure.configure(yscroll=ysb.set, xscroll=xsb.set)
     treeStructure.heading('#0', text="Methods Tree", anchor='w')
     treeStructure.grid(row=0, column=0, sticky='nsew')
@@ -37,10 +51,9 @@ def choosefile():
     hierarchicalLevel = 0
     stack = []
 
-    for line in f:   # Iterate over the rest of lines in the file
+    for line in logFile:   # Iterate over the rest of lines in the file
         if "|" in line:  # Separate lines by the pipe and remove newline characters
-            line = line.rstrip('\n')  # Remove the newline characters
-            splitLine = line.split("|")  # Split into array by pipes
+            splitLine = line.rstrip('\n').split("|")  # Split into array by pipes
             if splitLine[1] in startingKeywords:  # Check if the name is
                 hierarchicalLevel += 1
                 if len(stack) == 0:
@@ -51,60 +64,48 @@ def choosefile():
                 hierarchicalLevel -= 1
                 stack.pop()
 
-    f.close()  # close the file when everything is done
-    return
+    logFile.close()  # close the file when everything is done
+    resetButton.grid()  # add the reset button onto the side
+    root.mainloop()
 
 
 ########################################################################################################################
 def initialMenu():
     # Remove other widgets
     treeStructure.grid_remove()
+    xsb.grid_remove()
+    ysb.grid_remove()
+    root.columnconfigure(0, weight=0)
+    root.rowconfigure(0, weight=0)
 
-
-    '''
-    callout.set('on')
-    codeUnit.set('on')
-    cumulativeProfiling.set('on')
-    dml.set('on')
-    method.set('on')
-    soql.set('on')
-    sosl.set('on')
-    systemMode.set('on')
-    validationRule.set('on')
-    visualforceDeserialize.set('on')
-    visualforceEvaluate.set('on')
-    visualforceSerialize.set('on')
-    workflow.set('on')
-    '''
-
-    # Put widgets on the frame
+    # Put initial widgets on the frame
     fileButton.grid(row=0, column=0, sticky='nesw')
     pasteButton.grid(row=0, column=1, sticky='nesw')
+    resetButton.grid(row=0, column=2, sticky='nesw')
 
-    # Put widgets on the frame and set default values for buttons
+    # Put checkbuttons on the frame and set default values for buttons as checkmarked
     for button in checkButtonArray:
         button.grid(sticky='w')
+        button.state(['selected'])  # Sets the internal state as having been selected
+        button.invoke()  # invoked twice to make the checkmarks appear correctly
         button.invoke()
 
-    '''
-    calloutCheck.grid(sticky='w')
-    codeUnitCheck.grid(sticky='w')
-    cumulativeProfilingCheck.grid(sticky='w')
-    dmlCheck.grid(sticky='w')
-    methodCheck.grid(sticky='w')
-    soqlCheck.grid(sticky='w')
-    soslCheck.grid(sticky='w')
-    systemModeCheck.grid(sticky='w')
-    validationRuleCheck.grid(sticky='w')
-    visualforceDeserializCheck.grid(sticky='w')
-    visualforceEvaluateCheck.grid(sticky='w')
-    visualforceSerializeCheck.grid(sticky='w')
-    workflowCheck.grid(sticky='w')
-    '''
+    root.mainloop()
 
 
 ########################################################################################################################
-# Global variables for things that increase, decrease, and the level of hierarchy currently at
+def chooseFile():
+    # Prompt for the file
+    logFile = tkFileDialog.askopenfile(parent=root, mode='rb', title='Choose a file')
+
+    # Go back to menu if a file wasn't chosen such as cancel or close
+    if logFile is None:
+        initialMenu()
+    else:
+        processLog(logFile)
+
+########################################################################################################################
+# Global variables for things that increase and decrease the level of hierarchy currently at
 startingKeywords = ['CALLOUT_REQUEST', 'CODE_UNIT_STARTED',
               'CUMULATIVE_PROFILING_BEGIN', 'DML_BEGIN', 'METHOD_ENTRY', 'SOQL_EXECUTE_BEGIN',
               'SOSL_EXECUTE_BEGIN', 'SYSTEM_MODE_ENTER', 'VALIDATION_RULE',
@@ -117,53 +118,45 @@ endingKeywords = ['CALLOUT_RESPONSE', 'CODE_UNIT_FINISHED',
               'VF_DESERIALIZE_VIEWSTATE_END', 'VF_EVALUATE_FORMULA_END',
               'VF_SERIALIZE_VIEWSTATE_END', 'WF_CRITERIA_END']
 
-keywordsChosen = []
-checkButtonArray = []
+# Translation to a friendlier output for the checkbuttons
+keywordTranslations = {'CALLOUT_REQUEST': 'Callout Requests',
+              'CODE_UNIT_STARTED': 'Code Units',
+              'CONSTRUCTOR_ENTRY': 'Constructors',
+              'CUMULATIVE_LIMIT_USAGE': 'Cumulative Limits',
+              'CUMULATIVE_PROFILING_BEGIN': 'Cumulative Profilings',
+              'DML_BEGIN': 'DML Operations',
+              'EXECUTION_STARTED': 'Executions',
+              'METHOD_ENTRY': 'Methods',
+              'SOQL_EXECUTE_BEGIN': 'SOQL Queries',
+              'SOSL_EXECUTE_BEGIN': 'SOSL Queries',
+              'SYSTEM_CONSTRUCTOR_ENTRY': 'System Constructors',
+              'SYSTEM_METHOD_ENTRY': 'System Methods',
+              'SYSTEM_MODE_ENTER': 'System Modes',
+              'VARIABLE_SCOPE_BEGIN': 'Variable Scopes',
+              'VALIDATION_RULE': 'Validation Rules',
+              'VF_DESERIALIZE_VIEWSTATE_BEGIN': 'Visualforce Deserialize',
+              'VF_EVALUATE_FORMULA_BEGIN': 'Visualforce Evaluate',
+              'VF_SERIALIZE_VIEWSTATE_BEGIN': 'Visualforce Serialize',
+              'WF_CRITERIA_BEGIN': 'Workflow Rules',
+              'WF_RULE_EVAL_BEGIN': 'Workflow Evaluations'}
 
-# Initiate the windows
+keywordsChosen = []  # empty list to hold keywords that will be selected
+checkButtonArray = []  # empty list to hold checkbuttons that will be created
+
+# Initiate the window
 root = Tk()
 root.title("Salesforce Debug Methods Tree")
 root.geometry("800x600")
 
-# Variables to store Checkbutton info
-callout = StringVar()
-codeUnit = StringVar()
-cumulativeProfiling = StringVar()
-dml = StringVar()
-method = StringVar()
-soql = StringVar()
-sosl = StringVar()
-systemMode = StringVar()
-validationRule = StringVar()
-visualforceDeserialize = StringVar()
-visualforceEvaluate = StringVar()
-visualforceSerialize = StringVar()
-workflow = StringVar()
-
 # Buttons to be created
-fileButton = ttk.Button(root, text="Choose File", command=lambda: choosefile())
+fileButton = ttk.Button(root, text="Choose File", command=lambda: chooseFile())
 pasteButton = ttk.Button(root, text="Paste Log")
+resetButton = ttk.Button(root, text="Reset", command=lambda: initialMenu())
 
 # Checkbuttons
 for keyword in startingKeywords:
-    newCheckButton = ttk.Checkbutton(root, text=DebugTypeInfo.convertName(keyword))
+    newCheckButton = ttk.Checkbutton(root, text=keywordTranslations[keyword], onvalue=keyword, offvalue='off')
     checkButtonArray.append(newCheckButton)
-
-'''
-calloutCheck = ttk.Checkbutton(root, text='Callout Requests', variable=callout, onvalue='on', offvalue='off')
-codeUnitCheck = ttk.Checkbutton(root, text='Code Units', variable=codeUnit, onvalue='on', offvalue='off')
-cumulativeProfilingCheck = ttk.Checkbutton(root, text='Cumulative Profiling', variable=cumulativeProfiling, onvalue='on', offvalue='off')
-dmlCheck = ttk.Checkbutton(root, text='DML', variable=dml, onvalue='on', offvalue='off')
-methodCheck = ttk.Checkbutton(root, text='Methods', variable=method, onvalue='on', offvalue='off')
-soqlCheck = ttk.Checkbutton(root, text='SOQL', variable=soql, onvalue='on', offvalue='off')
-soslCheck = ttk.Checkbutton(root, text='SOSL', variable=sosl, onvalue='on', offvalue='off')
-systemModeCheck = ttk.Checkbutton(root, text='System Modes', variable=systemMode, onvalue='on', offvalue='off')
-validationRuleCheck = ttk.Checkbutton(root, text='Validation Rules', variable=validationRule, onvalue='on', offvalue='off')
-visualforceDeserializCheck = ttk.Checkbutton(root, text='Visualforce Deserialize', variable=visualforceDeserialize, onvalue='on', offvalue='off')
-visualforceEvaluateCheck = ttk.Checkbutton(root, text='Visualforce Evaluate', variable=visualforceEvaluate, onvalue='on', offvalue='off')
-visualforceSerializeCheck = ttk.Checkbutton(root, text='Visualforce Serialize', variable=visualforceSerialize, onvalue='on', offvalue='off')
-workflowCheck = ttk.Checkbutton(root, text='Workflows', variable=workflow, onvalue='on', offvalue='off')
-'''
 
 # Create the images
 blankImage = PhotoImage(file='blank.gif')
@@ -198,6 +191,10 @@ images = {'CALLOUT_REQUEST': blankImage,
 
 # Create the Treeview
 treeStructure = ttk.Treeview(root, selectmode="extended")
+
+# Create scrollbars to be added to tree structure later
+ysb = ttk.Scrollbar(root, orient='vertical', command=treeStructure.yview)
+xsb = ttk.Scrollbar(root, orient='horizontal', command=treeStructure.xview)
 
 # Startup
 initialMenu()
