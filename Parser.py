@@ -7,7 +7,6 @@ import DebugTypeInfo
 
 
 def choosefile():
-    print "Inside choosefile"
     f = tkFileDialog.askopenfile(parent=root,mode='rb',title='Choose a file')
     while f is None:
         f = tkFileDialog.askopenfile(parent=root,mode='rb',title='Choose a file')
@@ -52,16 +51,12 @@ def choosefile():
                 stack.pop()
 
     f.close()  # close the file when everything is done
-    root.mainloop()  # Keeps the window open and running
 
-def initialMenu(root):
-    button = ttk.Button(root, text="Choose File", command="choosefile()")
-    button.grid()
-    #button.bind(choosefile())
-    print "Done with initial"
-
-
-
+def initialMenu():
+    fileButton = ttk.Button(root, text="Choose File", command=lambda: choosefile())
+    pasteButton = ttk.Button(root, text="Paste Log")
+    fileButton.grid()
+    pasteButton.grid()
 
 
 # Global variables for things that increase, decrease, and the level of hierarchy currently at
@@ -101,7 +96,7 @@ formatting = {'CALLOUT_REQUEST': 1,
 root = Tk()
 root.title("Salesforce Debug Methods Tree")
 root.geometry("800x600")
-initialMenu(root)
+initialMenu()
 root.mainloop()
 
 
