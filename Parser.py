@@ -31,8 +31,8 @@ def choosefile():
 
     # Variables
     currLevel = 0
-    currChild = 0
     stack = []
+    gear = PhotoImage(file='C:\Users\oscar\.PyCharm40\SFLogParser\gear_happy2.gif')
 
     # Iterate over the rest of lines in the file
     for line in f:
@@ -42,10 +42,11 @@ def choosefile():
             splitLine = line.split("|")
             if splitLine[1] in increasers:
                 currLevel += 1
+                label = ttk.Label(root)
                 if len(stack) == 0:
-                    stack.append(structure.insert('', 'end', text=DebugTypeInfo.process(splitLine)))
+                    stack.append(structure.insert('', 'end', text=DebugTypeInfo.process(splitLine), image=gear))
                 else:
-                    stack.append(structure.insert(stack[len(stack)-1], 'end', text=DebugTypeInfo.process(splitLine)))
+                    stack.append(structure.insert(stack[len(stack)-1], 'end', image=gear, text=DebugTypeInfo.process(splitLine)))
             elif splitLine[1] in decreasers:
                 currLevel -= 1
                 stack.pop()
