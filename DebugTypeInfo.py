@@ -1,6 +1,5 @@
 __author__ = 'oxsc'
 
-from Tkinter import *
 
 def getInfo(infoArray):
     infoArray = infoArray
@@ -47,15 +46,48 @@ def getInfo(infoArray):
     elif debugType == 'WF_RULE_EVAL_BEGIN':
         return infoArray[1]
 
-def getImage(debugType):
 
+def convertName(debugType):
 
-    if debugType == 'WF_CRITERIA_BEGIN':
-        gear = PhotoImage(file='gear_happy2.gif')
-        return gear
+    if debugType == 'CALLOUT_REQUEST':
+        return 'Callout Requests'
+    elif debugType == 'CODE_UNIT_STARTED':
+        return 'Code Units'
+    elif debugType == 'CONSTRUCTOR_ENTRY':
+        return 'Constructors'
+    elif debugType == 'CUMULATIVE_LIMIT_USAGE':
+        return 'Cumulative Limits'
+    elif debugType == 'CUMULATIVE_PROFILING_BEGIN':
+        return 'Cumulative Profilings'
+    elif debugType == 'DML_BEGIN':
+        return 'DML Operations'
+    elif debugType == 'EXECUTION_STARTED':
+        return 'Executions'
+    elif debugType == 'METHOD_ENTRY':
+        return 'Methods'
+    elif debugType == 'SOQL_EXECUTE_BEGIN':
+        return 'SOQL Queries'
+    elif debugType == 'SOSL_EXECUTE_BEGIN':
+        return 'SOSL Queries'
+    elif debugType == 'SYSTEM_CONSTRUCTOR_ENTRY':
+        return 'System Constructors'
+    elif debugType == 'SYSTEM_METHOD_ENTRY':
+        return 'System Methods'
+    elif debugType == 'SYSTEM_MODE_ENTER':
+        return 'System Modes'
+    elif debugType == 'VALIDATION_RULE':
+        return 'Validation Rules'
+    elif debugType == 'VARIABLE_SCOPE_BEGIN':
+        return 'Variable Scopes'
+    elif debugType == 'VF_DESERIALIZE_VIEWSTATE_BEGIN':
+        return 'Visualforce Deserialize'
+    elif debugType == 'VF_EVALUATE_FORMULA_BEGIN':
+        return 'Visualforce Evaluate'
+    elif debugType == 'VF_SERIALIZE_VIEWSTATE_BEGIN':
+        return 'Visualforce Serialize'
+    elif debugType == 'WF_CRITERIA_BEGIN':
+        return 'Workflow Rules'
     elif debugType == 'WF_RULE_EVAL_BEGIN':
-        gear = PhotoImage(file='gear_happy2.gif')
-        return gear
-
-    blank = PhotoImage(file='gear_happy2.gif')
-    return blank
+        return 'Workflow Evaluations'
+    else:
+        return debugType

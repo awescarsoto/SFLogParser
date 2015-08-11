@@ -26,3 +26,5 @@ http://www.tkdocs.com/tutorial/widgets.html#button
 
 Options checkboxes:
 http://www.tkdocs.com/tutorial/widgets.html#checkbutton
+
+* Create automated checkboxes and such
