@@ -5,6 +5,36 @@ import tkFileDialog
 import ttk
 import DebugTypeInfo
 
+########################################################################################################################
+def getTreeReady():
+    # Clear the tree
+    treeStructure.delete(*treeStructure.get_children())
+
+    # Remove other widgets from view
+    fileButton.grid_remove()
+    pasteButton.grid_remove()
+    resetButton.grid_remove()
+    logEntry.grid_remove()
+    continueButton.grid_remove()
+    logYScrolling.grid_remove()
+    for button in checkButtonArray:
+        button.grid_remove()
+
+    # Add in tree structure settings to expand
+    treeStructure.column("#0", stretch=TRUE)
+    treeStructure.heading('#0', text="Methods Tree", anchor='w')
+    treeStructure.grid(row=0, column=0, sticky='nsew')
+    treeStructure.columnconfigure(0, weight=1)
+    treeYScrolling.grid(row=0, column=1, sticky='nse')
+    treeXScrolling.grid(row=1, column=0, sticky='sew')
+    treeStructure.grid(sticky="nesw")
+    root.columnconfigure(0, weight=1)
+    root.rowconfigure(0, weight=1)
+    treeStructure.columnconfigure(0, weight=1)
+    treeStructure.rowconfigure(0, weight=1)
+
+    return
+
 
 ########################################################################################################################
 def checkSelectedKeywords():
@@ -19,35 +49,12 @@ def checkSelectedKeywords():
 
 
 ########################################################################################################################
-def processLog(logFile):
-    # Clear the tree
-    treeStructure.delete(*treeStructure.get_children())
-
-    # Remove other widgets from view
-    fileButton.grid_remove()
-    pasteButton.grid_remove()
-    resetButton.grid_remove()
-    logEntry.grid_remove()
-    continueButton.grid_remove()
-    logYScrolling.grid_remove()
-    for button in checkButtonArray:
-        button.grid_remove()
-
+def processLogFile(logFile):
     # Add the keywords to be looked for
     checkSelectedKeywords()
 
-    # Add in tree structure settings to expand
-    treeStructure.column("#0", stretch=TRUE)
-    treeStructure.heading('#0', text="Methods Tree", anchor='w')
-    treeStructure.grid(row=0, column=0, sticky='nsew')
-    treeStructure.columnconfigure(0, weight=1)
-    treeYScrolling.grid(row=0, column=1, sticky='nse')
-    treeXScrolling.grid(row=1, column=0, sticky='sew')
-    treeStructure.grid(sticky="nesw")
-    root.columnconfigure(0, weight=1)
-    root.rowconfigure(0, weight=1)
-    treeStructure.columnconfigure(0, weight=1)
-    treeStructure.rowconfigure(0, weight=1)
+    # Get the tree ready
+    getTreeReady()
 
     # Variables
     hierarchicalLevel = 0
@@ -66,8 +73,42 @@ def processLog(logFile):
                 hierarchicalLevel -= 1
                 stack.pop()
 
-    if logFile.
     logFile.close()  # close the file when everything is done
+    resetButton.grid()  # add the reset button onto the side
+    root.mainloop()
+
+########################################################################################################################
+def processPastedLog(log):
+    # Add the keywords to be looked for
+    checkSelectedKeywords()
+
+    # Get the tree ready
+    getTreeReady()
+
+    # Variables
+    hierarchicalLevel = 0
+    stack = []
+
+    log = log.rstrip('\n').split("|")
+    for line in log:
+        print line
+
+    '''
+    for line in log:   # Iterate over the rest of lines in the file
+
+        if "|" in line:  # Separate lines by the pipe and remove newline characters
+            splitLine = line.rstrip('\n').split("|")  # Split into array by pipes
+            if splitLine[1] in startingKeywords:  # Check if the name is
+                hierarchicalLevel += 1
+                if len(stack) == 0:
+                    stack.append(treeStructure.insert('', 'end', text=DebugTypeInfo.getInfo(splitLine), image=images[splitLine[1]]))
+                else:
+                    stack.append(treeStructure.insert(stack[len(stack)-1], 'end', text=DebugTypeInfo.getInfo(splitLine), image=images[splitLine[1]]))
+            elif splitLine[1] in endingKeywords:
+                hierarchicalLevel -= 1
+                stack.pop()
+                '''
+
     resetButton.grid()  # add the reset button onto the side
     root.mainloop()
 
@@ -108,7 +149,7 @@ def chooseFile():
     if logFile is None:
         initialMenu()
     else:
-        processLog(logFile)
+        processLogFile(logFile)
 
 
 ########################################################################################################################
@@ -124,6 +165,9 @@ def pasteLog():
     resetButton.grid_remove()
     for button in checkButtonArray:
         button.grid_remove()
+
+    # Clear the log
+    logEntry.delete(1.0, END)
 
     # Add the paste widget
     logYScrolling.grid(row=0, column=1, sticky='nse')
@@ -181,7 +225,7 @@ root.geometry("800x600")
 fileButton = ttk.Button(root, text="Choose File", command=lambda: chooseFile())
 pasteButton = ttk.Button(root, text="Paste Log", command=lambda: pasteLog())
 resetButton = ttk.Button(root, text="Reset", command=lambda: initialMenu())
-continueButton = ttk.Button(root, text="Continue", command=lambda: processLog(logEntry.get(1.0, END)))
+continueButton = ttk.Button(root, text="Continue", command=lambda: processPastedLog(logEntry.get(1.0, 2.0)))
 
 # Checkbuttons
 for keyword in startingKeywords:
