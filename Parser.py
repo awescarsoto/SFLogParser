@@ -5,6 +5,68 @@ import tkFileDialog
 import ttk
 import DebugTypeInfo
 
+
+def getImage(logLines, index):
+
+    currentLine = logLines[index]
+    splitCurrent = currentLine.rstrip('\n').split("|")
+    debugType = splitCurrent[1]
+
+    if debugType == 'CALLOUT_REQUEST':
+        return blankImage
+    elif debugType == 'CODE_UNIT_STARTED':
+        return blankImage
+    elif debugType == 'CONSTRUCTOR_ENTRY':
+        return blankImage
+    elif debugType == 'CUMULATIVE_LIMIT_USAGE':
+        return  blankImage
+    elif debugType == 'CUMULATIVE_PROFILING_BEGIN':
+        return blankImage
+    elif debugType == 'DML_BEGIN':
+        return dmlImage
+    elif debugType == 'EXECUTION_STARTED':
+        return blankImage
+    elif debugType == 'METHOD_ENTRY':
+        return blankImage
+    elif debugType == 'SOQL_EXECUTE_BEGIN':
+        return soqlImage
+    elif debugType == 'SOSL_EXECUTE_BEGIN':
+        return soslImage
+    elif debugType == 'SYSTEM_CONSTRUCTOR_ENTRY':
+        return blankImage
+    elif debugType == 'SYSTEM_METHOD_ENTRY':
+        return blankImage
+    elif debugType == 'SYSTEM_MODE_ENTER':
+        return blankImage
+    elif debugType == 'VARIABLE_SCOPE_BEGIN':
+        return blankImage
+    elif debugType == 'VALIDATION_RULE':
+        for x in range(index, len(logLines)):
+            currentLine = logLines[x]
+            if "|" in currentLine:
+                passOrFailLine = currentLine.rstrip('\n').split("|")
+                passOrFail = passOrFailLine[1]
+                if passOrFail == "VALIDATION_PASS":
+                    return passImage
+                if passOrFail == "VALIDATION_FAIL":
+                    return failImage
+                if passOrFail == "VALIDATION_ERROR":
+                    return failImage
+        return failImage
+    elif debugType == 'VF_DESERIALIZE_VIEWSTATE_BEGIN':
+        return visualForceImage
+    elif debugType == 'VF_EVALUATE_FORMULA_BEGIN':
+        return visualForceImage
+    elif debugType == 'VF_SERIALIZE_VIEWSTATE_BEGIN':
+        return visualForceImage
+    elif debugType == 'WF_CRITERIA_BEGIN':
+        return workflowImage
+    elif debugType == 'WF_RULE_EVAL_BEGIN':
+        return workflowImage
+
+    return blankImage
+
+
 ########################################################################################################################
 def getTreeReady():
     # Clear the tree
@@ -14,6 +76,8 @@ def getTreeReady():
     fileButton.grid_remove()
     pasteButton.grid_remove()
     resetButton.grid_remove()
+    selectButton.grid_remove()
+    deselectButton.grid_remove()
     logEntry.grid_remove()
     continueButton.grid_remove()
     logYScrolling.grid_remove()
@@ -59,16 +123,21 @@ def processLogFile(logFile):
     # Variables
     hierarchicalLevel = 0
     stack = []
+    lines = []
 
-    for line in logFile:   # Iterate over the rest of lines in the file
-        if "|" in line:  # Separate lines by the pipe and remove newline characters
-            splitLine = line.rstrip('\n').split("|")  # Split into array by pipes
+    # Add lines to array as a buffer
+    for line in logFile:
+        lines.append(line)
+
+    for x in range(0, len(lines)):   # Iterate over the rest of lines in the file
+        if "|" in lines[x]:  # Separate lines by the pipe and remove newline characters
+            splitLine = lines[x].rstrip('\n').split("|")  # Split into array by pipes
             if splitLine[1] in startingKeywords:  # Check if the name is
                 hierarchicalLevel += 1
                 if len(stack) == 0:
-                    stack.append(treeStructure.insert('', 'end', text=DebugTypeInfo.getInfo(splitLine), image=images[splitLine[1]]))
+                    stack.append(treeStructure.insert('', 'end', text=DebugTypeInfo.getInfo(splitLine), image=getImage(lines, x)))
                 else:
-                    stack.append(treeStructure.insert(stack[len(stack)-1], 'end', text=DebugTypeInfo.getInfo(splitLine), image=images[splitLine[1]]))
+                    stack.append(treeStructure.insert(stack[len(stack)-1], 'end', text=DebugTypeInfo.getInfo(splitLine), image=getImage(lines, x)))
             elif splitLine[1] in endingKeywords:
                 hierarchicalLevel -= 1
                 stack.pop()
@@ -88,27 +157,51 @@ def processPastedLog(log):
     # Variables
     hierarchicalLevel = 0
     stack = []
+    lines = []
 
     # Determine amount of lines to create a for loop
-    lines = int(log.index('end-1c').split('.')[0])
+    numLines = int(log.index('end-1c').split('.')[0])
 
     # Go through and grab each line
-    for x in range(1, lines):
+    for x in range(1, numLines):
         line = log.get(float(x), float(x+1))
-        if "|" in line:  # Separate lines by the pipe and remove newline characters
-            splitLine = line.rstrip('\n').split("|")  # Split into array by pipes
+        lines.append(line)
+
+    for x in range(0, len(lines)):   # Iterate over the rest of lines in the file
+        if "|" in lines[x]:  # Separate lines by the pipe and remove newline characters
+            splitLine = lines[x].rstrip('\n').split("|")  # Split into array by pipes
             if splitLine[1] in startingKeywords:  # Check if the name is
                 hierarchicalLevel += 1
                 if len(stack) == 0:
-                    stack.append(treeStructure.insert('', 'end', text=DebugTypeInfo.getInfo(splitLine), image=images[splitLine[1]]))
+                    stack.append(treeStructure.insert('', 'end', text=DebugTypeInfo.getInfo(splitLine), image=getImage(lines, x)))
                 else:
-                    stack.append(treeStructure.insert(stack[len(stack)-1], 'end', text=DebugTypeInfo.getInfo(splitLine), image=images[splitLine[1]]))
+                    stack.append(treeStructure.insert(stack[len(stack)-1], 'end', text=DebugTypeInfo.getInfo(splitLine), image=getImage(lines, x)))
             elif splitLine[1] in endingKeywords:
                 hierarchicalLevel -= 1
                 stack.pop()
 
     resetButton.grid()  # add the reset button onto the side
     root.mainloop()
+
+
+########################################################################################################################
+def selectAll():
+    for button in checkButtonArray:
+        button.grid(sticky='w')
+        button.state(['selected'])  # Sets the internal state as having been selected
+        button.invoke()  # invoked twice to make the checkmarks appear correctly
+        button.invoke()
+    return
+
+
+########################################################################################################################
+def deselectAll():
+    for button in checkButtonArray:
+        button.grid(sticky='w')
+        button.state(['!selected'])  # Sets the internal state as having been selected
+        button.invoke()  # invoked twice to make the checkmarks appear correctly
+        button.invoke()
+    return
 
 
 ########################################################################################################################
@@ -127,6 +220,8 @@ def initialMenu():
     fileButton.grid(row=0, column=0, sticky='nesw')
     pasteButton.grid(row=0, column=1, sticky='nesw')
     resetButton.grid(row=0, column=2, sticky='nesw')
+    selectButton.grid(row=1, column=0, sticky='nesw')
+    deselectButton.grid(row=1, column=1, sticky='nesw')
 
     # Put checkbuttons on the frame and set default values for buttons as checkmarked
     for button in checkButtonArray:
@@ -224,6 +319,8 @@ fileButton = ttk.Button(root, text="Choose File", command=lambda: chooseFile())
 pasteButton = ttk.Button(root, text="Paste Log", command=lambda: pasteLog())
 resetButton = ttk.Button(root, text="Reset", command=lambda: initialMenu())
 continueButton = ttk.Button(root, text="Continue", command=lambda: processPastedLog(logEntry))
+selectButton = ttk.Button(root, text="Select All", command=lambda: selectAll())
+deselectButton = ttk.Button(root, text="Deselect All", command=lambda: deselectAll())
 
 # Checkbuttons
 for keyword in startingKeywords:
@@ -238,28 +335,8 @@ visualForceImage = PhotoImage(file='VF.gif')
 dmlImage = PhotoImage(file='DML.gif')
 soslImage = PhotoImage(file='SOSL.gif')
 soqlImage = PhotoImage(file='SOQL.gif')
-
-# Associate the images in a dictionary
-images = {'CALLOUT_REQUEST': blankImage,
-              'CODE_UNIT_STARTED': blankImage,
-              'CONSTRUCTOR_ENTRY': blankImage,
-              'CUMULATIVE_LIMIT_USAGE': blankImage,
-              'CUMULATIVE_PROFILING_BEGIN': blankImage,
-              'DML_BEGIN': dmlImage,
-              'EXECUTION_STARTED': blankImage,
-              'METHOD_ENTRY': blankImage,
-              'SOQL_EXECUTE_BEGIN': soqlImage,
-              'SOSL_EXECUTE_BEGIN': soslImage,
-              'SYSTEM_CONSTRUCTOR_ENTRY': blankImage,
-              'SYSTEM_METHOD_ENTRY': blankImage,
-              'SYSTEM_MODE_ENTER': blankImage,
-              'VARIABLE_SCOPE_BEGIN': blankImage,
-              'VALIDATION_RULE': validationRuleImage,
-              'VF_DESERIALIZE_VIEWSTATE_BEGIN': visualForceImage,
-              'VF_EVALUATE_FORMULA_BEGIN': visualForceImage,
-              'VF_SERIALIZE_VIEWSTATE_BEGIN': visualForceImage,
-              'WF_CRITERIA_BEGIN': workflowImage,
-              'WF_RULE_EVAL_BEGIN': workflowImage}
+passImage = PhotoImage(file='pass.gif')
+failImage = PhotoImage(file='fail.gif')
 
 # Create the Treeview
 treeStructure = ttk.Treeview(root, selectmode="extended")
