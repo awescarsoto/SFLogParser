@@ -27,6 +27,9 @@ def processLog(logFile):
     fileButton.grid_remove()
     pasteButton.grid_remove()
     resetButton.grid_remove()
+    logEntry.grid_remove()
+    continueButton.grid_remove()
+    logYScrolling.grid_remove()
     for button in checkButtonArray:
         button.grid_remove()
 
@@ -35,12 +38,11 @@ def processLog(logFile):
 
     # Add in tree structure settings to expand
     treeStructure.column("#0", stretch=TRUE)
-    treeStructure.configure(yscroll=ysb.set, xscroll=xsb.set)
     treeStructure.heading('#0', text="Methods Tree", anchor='w')
     treeStructure.grid(row=0, column=0, sticky='nsew')
     treeStructure.columnconfigure(0, weight=1)
-    ysb.grid(row=0, column=1, sticky='nse')
-    xsb.grid(row=1, column=0, sticky='sew')
+    treeYScrolling.grid(row=0, column=1, sticky='nse')
+    treeXScrolling.grid(row=1, column=0, sticky='sew')
     treeStructure.grid(sticky="nesw")
     root.columnconfigure(0, weight=1)
     root.rowconfigure(0, weight=1)
@@ -64,6 +66,7 @@ def processLog(logFile):
                 hierarchicalLevel -= 1
                 stack.pop()
 
+    if logFile.
     logFile.close()  # close the file when everything is done
     resetButton.grid()  # add the reset button onto the side
     root.mainloop()
@@ -73,8 +76,11 @@ def processLog(logFile):
 def initialMenu():
     # Remove other widgets
     treeStructure.grid_remove()
-    xsb.grid_remove()
-    ysb.grid_remove()
+    treeXScrolling.grid_remove()
+    treeYScrolling.grid_remove()
+    logYScrolling.grid_remove()
+    logEntry.grid_remove()
+    continueButton.grid_remove()
     root.columnconfigure(0, weight=0)
     root.rowconfigure(0, weight=0)
 
@@ -103,6 +109,29 @@ def chooseFile():
         initialMenu()
     else:
         processLog(logFile)
+
+
+########################################################################################################################
+def pasteLog():
+    # Remove other widgets
+    treeStructure.grid_remove()
+    treeXScrolling.grid_remove()
+    treeYScrolling.grid_remove()
+    root.columnconfigure(0, weight=1)
+    root.rowconfigure(0, weight=1)
+    fileButton.grid_remove()
+    pasteButton.grid_remove()
+    resetButton.grid_remove()
+    for button in checkButtonArray:
+        button.grid_remove()
+
+    # Add the paste widget
+    logYScrolling.grid(row=0, column=1, sticky='nse')
+    logEntry.grid(row=0, column=0, sticky="nesw")
+    continueButton.grid(row=1, column=0, sticky='nesw')
+    resetButton.grid(row=2, column=0)
+
+    return
 
 ########################################################################################################################
 # Global variables for things that increase and decrease the level of hierarchy currently at
@@ -150,8 +179,9 @@ root.geometry("800x600")
 
 # Buttons to be created
 fileButton = ttk.Button(root, text="Choose File", command=lambda: chooseFile())
-pasteButton = ttk.Button(root, text="Paste Log")
+pasteButton = ttk.Button(root, text="Paste Log", command=lambda: pasteLog())
 resetButton = ttk.Button(root, text="Reset", command=lambda: initialMenu())
+continueButton = ttk.Button(root, text="Continue", command=lambda: processLog(logEntry.get(1.0, END)))
 
 # Checkbuttons
 for keyword in startingKeywords:
@@ -193,8 +223,14 @@ images = {'CALLOUT_REQUEST': blankImage,
 treeStructure = ttk.Treeview(root, selectmode="extended")
 
 # Create scrollbars to be added to tree structure later
-ysb = ttk.Scrollbar(root, orient='vertical', command=treeStructure.yview)
-xsb = ttk.Scrollbar(root, orient='horizontal', command=treeStructure.xview)
+treeYScrolling = ttk.Scrollbar(root, orient='vertical', command=treeStructure.yview)
+treeXScrolling = ttk.Scrollbar(root, orient='horizontal', command=treeStructure.xview)
+treeStructure.configure(yscroll=treeYScrolling.set, xscroll=treeXScrolling.set)
+
+# Create place to paste logs
+logEntry = Text(root)
+logYScrolling = ttk.Scrollbar(root, orient='vertical', command=logEntry.yview)
+logEntry.configure(yscroll=logYScrolling.set)
 
 # Startup
 initialMenu()
