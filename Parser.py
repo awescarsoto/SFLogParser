@@ -6,6 +6,7 @@ import ttk
 import DebugTypeInfo
 
 
+########################################################################################################################
 def getImage(logLines, index):
 
     currentLine = logLines[index]
@@ -314,7 +315,7 @@ root = Tk()
 root.title("Salesforce Debug Methods Tree")
 root.geometry("800x600")
 
-# Buttons to be created
+# Create buttons
 fileButton = ttk.Button(root, text="Choose File", command=lambda: chooseFile())
 pasteButton = ttk.Button(root, text="Paste Log", command=lambda: pasteLog())
 resetButton = ttk.Button(root, text="Reset", command=lambda: initialMenu())
@@ -322,7 +323,7 @@ continueButton = ttk.Button(root, text="Continue", command=lambda: processPasted
 selectButton = ttk.Button(root, text="Select All", command=lambda: selectAll())
 deselectButton = ttk.Button(root, text="Deselect All", command=lambda: deselectAll())
 
-# Checkbuttons
+# Create checkbuttons automatically
 for keyword in startingKeywords:
     newCheckButton = ttk.Checkbutton(root, text=keywordTranslations[keyword], onvalue=keyword, offvalue='off')
     checkButtonArray.append(newCheckButton)
