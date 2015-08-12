@@ -16,13 +16,13 @@ def getInfo(infoArray):
     elif debugType == 'CUMULATIVE_PROFILING_BEGIN':
         return infoArray[1]
     elif debugType == 'DML_BEGIN':
-        return "DML: " + infoArray[3][3:] + " " + infoArray[4][5:]
+        return infoArray[3][3:] + " " + infoArray[4][5:]
     elif debugType == 'EXECUTION_STARTED':
         return infoArray[1]
     elif debugType == 'METHOD_ENTRY':
         return "Method: " + infoArray[len(infoArray)-1]
     elif debugType == 'SOQL_EXECUTE_BEGIN':
-        return "SOQL: " + infoArray[len(infoArray)-1]
+        return infoArray[len(infoArray)-1]
     elif debugType == 'SOSL_EXECUTE_BEGIN':
         return infoArray[1]
     elif debugType == 'SYSTEM_CONSTRUCTOR_ENTRY':
@@ -32,7 +32,7 @@ def getInfo(infoArray):
     elif debugType == 'SYSTEM_MODE_ENTER':
         return infoArray[1]
     elif debugType == 'VALIDATION_RULE':
-        return "Validation Rule: " + infoArray[len(infoArray)-1]
+        return infoArray[len(infoArray)-1]
     elif debugType == 'VARIABLE_SCOPE_BEGIN':
         return infoArray[1]
     elif debugType == 'VF_DESERIALIZE_VIEWSTATE_BEGIN':
@@ -42,6 +42,6 @@ def getInfo(infoArray):
     elif debugType == 'VF_SERIALIZE_VIEWSTATE_BEGIN':
         return infoArray[1]
     elif debugType == 'WF_CRITERIA_BEGIN':
-        return "Workflow Rule: " + infoArray[3]
+        return infoArray[3]
     elif debugType == 'WF_RULE_EVAL_BEGIN':
         return infoArray[1]

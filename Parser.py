@@ -89,13 +89,12 @@ def processPastedLog(log):
     hierarchicalLevel = 0
     stack = []
 
-    log = log.rstrip('\n').split("|")
-    for line in log:
-        print line
+    # Determine amount of lines to create a for loop
+    lines = int(log.index('end-1c').split('.')[0])
 
-    '''
-    for line in log:   # Iterate over the rest of lines in the file
-
+    # Go through and grab each line
+    for x in range(1, lines):
+        line = log.get(float(x), float(x+1))
         if "|" in line:  # Separate lines by the pipe and remove newline characters
             splitLine = line.rstrip('\n').split("|")  # Split into array by pipes
             if splitLine[1] in startingKeywords:  # Check if the name is
@@ -107,7 +106,6 @@ def processPastedLog(log):
             elif splitLine[1] in endingKeywords:
                 hierarchicalLevel -= 1
                 stack.pop()
-                '''
 
     resetButton.grid()  # add the reset button onto the side
     root.mainloop()
@@ -225,7 +223,7 @@ root.geometry("800x600")
 fileButton = ttk.Button(root, text="Choose File", command=lambda: chooseFile())
 pasteButton = ttk.Button(root, text="Paste Log", command=lambda: pasteLog())
 resetButton = ttk.Button(root, text="Reset", command=lambda: initialMenu())
-continueButton = ttk.Button(root, text="Continue", command=lambda: processPastedLog(logEntry.get(1.0, 2.0)))
+continueButton = ttk.Button(root, text="Continue", command=lambda: processPastedLog(logEntry))
 
 # Checkbuttons
 for keyword in startingKeywords:
