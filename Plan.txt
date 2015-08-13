@@ -1,11 +1,8 @@
 To-do:
-* Add validation rules names and green or red pictures to denote pass or fail
 * Workflow pass and fail
 * Need to find formatting for each log type
-* Need to put image in the formatting to denote the type
 * Create columns for timestamps
 * Provide ways to get extra info provided in certain debugs
-* Paste needs to be multiline
 
 
 Start of Program:
@@ -32,3 +29,6 @@ http://www.tkdocs.com/tutorial/widgets.html#checkbutton
 
 Done:
  * Automated checkboxes based off of keywords
+ * Paste needs to be multiline
+ * Need to put image in the formatting to denote the type
+ * Add validation rules names and green or red pictures to denote pass or fail

@@ -7,11 +7,11 @@ import DebugTypeInfo
 
 
 ########################################################################################################################
-def getImage(logLines, index):
+def getImage(logLines, index):  # Used for sending back the image matching the debug type and other factors
 
-    currentLine = logLines[index]
-    splitCurrent = currentLine.rstrip('\n').split("|")
-    debugType = splitCurrent[1]
+    currentLine = logLines[index]  # The line that was currently sent to the function
+    splitCurrent = currentLine.rstrip('\n').split("|")  # Remove the newline character and split it by the pipes
+    debugType = splitCurrent[1]  # This is our debug identifier at index 1
 
     if debugType == 'CALLOUT_REQUEST':
         return blankImage
@@ -42,18 +42,15 @@ def getImage(logLines, index):
     elif debugType == 'VARIABLE_SCOPE_BEGIN':
         return blankImage
     elif debugType == 'VALIDATION_RULE':
-        for x in range(index, len(logLines)):
+        for x in range(index, len(logLines)):  # Look at the next few lines until the validation pass or fail
             currentLine = logLines[x]
-            if "|" in currentLine:
-                passOrFailLine = currentLine.rstrip('\n').split("|")
-                passOrFail = passOrFailLine[1]
-                if passOrFail == "VALIDATION_PASS":
-                    return passImage
-                if passOrFail == "VALIDATION_FAIL":
-                    return failImage
-                if passOrFail == "VALIDATION_ERROR":
-                    return failImage
-        return failImage
+            if "VALIDATION_PASS" in currentLine:
+                return passImage
+            if "VALIDATION_FAIL" in currentLine:
+                return failImage
+            if "VALIDATION_ERROR" in currentLine:
+                return failImage
+        return failImage  # In case something wasn't picked up
     elif debugType == 'VF_DESERIALIZE_VIEWSTATE_BEGIN':
         return visualForceImage
     elif debugType == 'VF_EVALUATE_FORMULA_BEGIN':
@@ -65,7 +62,7 @@ def getImage(logLines, index):
     elif debugType == 'WF_RULE_EVAL_BEGIN':
         return workflowImage
 
-    return blankImage
+    return blankImage  # In case none of these were hit
 
 
 ########################################################################################################################
@@ -85,7 +82,7 @@ def getTreeReady():
     for button in checkButtonArray:
         button.grid_remove()
 
-    # Add in tree structure settings to expand
+    # Add in tree structure settings to expand to fit frame (resizable)
     treeStructure.column("#0", stretch=TRUE)
     treeStructure.heading('#0', text="Methods Tree", anchor='w')
     treeStructure.grid(row=0, column=0, sticky='nsew')
@@ -103,10 +100,10 @@ def getTreeReady():
 
 ########################################################################################################################
 def checkSelectedKeywords():
-    # Clear the list
+    # Clear the keywords list in case of previous
     keywordsChosen[:] = []
 
-    # check if a button was selected and use the value to add it to the list of keywords chosen
+    # check if a button was selected and use the onvalue to add it to the list of keywords chosen
     for button in checkButtonArray:
         if button.instate(['selected']):
             keywordsChosen.append(button['onvalue'])
@@ -122,7 +119,6 @@ def processLogFile(logFile):
     getTreeReady()
 
     # Variables
-    hierarchicalLevel = 0
     stack = []
     lines = []
 
@@ -133,19 +129,18 @@ def processLogFile(logFile):
     for x in range(0, len(lines)):   # Iterate over the rest of lines in the file
         if "|" in lines[x]:  # Separate lines by the pipe and remove newline characters
             splitLine = lines[x].rstrip('\n').split("|")  # Split into array by pipes
-            if splitLine[1] in startingKeywords:  # Check if the name is
-                hierarchicalLevel += 1
-                if len(stack) == 0:
+            if splitLine[1] in startingKeywords:  # Check if the name is the beginning of a new hierarchy
+                if len(stack) == 0:  # Insert a new branch to the root of the tree and add that to our list of branches
                     stack.append(treeStructure.insert('', 'end', text=DebugTypeInfo.getInfo(splitLine), image=getImage(lines, x)))
-                else:
+                else:  # Insert a new branch under the last branch and add it to our known list of branches
                     stack.append(treeStructure.insert(stack[len(stack)-1], 'end', text=DebugTypeInfo.getInfo(splitLine), image=getImage(lines, x)))
-            elif splitLine[1] in endingKeywords:
-                hierarchicalLevel -= 1
+            elif splitLine[1] in endingKeywords:  # Check if the keyword ends a hierarchy and remove the last branch
                 stack.pop()
 
     logFile.close()  # close the file when everything is done
     resetButton.grid()  # add the reset button onto the side
-    root.mainloop()
+    root.mainloop()  # Keeps the window looping until a button is pressed to move it to another function
+
 
 ########################################################################################################################
 def processPastedLog(log):
@@ -156,14 +151,13 @@ def processPastedLog(log):
     getTreeReady()
 
     # Variables
-    hierarchicalLevel = 0
-    stack = []
-    lines = []
+    stack = []  # Holds the branches of the treeview
+    lines = []  # holds all the lines of the log file
 
     # Determine amount of lines to create a for loop
     numLines = int(log.index('end-1c').split('.')[0])
 
-    # Go through and grab each line
+    # Go through and grab each line and add it to the lines array
     for x in range(1, numLines):
         line = log.get(float(x), float(x+1))
         lines.append(line)
@@ -172,21 +166,19 @@ def processPastedLog(log):
         if "|" in lines[x]:  # Separate lines by the pipe and remove newline characters
             splitLine = lines[x].rstrip('\n').split("|")  # Split into array by pipes
             if splitLine[1] in startingKeywords:  # Check if the name is
-                hierarchicalLevel += 1
                 if len(stack) == 0:
                     stack.append(treeStructure.insert('', 'end', text=DebugTypeInfo.getInfo(splitLine), image=getImage(lines, x)))
                 else:
                     stack.append(treeStructure.insert(stack[len(stack)-1], 'end', text=DebugTypeInfo.getInfo(splitLine), image=getImage(lines, x)))
             elif splitLine[1] in endingKeywords:
-                hierarchicalLevel -= 1
                 stack.pop()
 
     resetButton.grid()  # add the reset button onto the side
-    root.mainloop()
+    root.mainloop()  # Keep the window looping until button forces it out to other function
 
 
 ########################################################################################################################
-def selectAll():
+def selectAll():  # Select all the buttons
     for button in checkButtonArray:
         button.grid(sticky='w')
         button.state(['selected'])  # Sets the internal state as having been selected
@@ -196,7 +188,7 @@ def selectAll():
 
 
 ########################################################################################################################
-def deselectAll():
+def deselectAll():  # Deselect all the buttons
     for button in checkButtonArray:
         button.grid(sticky='w')
         button.state(['!selected'])  # Sets the internal state as having been selected
@@ -206,7 +198,7 @@ def deselectAll():
 
 
 ########################################################################################################################
-def initialMenu():
+def initialMenu():  # The initial menu
     # Remove other widgets
     treeStructure.grid_remove()
     treeXScrolling.grid_remove()
@@ -231,11 +223,11 @@ def initialMenu():
         button.invoke()  # invoked twice to make the checkmarks appear correctly
         button.invoke()
 
-    root.mainloop()
+    root.mainloop()  # Keep the frame looping until a button forces it out
 
 
 ########################################################################################################################
-def chooseFile():
+def chooseFile():  # Function for choosing a log file
     # Prompt for the file
     logFile = tkFileDialog.askopenfile(parent=root, mode='rb', title='Choose a file')
 
@@ -244,6 +236,8 @@ def chooseFile():
         initialMenu()
     else:
         processLogFile(logFile)
+
+    return
 
 
 ########################################################################################################################
@@ -260,7 +254,7 @@ def pasteLog():
     for button in checkButtonArray:
         button.grid_remove()
 
-    # Clear the log
+    # Clear the text box
     logEntry.delete(1.0, END)
 
     # Add the paste widget
