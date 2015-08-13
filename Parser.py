@@ -83,8 +83,10 @@ def getTreeReady():
         button.grid_remove()
 
     # Add in tree structure settings to expand to fit frame (resizable)
-    treeStructure.column("#0", stretch=TRUE)
-    treeStructure.heading('#0', text="Methods Tree", anchor='w')
+    treeStructure.column('logLine', stretch=TRUE)
+    treeStructure.heading('logLine', text='Log Line #', anchor='w')
+    treeStructure.column('codeLine', stretch=TRUE)
+    treeStructure.heading('codeLine', text='Code Line #', anchor='w')
     treeStructure.grid(row=0, column=0, sticky='nsew')
     treeStructure.columnconfigure(0, weight=1)
     treeYScrolling.grid(row=0, column=1, sticky='nse')
@@ -336,7 +338,7 @@ passImage = PhotoImage(file='pass.gif')
 failImage = PhotoImage(file='fail.gif')
 
 # Create the Treeview
-treeStructure = ttk.Treeview(root, selectmode="extended")
+treeStructure = ttk.Treeview(root, selectmode="extended", columns=('logLine', 'codeLine'))
 
 # Create scrollbars to be added to tree structure later
 treeYScrolling = ttk.Scrollbar(root, orient='vertical', command=treeStructure.yview)

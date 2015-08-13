@@ -6,6 +6,7 @@ To-do:
 * Adding line numbers to where things fail.
 * Line numbers in debug logs to look into deeper infomation.
 * Use hover labels
+* Permission Errors
 
 
 Start of Program:
