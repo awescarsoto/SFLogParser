@@ -3,6 +3,9 @@ To-do:
 * Need to find formatting for each log type
 * Create columns for timestamps
 * Provide ways to get extra info provided in certain debugs
+* Adding line numbers to where things fail.
+* Line numbers in debug logs to look into deeper infomation.
+* Use hover labels
 
 
 Start of Program:

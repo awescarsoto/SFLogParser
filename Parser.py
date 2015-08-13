@@ -251,6 +251,8 @@ def pasteLog():
     fileButton.grid_remove()
     pasteButton.grid_remove()
     resetButton.grid_remove()
+    selectButton.grid_remove()
+    deselectButton.grid_remove()
     for button in checkButtonArray:
         button.grid_remove()
 
@@ -263,7 +265,7 @@ def pasteLog():
     continueButton.grid(row=1, column=0, sticky='nesw')
     resetButton.grid(row=2, column=0)
 
-    return
+    root.mainloop()
 
 ########################################################################################################################
 # Global variables for things that increase and decrease the level of hierarchy currently at

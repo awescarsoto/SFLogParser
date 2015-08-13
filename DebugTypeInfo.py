@@ -20,7 +20,7 @@ def getInfo(infoArray):
     elif debugType == 'EXECUTION_STARTED':
         return infoArray[1]
     elif debugType == 'METHOD_ENTRY':
-        return "Method: " + infoArray[len(infoArray)-1]
+        return "Method: " + infoArray[len(infoArray)-1] + " --> Line " + infoArray[2].strip('[]')
     elif debugType == 'SOQL_EXECUTE_BEGIN':
         return infoArray[len(infoArray)-1]
     elif debugType == 'SOSL_EXECUTE_BEGIN':
