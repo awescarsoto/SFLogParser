@@ -6,109 +6,92 @@ import ttk
 
 
 ########################################################################################################################
-def getInfo(infoArray):
-    infoArray = infoArray
-    debugType = infoArray[1]
-
-    if debugType == 'CALLOUT_REQUEST':
-        return infoArray[1]
-    elif debugType == 'CODE_UNIT_STARTED':
-        return "Code Unit: " + infoArray[len(infoArray)-1]
-    elif debugType == 'CONSTRUCTOR_ENTRY':
-        return infoArray[1]
-    elif debugType == 'CUMULATIVE_LIMIT_USAGE':
-        return infoArray[1]
-    elif debugType == 'CUMULATIVE_PROFILING_BEGIN':
-        return infoArray[1]
-    elif debugType == 'DML_BEGIN':
-        return infoArray[3][3:] + " " + infoArray[4][5:]
-    elif debugType == 'EXECUTION_STARTED':
-        return infoArray[1]
-    elif debugType == 'METHOD_ENTRY':
-        return "Method: " + infoArray[len(infoArray)-1] + " --> Line " + infoArray[2].strip('[]')
-    elif debugType == 'SOQL_EXECUTE_BEGIN':
-        return infoArray[len(infoArray)-1]
-    elif debugType == 'SOSL_EXECUTE_BEGIN':
-        return infoArray[1]
-    elif debugType == 'SYSTEM_CONSTRUCTOR_ENTRY':
-        return infoArray[1]
-    elif debugType == 'SYSTEM_METHOD_ENTRY':
-        return infoArray[1]
-    elif debugType == 'SYSTEM_MODE_ENTER':
-        return infoArray[1]
-    elif debugType == 'VALIDATION_RULE':
-        return infoArray[len(infoArray)-1]
-    elif debugType == 'VARIABLE_SCOPE_BEGIN':
-        return infoArray[1]
-    elif debugType == 'VF_DESERIALIZE_VIEWSTATE_BEGIN':
-        return infoArray[1]
-    elif debugType == 'VF_EVALUATE_FORMULA_BEGIN':
-        return infoArray[1]
-    elif debugType == 'VF_SERIALIZE_VIEWSTATE_BEGIN':
-        return infoArray[1]
-    elif debugType == 'WF_CRITERIA_BEGIN':
-        return " " + infoArray[3]
-    elif debugType == 'WF_RULE_EVAL_BEGIN':
-        return infoArray[1]
-
-
-########################################################################################################################
-def getImage(logLines, index):  # Used for sending back the image matching the debug type and other factors
-
+def getInfo(logLines, index):
     currentLine = logLines[index]  # The line that was currently sent to the function
-    splitCurrent = currentLine.rstrip('\n').split("|")  # Remove the newline character and split it by the pipes
-    debugType = splitCurrent[1]  # This is our debug identifier at index 1
+    splitCurrentLine = currentLine.rstrip('\n').split("|")  # Remove the newline character and split it by the pipes
+    debugType = splitCurrentLine[1]  # This is our debug identifier at index 1
+
+    # Defaults to be overwritten
+    textInfo = ''
+    imageInfo = blankImage
+    currentCodeLine = ''
 
     if debugType == 'CALLOUT_REQUEST':
-        return blankImage
+        textInfo =  splitCurrentLine[1]
     elif debugType == 'CODE_UNIT_STARTED':
-        return blankImage
+        textInfo =  "Code Unit: " + splitCurrentLine[len(splitCurrentLine)-1]
     elif debugType == 'CONSTRUCTOR_ENTRY':
-        return blankImage
+        currentCodeLine = splitCurrentLine[2].strip('[]')
+        textInfo =  splitCurrentLine[1]
     elif debugType == 'CUMULATIVE_LIMIT_USAGE':
-        return  blankImage
+        textInfo =  splitCurrentLine[1]
     elif debugType == 'CUMULATIVE_PROFILING_BEGIN':
-        return blankImage
+        textInfo =  splitCurrentLine[1]
     elif debugType == 'DML_BEGIN':
-        return dmlImage
+        currentCodeLine = splitCurrentLine[2].strip('[]')
+        textInfo =  splitCurrentLine[3][3:] + " " + splitCurrentLine[4][5:]
+        imageInfo = dmlImage
+    elif debugType == 'EXCEPTION_THROWN':
+        currentCodeLine = splitCurrentLine[2].strip('[]')
+        textInfo = "Exception: " + splitCurrentLine[3]
     elif debugType == 'EXECUTION_STARTED':
-        return blankImage
+        textInfo =  splitCurrentLine[1]
+    elif debugType == 'FATAL_ERROR':
+        textInfo = splitCurrentLine[2]
     elif debugType == 'METHOD_ENTRY':
-        return blankImage
+        currentCodeLine = splitCurrentLine[2].strip('[]')
+        textInfo = "Method: " + splitCurrentLine[len(splitCurrentLine)-1]
     elif debugType == 'SOQL_EXECUTE_BEGIN':
-        return soqlImage
+        currentCodeLine = splitCurrentLine[2].strip('[]')
+        textInfo =  splitCurrentLine[len(splitCurrentLine)-1]
+        imageInfo = soqlImage
     elif debugType == 'SOSL_EXECUTE_BEGIN':
-        return soslImage
+        currentCodeLine = splitCurrentLine[2].strip('[]')
+        textInfo =  splitCurrentLine[1]
+        imageInfo = soslImage
     elif debugType == 'SYSTEM_CONSTRUCTOR_ENTRY':
-        return blankImage
+        currentCodeLine = splitCurrentLine[2].strip('[]')
+        textInfo =  splitCurrentLine[1]
     elif debugType == 'SYSTEM_METHOD_ENTRY':
-        return blankImage
+        currentCodeLine = splitCurrentLine[2].strip('[]')
+        textInfo =  splitCurrentLine[1]
     elif debugType == 'SYSTEM_MODE_ENTER':
-        return blankImage
-    elif debugType == 'VARIABLE_SCOPE_BEGIN':
-        return blankImage
+        textInfo =  splitCurrentLine[1]
     elif debugType == 'VALIDATION_RULE':
+        textInfo = splitCurrentLine[len(splitCurrentLine)-1]
         for x in range(index, len(logLines)):  # Look at the next few lines until the validation pass or fail
-            currentLine = logLines[x]
-            if "VALIDATION_PASS" in currentLine:
-                return passImage
-            if "VALIDATION_FAIL" in currentLine:
-                return failImage
-            if "VALIDATION_ERROR" in currentLine:
-                return failImage
-        return failImage  # In case something wasn't picked up
+                currentLine = logLines[x]
+                if "VALIDATION_PASS" in currentLine:
+                    imageInfo = passImage
+                    break
+                if "VALIDATION_FAIL" in currentLine:
+                    imageInfo = failImage
+                    break
+                if "VALIDATION_ERROR" in currentLine:
+                    imageInfo = failImage
+                    break
+                else:
+                    imageInfo = failImage  # In case something wasn't picked up
+    elif debugType == 'VARIABLE_SCOPE_BEGIN':
+        textInfo =  splitCurrentLine[1]
+        currentCodeLine = splitCurrentLine[2].strip('[]')
     elif debugType == 'VF_DESERIALIZE_VIEWSTATE_BEGIN':
-        return visualForceImage
+        textInfo =  splitCurrentLine[1]
+        imageInfo = visualForceImage
     elif debugType == 'VF_EVALUATE_FORMULA_BEGIN':
-        return visualForceImage
+        textInfo =  splitCurrentLine[1]
+        imageInfo = visualForceImage
     elif debugType == 'VF_SERIALIZE_VIEWSTATE_BEGIN':
-        return visualForceImage
+        textInfo =  splitCurrentLine[1]
+        imageInfo = visualForceImage
     elif debugType == 'WF_CRITERIA_BEGIN':
-        return workflowImage
+        textInfo =  " " + splitCurrentLine[3]
+        imageInfo = workflowImage
     elif debugType == 'WF_RULE_EVAL_BEGIN':
-        return workflowImage
+        textInfo =  splitCurrentLine[1]
+        imageInfo = workflowImage
 
-    return blankImage  # In case none of these were hit
+    return textInfo, imageInfo, currentCodeLine
 
 
 ########################################################################################################################
@@ -179,14 +162,22 @@ def processLogFile(logFile):
         DebugLineNumber += 1
         if "|" in lines[x]:  # Separate lines by the pipe and remove newline characters
             splitLine = lines[x].rstrip('\n').split("|")  # Split into array by pipes
-            if splitLine[1] in startingKeywords:  # Check if the name is the beginning of a new hierarchy
-
+            if splitLine[1] in neutralKeywords:  # Neutral so it can't be a parent and append to stack
+                textInfo, imageInfo, codeLineInfo = getInfo(lines, x)
                 if len(stack) == 0:  # Insert a new branch to the root of the tree and add that to our list of branches
-                    stack.append(treeStructure.insert('', 'end', text=getInfo(splitLine),
-                                                      image=getImage(lines, x), values=(DebugLineNumber, currentCodeLine)))
+                    treeStructure.insert('', 'end', text=textInfo,
+                                                      image=imageInfo, values=(DebugLineNumber, codeLineInfo))
                 else:  # Insert a new branch under the last branch and add it to our known list of branches
-                    stack.append(treeStructure.insert(stack[len(stack)-1], 'end', text=getInfo(splitLine),
-                                                      image=getImage(lines, x), values=(DebugLineNumber, currentCodeLine)))
+                    treeStructure.insert(stack[len(stack)-1], 'end', text=textInfo,
+                                                      image=imageInfo, values=(DebugLineNumber, codeLineInfo))
+            elif splitLine[1] in startingKeywords:  # Check if the name is the beginning of a new hierarchy
+                textInfo, imageInfo, codeLineInfo = getInfo(lines, x)
+                if len(stack) == 0:  # Insert a new branch to the root of the tree and add that to our list of branches
+                    stack.append(treeStructure.insert('', 'end', text=textInfo,
+                                                      image=imageInfo, values=(DebugLineNumber, codeLineInfo)))
+                else:  # Insert a new branch under the last branch and add it to our known list of branches
+                    stack.append(treeStructure.insert(stack[len(stack)-1], 'end', text=textInfo,
+                                                      image=imageInfo, values=(DebugLineNumber, codeLineInfo)))
             elif splitLine[1] in endingKeywords:  # Check if the keyword ends a hierarchy and remove the last branch
                 stack.pop()
 
@@ -217,16 +208,26 @@ def processPastedLog(log):
         lines.append(line)
 
     for x in range(0, len(lines)):   # Iterate over the rest of lines in the file
+        DebugLineNumber += 1
         if "|" in lines[x]:  # Separate lines by the pipe and remove newline characters
             splitLine = lines[x].rstrip('\n').split("|")  # Split into array by pipes
-            if splitLine[1] in startingKeywords:  # Check if the name is
-                if len(stack) == 0:
-                    stack.append(treeStructure.insert(stack[len(stack)-1], 'end', text=getInfo(splitLine),
-                                                      image=getImage(lines, x), values=(DebugLineNumber, currentCodeLine)))
-                else:
-                    stack.append(treeStructure.insert(stack[len(stack)-1], 'end', text=getInfo(splitLine),
-                                                      image=getImage(lines, x), values=(DebugLineNumber, currentCodeLine)))
-            elif splitLine[1] in endingKeywords:
+            if splitLine[1] in neutralKeywords:  # Neutral so it can't be a parent and append to stack
+                textInfo, imageInfo, codeLineInfo = getInfo(lines, x)
+                if len(stack) == 0:  # Insert a new branch to the root of the tree and add that to our list of branches
+                    treeStructure.insert('', 'end', text=textInfo,
+                                                      image=imageInfo, values=(DebugLineNumber, codeLineInfo))
+                else:  # Insert a new branch under the last branch and add it to our known list of branches
+                    treeStructure.insert(stack[len(stack)-1], 'end', text=textInfo,
+                                                      image=imageInfo, values=(DebugLineNumber, codeLineInfo))
+            elif splitLine[1] in startingKeywords:  # Check if the name is the beginning of a new hierarchy
+                textInfo, imageInfo, codeLineInfo = getInfo(lines, x)
+                if len(stack) == 0:  # Insert a new branch to the root of the tree and add that to our list of branches
+                    stack.append(treeStructure.insert('', 'end', text=textInfo,
+                                                      image=imageInfo, values=(DebugLineNumber, codeLineInfo)))
+                else:  # Insert a new branch under the last branch and add it to our known list of branches
+                    stack.append(treeStructure.insert(stack[len(stack)-1], 'end', text=textInfo,
+                                                      image=imageInfo, values=(DebugLineNumber, codeLineInfo)))
+            elif splitLine[1] in endingKeywords:  # Check if the keyword ends a hierarchy and remove the last branch
                 stack.pop()
 
     resetButton.grid()  # add the reset button onto the side
@@ -325,6 +326,7 @@ def pasteLog():
 
 ########################################################################################################################
 # Global variables for things that increase and decrease the level of hierarchy currently at
+neutralKeywords = ['EXCEPTION_THROWN', 'FATAL_ERROR']
 startingKeywords = ['CALLOUT_REQUEST', 'CODE_UNIT_STARTED',
               'CUMULATIVE_PROFILING_BEGIN', 'DML_BEGIN', 'METHOD_ENTRY', 'SOQL_EXECUTE_BEGIN',
               'SOSL_EXECUTE_BEGIN', 'SYSTEM_MODE_ENTER', 'VALIDATION_RULE',
@@ -344,7 +346,9 @@ keywordTranslations = {'CALLOUT_REQUEST': 'Callout Requests',
               'CUMULATIVE_LIMIT_USAGE': 'Cumulative Limits',
               'CUMULATIVE_PROFILING_BEGIN': 'Cumulative Profilings',
               'DML_BEGIN': 'DML Operations',
+                'EXCEPTION_THROWN': 'Exceptions',
               'EXECUTION_STARTED': 'Executions',
+                'FATAL_ERROR': 'Fatal Errors',
               'METHOD_ENTRY': 'Methods',
               'SOQL_EXECUTE_BEGIN': 'SOQL Queries',
               'SOSL_EXECUTE_BEGIN': 'SOSL Queries',
@@ -361,7 +365,7 @@ keywordTranslations = {'CALLOUT_REQUEST': 'Callout Requests',
 
 keywordsChosen = []  # empty list to hold keywords that will be selected
 checkButtonArray = []  # empty list to hold checkbuttons that will be created
-currentCodeLine = ''  # Holds the current line in code for treeview
+
 
 # Initiate the window
 root = Tk()
@@ -377,6 +381,9 @@ selectButton = ttk.Button(root, text="Select All", command=lambda: selectAll())
 deselectButton = ttk.Button(root, text="Deselect All", command=lambda: deselectAll())
 
 # Create checkbuttons automatically
+for keyword in neutralKeywords:
+    newCheckButton = ttk.Checkbutton(root, text=keywordTranslations[keyword], onvalue=keyword, offvalue='off')
+    checkButtonArray.append(newCheckButton)
 for keyword in startingKeywords:
     newCheckButton = ttk.Checkbutton(root, text=keywordTranslations[keyword], onvalue=keyword, offvalue='off')
     checkButtonArray.append(newCheckButton)
