@@ -34,10 +34,12 @@ def getInfo(logLines, index):
     elif debugType == 'EXCEPTION_THROWN':
         currentCodeLine = splitCurrentLine[2].strip('[]')
         textInfo = "Exception: " + splitCurrentLine[3]
+        imageInfo = warningImage
     elif debugType == 'EXECUTION_STARTED':
         textInfo =  splitCurrentLine[1]
     elif debugType == 'FATAL_ERROR':
         textInfo = splitCurrentLine[2]
+        imageInfo = warningImage
     elif debugType == 'METHOD_ENTRY':
         currentCodeLine = splitCurrentLine[2].strip('[]')
         textInfo = "Method: " + splitCurrentLine[len(splitCurrentLine)-1]
@@ -133,11 +135,18 @@ def getTreeReady():
 def checkSelectedKeywords():
     # Clear the keywords list in case of previous
     keywordsChosen[:] = []
+    endingsChosen[:] = []
 
     # check if a button was selected and use the onvalue to add it to the list of keywords chosen
     for button in checkButtonArray:
         if button.instate(['selected']):
-            keywordsChosen.append(button['onvalue'])
+            onvalue = button['onvalue']
+            if onvalue in keywordsWithEndings:
+                keywordsChosen.append(onvalue)
+                endingsChosen.append(keywordsWithEndings[onvalue])
+            elif onvalue in neutralKeywords:
+                keywordsChosen.append(onvalue)
+
     return
 
 
@@ -162,7 +171,7 @@ def processLogFile(logFile):
         DebugLineNumber += 1
         if "|" in lines[x]:  # Separate lines by the pipe and remove newline characters
             splitLine = lines[x].rstrip('\n').split("|")  # Split into array by pipes
-            if splitLine[1] in neutralKeywords:  # Neutral so it can't be a parent and append to stack
+            if splitLine[1] in neutralKeywords and splitLine[1] in keywordsChosen:  # Neutral so it can't be a parent and append to stack
                 textInfo, imageInfo, codeLineInfo = getInfo(lines, x)
                 if len(stack) == 0:  # Insert a new branch to the root of the tree and add that to our list of branches
                     treeStructure.insert('', 'end', text=textInfo,
@@ -170,7 +179,7 @@ def processLogFile(logFile):
                 else:  # Insert a new branch under the last branch and add it to our known list of branches
                     treeStructure.insert(stack[len(stack)-1], 'end', text=textInfo,
                                                       image=imageInfo, values=(DebugLineNumber, codeLineInfo))
-            elif splitLine[1] in startingKeywords:  # Check if the name is the beginning of a new hierarchy
+            elif splitLine[1] in keywordsWithEndings and splitLine[1] in keywordsChosen:  # Check if the name is the beginning of a new hierarchy
                 textInfo, imageInfo, codeLineInfo = getInfo(lines, x)
                 if len(stack) == 0:  # Insert a new branch to the root of the tree and add that to our list of branches
                     stack.append(treeStructure.insert('', 'end', text=textInfo,
@@ -178,7 +187,7 @@ def processLogFile(logFile):
                 else:  # Insert a new branch under the last branch and add it to our known list of branches
                     stack.append(treeStructure.insert(stack[len(stack)-1], 'end', text=textInfo,
                                                       image=imageInfo, values=(DebugLineNumber, codeLineInfo)))
-            elif splitLine[1] in endingKeywords:  # Check if the keyword ends a hierarchy and remove the last branch
+            elif splitLine[1] in endingsChosen:  # Check if the keyword ends a hierarchy and remove the last branch
                 stack.pop()
 
     logFile.close()  # close the file when everything is done
@@ -211,7 +220,7 @@ def processPastedLog(log):
         DebugLineNumber += 1
         if "|" in lines[x]:  # Separate lines by the pipe and remove newline characters
             splitLine = lines[x].rstrip('\n').split("|")  # Split into array by pipes
-            if splitLine[1] in neutralKeywords:  # Neutral so it can't be a parent and append to stack
+            if splitLine[1] in neutralKeywords and splitLine[1] in keywordsChosen:  # Neutral so it can't be a parent and append to stack
                 textInfo, imageInfo, codeLineInfo = getInfo(lines, x)
                 if len(stack) == 0:  # Insert a new branch to the root of the tree and add that to our list of branches
                     treeStructure.insert('', 'end', text=textInfo,
@@ -219,7 +228,7 @@ def processPastedLog(log):
                 else:  # Insert a new branch under the last branch and add it to our known list of branches
                     treeStructure.insert(stack[len(stack)-1], 'end', text=textInfo,
                                                       image=imageInfo, values=(DebugLineNumber, codeLineInfo))
-            elif splitLine[1] in startingKeywords:  # Check if the name is the beginning of a new hierarchy
+            elif splitLine[1] in keywordsWithEndings and splitLine[1] in keywordsChosen:  # Check if the name is the beginning of a new hierarchy
                 textInfo, imageInfo, codeLineInfo = getInfo(lines, x)
                 if len(stack) == 0:  # Insert a new branch to the root of the tree and add that to our list of branches
                     stack.append(treeStructure.insert('', 'end', text=textInfo,
@@ -227,7 +236,7 @@ def processPastedLog(log):
                 else:  # Insert a new branch under the last branch and add it to our known list of branches
                     stack.append(treeStructure.insert(stack[len(stack)-1], 'end', text=textInfo,
                                                       image=imageInfo, values=(DebugLineNumber, codeLineInfo)))
-            elif splitLine[1] in endingKeywords:  # Check if the keyword ends a hierarchy and remove the last branch
+            elif splitLine[1] in endingsChosen:  # Check if the keyword ends a hierarchy and remove the last branch
                 stack.pop()
 
     resetButton.grid()  # add the reset button onto the side
@@ -326,18 +335,14 @@ def pasteLog():
 
 ########################################################################################################################
 # Global variables for things that increase and decrease the level of hierarchy currently at
-neutralKeywords = ['EXCEPTION_THROWN', 'FATAL_ERROR']
-startingKeywords = ['CALLOUT_REQUEST', 'CODE_UNIT_STARTED',
-              'CUMULATIVE_PROFILING_BEGIN', 'DML_BEGIN', 'METHOD_ENTRY', 'SOQL_EXECUTE_BEGIN',
-              'SOSL_EXECUTE_BEGIN', 'SYSTEM_MODE_ENTER', 'VALIDATION_RULE',
-              'VF_DESERIALIZE_VIEWSTATE_BEGIN', 'VF_EVALUATE_FORMULA_BEGIN',
-              'VF_SERIALIZE_VIEWSTATE_BEGIN', 'WF_CRITERIA_BEGIN']
-
-endingKeywords = ['CALLOUT_RESPONSE', 'CODE_UNIT_FINISHED',
-              'CUMULATIVE_PROFILING_END', 'DML_END', 'METHOD_EXIT', 'SOQL_EXECUTE_END',
-              'SOSL_EXECUTE_END', 'SYSTEM_MODE_EXIT', 'VALIDATION_PASS', 'VALIDATION_FAIL',
-              'VF_DESERIALIZE_VIEWSTATE_END', 'VF_EVALUATE_FORMULA_END',
-              'VF_SERIALIZE_VIEWSTATE_END', 'WF_CRITERIA_END']
+neutralKeywords = ['EXCEPTION_THROWN', 'FATAL_ERROR', 'VALIDATION_RULE']
+keywordsWithEndings = {'CALLOUT_REQUEST': 'CALLOUT_RESPONSE', 'CODE_UNIT_STARTED': 'CODE_UNIT_FINISHED',
+              'CUMULATIVE_PROFILING_BEGIN': 'CUMULATIVE_PROFILING_END', 'DML_BEGIN': 'DML_END',
+                'METHOD_ENTRY': 'METHOD_EXIT', 'SOQL_EXECUTE_BEGIN': 'SOQL_EXECUTE_END',
+              'SOSL_EXECUTE_BEGIN': 'SOSL_EXECUTE_END', 'SYSTEM_MODE_ENTER': 'SYSTEM_MODE_EXIT',
+              'VF_DESERIALIZE_VIEWSTATE_BEGIN': 'VF_DESERIALIZE_VIEWSTATE_END',
+                       'VF_EVALUATE_FORMULA_BEGIN': 'VF_EVALUATE_FORMULA_END',
+              'VF_SERIALIZE_VIEWSTATE_BEGIN': 'VF_SERIALIZE_VIEWSTATE_END', 'WF_CRITERIA_BEGIN': 'WF_CRITERIA_END'}
 
 # Translation to a friendlier output for the checkbuttons
 keywordTranslations = {'CALLOUT_REQUEST': 'Callout Requests',
@@ -364,6 +369,7 @@ keywordTranslations = {'CALLOUT_REQUEST': 'Callout Requests',
               'WF_RULE_EVAL_BEGIN': 'Workflow Evaluations'}
 
 keywordsChosen = []  # empty list to hold keywords that will be selected
+endingsChosen = []
 checkButtonArray = []  # empty list to hold checkbuttons that will be created
 
 
@@ -384,7 +390,7 @@ deselectButton = ttk.Button(root, text="Deselect All", command=lambda: deselectA
 for keyword in neutralKeywords:
     newCheckButton = ttk.Checkbutton(root, text=keywordTranslations[keyword], onvalue=keyword, offvalue='off')
     checkButtonArray.append(newCheckButton)
-for keyword in startingKeywords:
+for keyword in keywordsWithEndings:
     newCheckButton = ttk.Checkbutton(root, text=keywordTranslations[keyword], onvalue=keyword, offvalue='off')
     checkButtonArray.append(newCheckButton)
 
@@ -398,6 +404,7 @@ soslImage = PhotoImage(file='SOSL.gif')
 soqlImage = PhotoImage(file='SOQL.gif')
 passImage = PhotoImage(file='pass.gif')
 failImage = PhotoImage(file='fail.gif')
+warningImage = PhotoImage(file='warning.gif')
 
 # Create the Treeview
 treeStructure = ttk.Treeview(root, selectmode="extended", columns=('logLine', 'codeLine'))
