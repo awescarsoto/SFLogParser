@@ -1,38 +1,14 @@
 To-do:
 * Workflow pass and fail
-* Need to find formatting for each log type
-* Create columns for timestamps
-* Provide ways to get extra info provided in certain debugs
+* Create columns for line numbers in code and debug log
+* Update the photos to look better
+* Add a right click menu to copy and paste
+* Look into hover labels for displaying information
+* Add right click menu to get more info on an object
 * Adding line numbers to where things fail.
-* Line numbers in debug logs to look into deeper infomation.
-* Use hover labels
-* Permission Errors
+* Display failures and line numbers for that failure. Maybe red text.
+* Add Permission Errors
 
-
-Start of Program:
-* Two buttons: Select File and Paste Log
-* Filtering checkboxes
-* the command attribute relates directly to calling a function
-
-Filtering:
-* Use checkbox to select which to include
-* Use that to create the keywords to search for
-
-Pasting Log:
-http://www.tkdocs.com/tutorial/text.html
 
 Icons next to types:
 http://www.tkdocs.com/tutorial/widgets.html#label
-
-Buttons for file:
-http://www.tkdocs.com/tutorial/widgets.html#button
-
-Options checkboxes:
-http://www.tkdocs.com/tutorial/widgets.html#checkbutton
-
-
-Done:
- * Automated checkboxes based off of keywords
- * Paste needs to be multiline
- * Need to put image in the formatting to denote the type
- * Add validation rules names and green or red pictures to denote pass or fail

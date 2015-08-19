@@ -42,6 +42,6 @@ def getInfo(infoArray):
     elif debugType == 'VF_SERIALIZE_VIEWSTATE_BEGIN':
         return infoArray[1]
     elif debugType == 'WF_CRITERIA_BEGIN':
-        return infoArray[3]
+        return " " + infoArray[3]
     elif debugType == 'WF_RULE_EVAL_BEGIN':
         return infoArray[1]

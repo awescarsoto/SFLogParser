@@ -3,7 +3,53 @@ __author__ = 'oxsc'
 from Tkinter import *
 import tkFileDialog
 import ttk
-import DebugTypeInfo
+
+
+########################################################################################################################
+def getInfo(infoArray):
+    infoArray = infoArray
+    debugType = infoArray[1]
+
+    if debugType == 'CALLOUT_REQUEST':
+        return infoArray[1]
+    elif debugType == 'CODE_UNIT_STARTED':
+        return "Code Unit: " + infoArray[len(infoArray)-1]
+    elif debugType == 'CONSTRUCTOR_ENTRY':
+        return infoArray[1]
+    elif debugType == 'CUMULATIVE_LIMIT_USAGE':
+        return infoArray[1]
+    elif debugType == 'CUMULATIVE_PROFILING_BEGIN':
+        return infoArray[1]
+    elif debugType == 'DML_BEGIN':
+        return infoArray[3][3:] + " " + infoArray[4][5:]
+    elif debugType == 'EXECUTION_STARTED':
+        return infoArray[1]
+    elif debugType == 'METHOD_ENTRY':
+        return "Method: " + infoArray[len(infoArray)-1] + " --> Line " + infoArray[2].strip('[]')
+    elif debugType == 'SOQL_EXECUTE_BEGIN':
+        return infoArray[len(infoArray)-1]
+    elif debugType == 'SOSL_EXECUTE_BEGIN':
+        return infoArray[1]
+    elif debugType == 'SYSTEM_CONSTRUCTOR_ENTRY':
+        return infoArray[1]
+    elif debugType == 'SYSTEM_METHOD_ENTRY':
+        return infoArray[1]
+    elif debugType == 'SYSTEM_MODE_ENTER':
+        return infoArray[1]
+    elif debugType == 'VALIDATION_RULE':
+        return infoArray[len(infoArray)-1]
+    elif debugType == 'VARIABLE_SCOPE_BEGIN':
+        return infoArray[1]
+    elif debugType == 'VF_DESERIALIZE_VIEWSTATE_BEGIN':
+        return infoArray[1]
+    elif debugType == 'VF_EVALUATE_FORMULA_BEGIN':
+        return infoArray[1]
+    elif debugType == 'VF_SERIALIZE_VIEWSTATE_BEGIN':
+        return infoArray[1]
+    elif debugType == 'WF_CRITERIA_BEGIN':
+        return " " + infoArray[3]
+    elif debugType == 'WF_RULE_EVAL_BEGIN':
+        return infoArray[1]
 
 
 ########################################################################################################################
@@ -83,10 +129,10 @@ def getTreeReady():
         button.grid_remove()
 
     # Add in tree structure settings to expand to fit frame (resizable)
-    treeStructure.column('logLine', stretch=TRUE)
-    treeStructure.heading('logLine', text='Log Line #', anchor='w')
-    treeStructure.column('codeLine', stretch=TRUE)
-    treeStructure.heading('codeLine', text='Code Line #', anchor='w')
+    treeStructure.column('logLine', stretch=FALSE, width=65)
+    treeStructure.heading('logLine', text='Log Line#', anchor='w')
+    treeStructure.column('codeLine', stretch=FALSE, width=70)
+    treeStructure.heading('codeLine', text='Code Line#', anchor='w')
     treeStructure.grid(row=0, column=0, sticky='nsew')
     treeStructure.columnconfigure(0, weight=1)
     treeYScrolling.grid(row=0, column=1, sticky='nse')
@@ -123,19 +169,24 @@ def processLogFile(logFile):
     # Variables
     stack = []
     lines = []
+    DebugLineNumber = 0
 
     # Add lines to array as a buffer
     for line in logFile:
         lines.append(line)
 
     for x in range(0, len(lines)):   # Iterate over the rest of lines in the file
+        DebugLineNumber += 1
         if "|" in lines[x]:  # Separate lines by the pipe and remove newline characters
             splitLine = lines[x].rstrip('\n').split("|")  # Split into array by pipes
             if splitLine[1] in startingKeywords:  # Check if the name is the beginning of a new hierarchy
+
                 if len(stack) == 0:  # Insert a new branch to the root of the tree and add that to our list of branches
-                    stack.append(treeStructure.insert('', 'end', text=DebugTypeInfo.getInfo(splitLine), image=getImage(lines, x)))
+                    stack.append(treeStructure.insert('', 'end', text=getInfo(splitLine),
+                                                      image=getImage(lines, x), values=(DebugLineNumber, currentCodeLine)))
                 else:  # Insert a new branch under the last branch and add it to our known list of branches
-                    stack.append(treeStructure.insert(stack[len(stack)-1], 'end', text=DebugTypeInfo.getInfo(splitLine), image=getImage(lines, x)))
+                    stack.append(treeStructure.insert(stack[len(stack)-1], 'end', text=getInfo(splitLine),
+                                                      image=getImage(lines, x), values=(DebugLineNumber, currentCodeLine)))
             elif splitLine[1] in endingKeywords:  # Check if the keyword ends a hierarchy and remove the last branch
                 stack.pop()
 
@@ -155,6 +206,7 @@ def processPastedLog(log):
     # Variables
     stack = []  # Holds the branches of the treeview
     lines = []  # holds all the lines of the log file
+    DebugLineNumber = 0
 
     # Determine amount of lines to create a for loop
     numLines = int(log.index('end-1c').split('.')[0])
@@ -169,9 +221,11 @@ def processPastedLog(log):
             splitLine = lines[x].rstrip('\n').split("|")  # Split into array by pipes
             if splitLine[1] in startingKeywords:  # Check if the name is
                 if len(stack) == 0:
-                    stack.append(treeStructure.insert('', 'end', text=DebugTypeInfo.getInfo(splitLine), image=getImage(lines, x)))
+                    stack.append(treeStructure.insert(stack[len(stack)-1], 'end', text=getInfo(splitLine),
+                                                      image=getImage(lines, x), values=(DebugLineNumber, currentCodeLine)))
                 else:
-                    stack.append(treeStructure.insert(stack[len(stack)-1], 'end', text=DebugTypeInfo.getInfo(splitLine), image=getImage(lines, x)))
+                    stack.append(treeStructure.insert(stack[len(stack)-1], 'end', text=getInfo(splitLine),
+                                                      image=getImage(lines, x), values=(DebugLineNumber, currentCodeLine)))
             elif splitLine[1] in endingKeywords:
                 stack.pop()
 
@@ -307,6 +361,7 @@ keywordTranslations = {'CALLOUT_REQUEST': 'Callout Requests',
 
 keywordsChosen = []  # empty list to hold keywords that will be selected
 checkButtonArray = []  # empty list to hold checkbuttons that will be created
+currentCodeLine = ''  # Holds the current line in code for treeview
 
 # Initiate the window
 root = Tk()
