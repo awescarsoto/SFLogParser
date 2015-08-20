@@ -6,246 +6,295 @@ import ttk
 
 
 ########################################################################################################################
-def getInfo(logLines, index):
-    currentLine = logLines[index]  # The line that was currently sent to the function
-    splitCurrentLine = currentLine.rstrip('\n').split("|")  # Remove the newline character and split it by the pipes
-    debugType = splitCurrentLine[1]  # This is our debug identifier at index 1
+def rClicker(e):  # Right-click menu in log entry for copy, cut, paste
 
-    # Defaults to be overwritten
-    textInfo = ''
-    imageInfo = blankImage
-    currentCodeLine = ''
+    try:
+        def rClick_Copy(e, apnd=0):
+            e.widget.event_generate('<Control-c>')
 
-    if debugType == 'CALLOUT_REQUEST':
-        textInfo =  splitCurrentLine[1]
-    elif debugType == 'CODE_UNIT_STARTED':
-        textInfo =  "Code Unit: " + splitCurrentLine[len(splitCurrentLine)-1]
-    elif debugType == 'CONSTRUCTOR_ENTRY':
-        currentCodeLine = splitCurrentLine[2].strip('[]')
-        textInfo =  splitCurrentLine[1]
-    elif debugType == 'CUMULATIVE_LIMIT_USAGE':
-        textInfo =  splitCurrentLine[1]
-    elif debugType == 'CUMULATIVE_PROFILING_BEGIN':
-        textInfo =  splitCurrentLine[1]
-    elif debugType == 'DML_BEGIN':
-        currentCodeLine = splitCurrentLine[2].strip('[]')
-        textInfo =  splitCurrentLine[3][3:] + " " + splitCurrentLine[4][5:]
-        imageInfo = dmlImage
-    elif debugType == 'EXCEPTION_THROWN':
-        currentCodeLine = splitCurrentLine[2].strip('[]')
-        textInfo = "Exception: " + splitCurrentLine[3]
-        imageInfo = warningImage
-    elif debugType == 'EXECUTION_STARTED':
-        textInfo =  splitCurrentLine[1]
-    elif debugType == 'FATAL_ERROR':
-        textInfo = splitCurrentLine[2]
-        imageInfo = warningImage
-    elif debugType == 'METHOD_ENTRY':
-        currentCodeLine = splitCurrentLine[2].strip('[]')
-        textInfo = "Method: " + splitCurrentLine[len(splitCurrentLine)-1]
-    elif debugType == 'SOQL_EXECUTE_BEGIN':
-        currentCodeLine = splitCurrentLine[2].strip('[]')
-        textInfo =  splitCurrentLine[len(splitCurrentLine)-1]
-        imageInfo = soqlImage
-    elif debugType == 'SOSL_EXECUTE_BEGIN':
-        currentCodeLine = splitCurrentLine[2].strip('[]')
-        textInfo =  splitCurrentLine[1]
-        imageInfo = soslImage
-    elif debugType == 'SYSTEM_CONSTRUCTOR_ENTRY':
-        currentCodeLine = splitCurrentLine[2].strip('[]')
-        textInfo =  splitCurrentLine[1]
-    elif debugType == 'SYSTEM_METHOD_ENTRY':
-        currentCodeLine = splitCurrentLine[2].strip('[]')
-        textInfo =  splitCurrentLine[1]
-    elif debugType == 'SYSTEM_MODE_ENTER':
-        textInfo =  splitCurrentLine[1]
-    elif debugType == 'VALIDATION_RULE':
-        textInfo = splitCurrentLine[len(splitCurrentLine)-1]
-        for x in range(index, len(logLines)):  # Look at the next few lines until the validation pass or fail
-                currentLine = logLines[x]
-                if "VALIDATION_PASS" in currentLine:
-                    imageInfo = passImage
-                    break
-                if "VALIDATION_FAIL" in currentLine:
-                    imageInfo = failImage
-                    break
-                if "VALIDATION_ERROR" in currentLine:
-                    imageInfo = failImage
-                    break
-                else:
-                    imageInfo = failImage  # In case something wasn't picked up
-    elif debugType == 'VARIABLE_SCOPE_BEGIN':
-        textInfo =  splitCurrentLine[1]
-        currentCodeLine = splitCurrentLine[2].strip('[]')
-    elif debugType == 'VF_DESERIALIZE_VIEWSTATE_BEGIN':
-        textInfo =  splitCurrentLine[1]
-        imageInfo = visualForceImage
-    elif debugType == 'VF_EVALUATE_FORMULA_BEGIN':
-        textInfo =  splitCurrentLine[1]
-        imageInfo = visualForceImage
-    elif debugType == 'VF_SERIALIZE_VIEWSTATE_BEGIN':
-        textInfo =  splitCurrentLine[1]
-        imageInfo = visualForceImage
-    elif debugType == 'WF_CRITERIA_BEGIN':
-        textInfo =  " " + splitCurrentLine[3]
-        imageInfo = workflowImage
-    elif debugType == 'WF_RULE_EVAL_BEGIN':
-        textInfo =  splitCurrentLine[1]
-        imageInfo = workflowImage
+        def rClick_Cut(e):
+            e.widget.event_generate('<Control-x>')
 
-    return textInfo, imageInfo, currentCodeLine
+        def rClick_Paste(e):
+            e.widget.event_generate('<Control-v>')
+
+        def rClick_Select(e):
+            e.widget.event_generate('<Control-/>')
+
+        e.widget.focus()
+
+        nclst=[
+            (' Cut', lambda e=e: rClick_Cut(e)),
+            (' Copy', lambda e=e: rClick_Copy(e)),
+            (' Paste', lambda e=e: rClick_Paste(e)),
+            (' Select All', lambda e=e: rClick_Select(e)),
+        ]
+
+        rmenu = Menu(None, tearoff=0, takefocus=0)
+
+        for (txt, cmd) in nclst:
+            rmenu.add_command(label=txt, command=cmd)
+
+        rmenu.tk_popup(e.x_root+40, e.y_root+10, entry="0")
+
+    except TclError:
+        print ' - rClick menu, something wrong'
+        pass
+
+    return "break"
 
 
 ########################################################################################################################
-def getTreeReady():
+def get_info(log_lines, index):
+    current_line = log_lines[index]  # The line that was currently sent to the function
+    split_current_line = current_line.rstrip('\n').split("|")  # Remove the newline character and split it by the pipes
+    debug_type = split_current_line[1]  # This is our debug identifier at index 1
+
+    # Defaults to be overwritten
+    displayed_text = 'undefined text'
+    displayed_image = blank_image
+    displayed_code_line = ''
+
+    if debug_type == 'CALLOUT_REQUEST':
+        displayed_text = split_current_line[1]
+    elif debug_type == 'CODE_UNIT_STARTED':
+        displayed_text = "Code Unit: " + split_current_line[len(split_current_line)-1]
+    elif debug_type == 'CONSTRUCTOR_ENTRY':
+        displayed_code_line = split_current_line[2].strip('[]')
+        displayed_text = split_current_line[1]
+    elif debug_type == 'CUMULATIVE_LIMIT_USAGE':
+        displayed_text = split_current_line[1]
+    elif debug_type == 'CUMULATIVE_PROFILING_BEGIN':
+        displayed_text = split_current_line[1]
+    elif debug_type == 'DML_BEGIN':
+        displayed_code_line = split_current_line[2].strip('[]')
+        displayed_text = split_current_line[3][3:] + " " + split_current_line[4][5:]
+        displayed_image = dml_image
+    elif debug_type == 'EXCEPTION_THROWN':
+        displayed_code_line = split_current_line[2].strip('[]')
+        displayed_text = "Exception: " + split_current_line[3]
+        displayed_image = warning_image
+    elif debug_type == 'EXECUTION_STARTED':
+        displayed_text = split_current_line[1]
+    elif debug_type == 'FATAL_ERROR':
+        displayed_text = split_current_line[2]
+        displayed_image = warning_image
+    elif debug_type == 'METHOD_ENTRY':
+        displayed_code_line = split_current_line[2].strip('[]')
+        displayed_text = "Method: " + split_current_line[len(split_current_line)-1]
+    elif debug_type == 'SOQL_EXECUTE_BEGIN':
+        displayed_code_line = split_current_line[2].strip('[]')
+        displayed_text = split_current_line[len(split_current_line)-1]
+        displayed_image = soql_image
+    elif debug_type == 'SOSL_EXECUTE_BEGIN':
+        displayed_code_line = split_current_line[2].strip('[]')
+        displayed_text = split_current_line[1]
+        displayed_image = sosl_image
+    elif debug_type == 'SYSTEM_CONSTRUCTOR_ENTRY':
+        displayed_code_line = split_current_line[2].strip('[]')
+        displayed_text = split_current_line[1]
+    elif debug_type == 'SYSTEM_METHOD_ENTRY':
+        displayed_code_line = split_current_line[2].strip('[]')
+        displayed_text = split_current_line[1]
+    elif debug_type == 'SYSTEM_MODE_ENTER':
+        displayed_text = split_current_line[1]
+    elif debug_type == 'USER_DEBUG':
+        displayed_text = 'User Debug: ' + split_current_line[4]
+    elif debug_type == 'VALIDATION_RULE':
+        displayed_text = split_current_line[len(split_current_line)-1]
+        for x in range(index, len(log_lines)):  # Look at the next few lines until the validation pass or fail
+            current_line = log_lines[x]
+            if "VALIDATION_PASS" in current_line:
+                displayed_image = pass_image
+                break
+            if "VALIDATION_FAIL" in current_line:
+                displayed_image = fail_image
+                break
+            if "VALIDATION_ERROR" in current_line:
+                displayed_image = fail_image
+                break
+            else:
+                displayed_image = fail_image  # In case something wasn't picked up
+    elif debug_type == 'VARIABLE_SCOPE_BEGIN':
+        displayed_text = split_current_line[1]
+        displayed_code_line = split_current_line[2].strip('[]')
+    elif debug_type == 'VF_APEX_CALL':
+        displayed_text = 'VF Apex Call' + split_current_line[3].strip('{}')
+    elif debug_type == 'VF_DESERIALIZE_VIEWSTATE_BEGIN':
+        displayed_text = split_current_line[1]
+        displayed_image = visualforce_image
+    elif debug_type == 'VF_EVALUATE_FORMULA_BEGIN':
+        displayed_text = split_current_line[1]
+        displayed_image = visualforce_image
+    elif debug_type == 'VF_SERIALIZE_VIEWSTATE_BEGIN':
+        displayed_text = split_current_line[1]
+        displayed_image = visualforce_image
+    elif debug_type == 'WF_CRITERIA_BEGIN':
+        displayed_image = workflow_image
+        for x in range(index, len(log_lines)):  # Look at the next few lines until the validation pass or fail
+            current_line = log_lines[x]
+            if "WF_CRITERIA_END" in current_line:
+                if 'false' in current_line:
+                    displayed_text = ' Criteria Not Met: ' + split_current_line[3]
+                if 'true' in current_line:
+                    displayed_text = ' Criteria Met: ' + split_current_line[3]
+    elif debug_type == 'WF_RULE_EVAL_BEGIN':
+        displayed_text = split_current_line[1]
+        displayed_image = workflow_image
+
+    return displayed_text, displayed_image, displayed_code_line
+
+
+########################################################################################################################
+def get_tree_ready():
     # Clear the tree
-    treeStructure.delete(*treeStructure.get_children())
+    tree_structure.delete(*tree_structure.get_children())
 
     # Remove other widgets from view
-    fileButton.grid_remove()
-    pasteButton.grid_remove()
-    resetButton.grid_remove()
-    selectButton.grid_remove()
-    deselectButton.grid_remove()
-    logEntry.grid_remove()
-    continueButton.grid_remove()
+    file_button.grid_remove()
+    paste_button.grid_remove()
+    reset_button.grid_remove()
+    select_button.grid_remove()
+    deselect_button.grid_remove()
+    log_entry.grid_remove()
+    continue_button.grid_remove()
     logYScrolling.grid_remove()
-    for button in checkButtonArray:
+    for button in checkbutton_array:
         button.grid_remove()
 
     # Add in tree structure settings to expand to fit frame (resizable)
-    treeStructure.column('logLine', stretch=FALSE, width=65)
-    treeStructure.heading('logLine', text='Log Line#', anchor='w')
-    treeStructure.column('codeLine', stretch=FALSE, width=70)
-    treeStructure.heading('codeLine', text='Code Line#', anchor='w')
-    treeStructure.grid(row=0, column=0, sticky='nsew')
-    treeStructure.columnconfigure(0, weight=1)
+    tree_structure.column('logLine', stretch=FALSE, width=65)
+    tree_structure.heading('logLine', text='Log Line#', anchor='w')
+    tree_structure.column('codeLine', stretch=FALSE, width=70)
+    tree_structure.heading('codeLine', text='Code Line#', anchor='w')
+    tree_structure.grid(row=0, column=0, sticky='nsew')
+    tree_structure.columnconfigure(0, weight=1)
     treeYScrolling.grid(row=0, column=1, sticky='nse')
     treeXScrolling.grid(row=1, column=0, sticky='sew')
-    treeStructure.grid(sticky="nesw")
+    tree_structure.grid(sticky="nesw")
     root.columnconfigure(0, weight=1)
     root.rowconfigure(0, weight=1)
-    treeStructure.columnconfigure(0, weight=1)
-    treeStructure.rowconfigure(0, weight=1)
+    tree_structure.columnconfigure(0, weight=1)
+    tree_structure.rowconfigure(0, weight=1)
 
     return
 
 
 ########################################################################################################################
-def checkSelectedKeywords():
+def check_selected_keywords():
     # Clear the keywords list in case of previous
-    keywordsChosen[:] = []
-    endingsChosen[:] = []
+    keywords_chosen[:] = []
+    endings_chosen[:] = []
 
     # check if a button was selected and use the onvalue to add it to the list of keywords chosen
-    for button in checkButtonArray:
+    for button in checkbutton_array:
         if button.instate(['selected']):
             onvalue = button['onvalue']
-            if onvalue in keywordsWithEndings:
-                keywordsChosen.append(onvalue)
-                endingsChosen.append(keywordsWithEndings[onvalue])
-            elif onvalue in neutralKeywords:
-                keywordsChosen.append(onvalue)
+            if onvalue in keywords_with_endings:
+                keywords_chosen.append(onvalue)
+                endings_chosen.append(keywords_with_endings[onvalue])
+            elif onvalue in neutral_keywords:
+                keywords_chosen.append(onvalue)
 
     return
 
 
 ########################################################################################################################
-def processLogFile(logFile):
+def process_log_file(log_file):
     # Add the keywords to be looked for
-    checkSelectedKeywords()
+    check_selected_keywords()
 
     # Get the tree ready
-    getTreeReady()
+    get_tree_ready()
 
     # Variables
     stack = []
     lines = []
-    DebugLineNumber = 0
+    debug_line_number = 0
 
     # Add lines to array as a buffer
-    for line in logFile:
+    for line in log_file:
         lines.append(line)
 
     for x in range(0, len(lines)):   # Iterate over the rest of lines in the file
-        DebugLineNumber += 1
+        debug_line_number += 1
         if "|" in lines[x]:  # Separate lines by the pipe and remove newline characters
-            splitLine = lines[x].rstrip('\n').split("|")  # Split into array by pipes
-            if splitLine[1] in neutralKeywords and splitLine[1] in keywordsChosen:  # Neutral so it can't be a parent and append to stack
-                textInfo, imageInfo, codeLineInfo = getInfo(lines, x)
+            split_line = lines[x].rstrip('\n').split("|")  # Split into array by pipes
+            if split_line[1] in neutral_keywords and split_line[1] in keywords_chosen:  # Neutral so it can't be a parent and append to stack
+                text_info, image_info, code_line_info = get_info(lines, x)
                 if len(stack) == 0:  # Insert a new branch to the root of the tree and add that to our list of branches
-                    treeStructure.insert('', 'end', text=textInfo,
-                                                      image=imageInfo, values=(DebugLineNumber, codeLineInfo))
+                    tree_structure.insert('', 'end', text=text_info,
+                                          image=image_info, values=(debug_line_number, code_line_info))
                 else:  # Insert a new branch under the last branch and add it to our known list of branches
-                    treeStructure.insert(stack[len(stack)-1], 'end', text=textInfo,
-                                                      image=imageInfo, values=(DebugLineNumber, codeLineInfo))
-            elif splitLine[1] in keywordsWithEndings and splitLine[1] in keywordsChosen:  # Check if the name is the beginning of a new hierarchy
-                textInfo, imageInfo, codeLineInfo = getInfo(lines, x)
+                    tree_structure.insert(stack[len(stack)-1], 'end', text=text_info,
+                                          image=image_info, values=(debug_line_number, code_line_info))
+            elif split_line[1] in keywords_with_endings and split_line[1] in keywords_chosen:  # Check if the name is the beginning of a new hierarchy
+                text_info, image_info, code_line_info = get_info(lines, x)
                 if len(stack) == 0:  # Insert a new branch to the root of the tree and add that to our list of branches
-                    stack.append(treeStructure.insert('', 'end', text=textInfo,
-                                                      image=imageInfo, values=(DebugLineNumber, codeLineInfo)))
+                    stack.append(tree_structure.insert('', 'end', text=text_info,
+                                                       image=image_info, values=(debug_line_number, code_line_info)))
                 else:  # Insert a new branch under the last branch and add it to our known list of branches
-                    stack.append(treeStructure.insert(stack[len(stack)-1], 'end', text=textInfo,
-                                                      image=imageInfo, values=(DebugLineNumber, codeLineInfo)))
-            elif splitLine[1] in endingsChosen:  # Check if the keyword ends a hierarchy and remove the last branch
+                    stack.append(tree_structure.insert(stack[len(stack)-1], 'end', text=text_info,
+                                                       image=image_info, values=(debug_line_number, code_line_info)))
+            elif split_line[1] in endings_chosen:  # Check if the keyword ends a hierarchy and remove the last branch
                 stack.pop()
 
-    logFile.close()  # close the file when everything is done
-    resetButton.grid()  # add the reset button onto the side
+    log_file.close()  # close the file when everything is done
+    reset_button.grid()  # add the reset button onto the side
     root.mainloop()  # Keeps the window looping until a button is pressed to move it to another function
 
 
 ########################################################################################################################
-def processPastedLog(log):
+def process_pasted_log(log):
     # Add the keywords to be looked for
-    checkSelectedKeywords()
+    check_selected_keywords()
 
     # Get the tree ready
-    getTreeReady()
+    get_tree_ready()
 
     # Variables
     stack = []  # Holds the branches of the treeview
     lines = []  # holds all the lines of the log file
-    DebugLineNumber = 0
+    debug_line_number = 0
 
     # Determine amount of lines to create a for loop
-    numLines = int(log.index('end-1c').split('.')[0])
+    num_lines = int(log.index('end-1c').split('.')[0])
 
     # Go through and grab each line and add it to the lines array
-    for x in range(1, numLines):
+    for x in range(1, num_lines):
         line = log.get(float(x), float(x+1))
         lines.append(line)
 
     for x in range(0, len(lines)):   # Iterate over the rest of lines in the file
-        DebugLineNumber += 1
+        debug_line_number += 1
         if "|" in lines[x]:  # Separate lines by the pipe and remove newline characters
-            splitLine = lines[x].rstrip('\n').split("|")  # Split into array by pipes
-            if splitLine[1] in neutralKeywords and splitLine[1] in keywordsChosen:  # Neutral so it can't be a parent and append to stack
-                textInfo, imageInfo, codeLineInfo = getInfo(lines, x)
+            split_line = lines[x].rstrip('\n').split("|")  # Split into array by pipes
+            if split_line[1] in neutral_keywords and split_line[1] in keywords_chosen:  # Neutral so it can't be a parent and append to stack
+                text_info, image_info, code_line_info = get_info(lines, x)
                 if len(stack) == 0:  # Insert a new branch to the root of the tree and add that to our list of branches
-                    treeStructure.insert('', 'end', text=textInfo,
-                                                      image=imageInfo, values=(DebugLineNumber, codeLineInfo))
+                    tree_structure.insert('', 'end', text=text_info,
+                                          image=image_info, values=(debug_line_number, code_line_info))
                 else:  # Insert a new branch under the last branch and add it to our known list of branches
-                    treeStructure.insert(stack[len(stack)-1], 'end', text=textInfo,
-                                                      image=imageInfo, values=(DebugLineNumber, codeLineInfo))
-            elif splitLine[1] in keywordsWithEndings and splitLine[1] in keywordsChosen:  # Check if the name is the beginning of a new hierarchy
-                textInfo, imageInfo, codeLineInfo = getInfo(lines, x)
+                    tree_structure.insert(stack[len(stack)-1], 'end', text=text_info,
+                                          image=image_info, values=(debug_line_number, code_line_info))
+            elif split_line[1] in keywords_with_endings and split_line[1] in keywords_chosen:  # Check if the name is the beginning of a new hierarchy
+                text_info, image_info, code_line_info = get_info(lines, x)
                 if len(stack) == 0:  # Insert a new branch to the root of the tree and add that to our list of branches
-                    stack.append(treeStructure.insert('', 'end', text=textInfo,
-                                                      image=imageInfo, values=(DebugLineNumber, codeLineInfo)))
+                    stack.append(tree_structure.insert('', 'end', text=text_info,
+                                                       image=image_info, values=(debug_line_number, code_line_info)))
                 else:  # Insert a new branch under the last branch and add it to our known list of branches
-                    stack.append(treeStructure.insert(stack[len(stack)-1], 'end', text=textInfo,
-                                                      image=imageInfo, values=(DebugLineNumber, codeLineInfo)))
-            elif splitLine[1] in endingsChosen:  # Check if the keyword ends a hierarchy and remove the last branch
+                    stack.append(tree_structure.insert(stack[len(stack)-1], 'end', text=text_info,
+                                                       image=image_info, values=(debug_line_number, code_line_info)))
+            elif split_line[1] in endings_chosen:  # Check if the keyword ends a hierarchy and remove the last branch
                 stack.pop()
 
-    resetButton.grid()  # add the reset button onto the side
+    reset_button.grid()  # add the reset button onto the side
     root.mainloop()  # Keep the window looping until button forces it out to other function
 
 
 ########################################################################################################################
-def selectAll():  # Select all the buttons
-    for button in checkButtonArray:
+def select_all():  # Select all the buttons
+    for button in checkbutton_array:
         button.grid(sticky='w')
         button.state(['selected'])  # Sets the internal state as having been selected
         button.invoke()  # invoked twice to make the checkmarks appear correctly
@@ -254,8 +303,8 @@ def selectAll():  # Select all the buttons
 
 
 ########################################################################################################################
-def deselectAll():  # Deselect all the buttons
-    for button in checkButtonArray:
+def deselect_all():  # Deselect all the buttons
+    for button in checkbutton_array:
         button.grid(sticky='w')
         button.state(['!selected'])  # Sets the internal state as having been selected
         button.invoke()  # invoked twice to make the checkmarks appear correctly
@@ -264,26 +313,26 @@ def deselectAll():  # Deselect all the buttons
 
 
 ########################################################################################################################
-def initialMenu():  # The initial menu
+def initial_menu():  # The initial menu
     # Remove other widgets
-    treeStructure.grid_remove()
+    tree_structure.grid_remove()
     treeXScrolling.grid_remove()
     treeYScrolling.grid_remove()
     logYScrolling.grid_remove()
-    logEntry.grid_remove()
-    continueButton.grid_remove()
+    log_entry.grid_remove()
+    continue_button.grid_remove()
     root.columnconfigure(0, weight=0)
     root.rowconfigure(0, weight=0)
 
     # Put initial widgets on the frame
-    fileButton.grid(row=0, column=0, sticky='nesw')
-    pasteButton.grid(row=0, column=1, sticky='nesw')
-    resetButton.grid(row=0, column=2, sticky='nesw')
-    selectButton.grid(row=1, column=0, sticky='nesw')
-    deselectButton.grid(row=1, column=1, sticky='nesw')
+    file_button.grid(row=0, column=0, sticky='nesw')
+    paste_button.grid(row=0, column=1, sticky='nesw')
+    reset_button.grid(row=0, column=2, sticky='nesw')
+    select_button.grid(row=1, column=0, sticky='nesw')
+    deselect_button.grid(row=1, column=1, sticky='nesw')
 
     # Put checkbuttons on the frame and set default values for buttons as checkmarked
-    for button in checkButtonArray:
+    for button in checkbutton_array:
         button.grid(sticky='w')
         button.state(['selected'])  # Sets the internal state as having been selected
         button.invoke()  # invoked twice to make the checkmarks appear correctly
@@ -293,84 +342,87 @@ def initialMenu():  # The initial menu
 
 
 ########################################################################################################################
-def chooseFile():  # Function for choosing a log file
+def choose_file():  # Function for choosing a log file
     # Prompt for the file
-    logFile = tkFileDialog.askopenfile(parent=root, mode='rb', title='Choose a file')
+    log_file = tkFileDialog.askopenfile(parent=root, mode='rb', title='Choose a file')
 
     # Go back to menu if a file wasn't chosen such as cancel or close
-    if logFile is None:
-        initialMenu()
+    if log_file is None:
+        initial_menu()
     else:
-        processLogFile(logFile)
+        process_log_file(log_file)
 
     return
 
 
 ########################################################################################################################
-def pasteLog():
+def paste_log():
     # Remove other widgets
-    treeStructure.grid_remove()
+    tree_structure.grid_remove()
     treeXScrolling.grid_remove()
     treeYScrolling.grid_remove()
     root.columnconfigure(0, weight=1)
     root.rowconfigure(0, weight=1)
-    fileButton.grid_remove()
-    pasteButton.grid_remove()
-    resetButton.grid_remove()
-    selectButton.grid_remove()
-    deselectButton.grid_remove()
-    for button in checkButtonArray:
+    file_button.grid_remove()
+    paste_button.grid_remove()
+    reset_button.grid_remove()
+    select_button.grid_remove()
+    deselect_button.grid_remove()
+    for button in checkbutton_array:
         button.grid_remove()
 
     # Clear the text box
-    logEntry.delete(1.0, END)
+    log_entry.delete(1.0, END)
 
     # Add the paste widget
     logYScrolling.grid(row=0, column=1, sticky='nse')
-    logEntry.grid(row=0, column=0, sticky="nesw")
-    continueButton.grid(row=1, column=0, sticky='nesw')
-    resetButton.grid(row=2, column=0)
+    log_entry.grid(row=0, column=0, sticky="nesw")
+    continue_button.grid(row=1, column=0, sticky='nesw')
+    reset_button.grid(row=2, column=0)
 
     root.mainloop()
 
 ########################################################################################################################
 # Global variables for things that increase and decrease the level of hierarchy currently at
-neutralKeywords = ['EXCEPTION_THROWN', 'FATAL_ERROR', 'VALIDATION_RULE']
-keywordsWithEndings = {'CALLOUT_REQUEST': 'CALLOUT_RESPONSE', 'CODE_UNIT_STARTED': 'CODE_UNIT_FINISHED',
-              'CUMULATIVE_PROFILING_BEGIN': 'CUMULATIVE_PROFILING_END', 'DML_BEGIN': 'DML_END',
-                'METHOD_ENTRY': 'METHOD_EXIT', 'SOQL_EXECUTE_BEGIN': 'SOQL_EXECUTE_END',
-              'SOSL_EXECUTE_BEGIN': 'SOSL_EXECUTE_END', 'SYSTEM_MODE_ENTER': 'SYSTEM_MODE_EXIT',
-              'VF_DESERIALIZE_VIEWSTATE_BEGIN': 'VF_DESERIALIZE_VIEWSTATE_END',
-                       'VF_EVALUATE_FORMULA_BEGIN': 'VF_EVALUATE_FORMULA_END',
-              'VF_SERIALIZE_VIEWSTATE_BEGIN': 'VF_SERIALIZE_VIEWSTATE_END', 'WF_CRITERIA_BEGIN': 'WF_CRITERIA_END'}
+neutral_keywords = ['EXCEPTION_THROWN', 'FATAL_ERROR', 'VALIDATION_RULE', 'USER_DEBUG', 'VF_APEX_CALL']
+keywords_with_endings = {'CALLOUT_REQUEST': 'CALLOUT_RESPONSE', 'CODE_UNIT_STARTED': 'CODE_UNIT_FINISHED',
+                         'CUMULATIVE_PROFILING_BEGIN': 'CUMULATIVE_PROFILING_END', 'DML_BEGIN': 'DML_END',
+                         'METHOD_ENTRY': 'METHOD_EXIT', 'SOQL_EXECUTE_BEGIN': 'SOQL_EXECUTE_END',
+                         'SOSL_EXECUTE_BEGIN': 'SOSL_EXECUTE_END', 'SYSTEM_MODE_ENTER': 'SYSTEM_MODE_EXIT',
+                         'VF_DESERIALIZE_VIEWSTATE_BEGIN': 'VF_DESERIALIZE_VIEWSTATE_END',
+                         'VF_EVALUATE_FORMULA_BEGIN': 'VF_EVALUATE_FORMULA_END',
+                         'VF_SERIALIZE_VIEWSTATE_BEGIN': 'VF_SERIALIZE_VIEWSTATE_END',
+                         'WF_CRITERIA_BEGIN': 'WF_CRITERIA_END'}
 
 # Translation to a friendlier output for the checkbuttons
-keywordTranslations = {'CALLOUT_REQUEST': 'Callout Requests',
-              'CODE_UNIT_STARTED': 'Code Units',
-              'CONSTRUCTOR_ENTRY': 'Constructors',
-              'CUMULATIVE_LIMIT_USAGE': 'Cumulative Limits',
-              'CUMULATIVE_PROFILING_BEGIN': 'Cumulative Profilings',
-              'DML_BEGIN': 'DML Operations',
-                'EXCEPTION_THROWN': 'Exceptions',
-              'EXECUTION_STARTED': 'Executions',
-                'FATAL_ERROR': 'Fatal Errors',
-              'METHOD_ENTRY': 'Methods',
-              'SOQL_EXECUTE_BEGIN': 'SOQL Queries',
-              'SOSL_EXECUTE_BEGIN': 'SOSL Queries',
-              'SYSTEM_CONSTRUCTOR_ENTRY': 'System Constructors',
-              'SYSTEM_METHOD_ENTRY': 'System Methods',
-              'SYSTEM_MODE_ENTER': 'System Modes',
-              'VARIABLE_SCOPE_BEGIN': 'Variable Scopes',
-              'VALIDATION_RULE': 'Validation Rules',
-              'VF_DESERIALIZE_VIEWSTATE_BEGIN': 'Visualforce Deserialize',
-              'VF_EVALUATE_FORMULA_BEGIN': 'Visualforce Evaluate',
-              'VF_SERIALIZE_VIEWSTATE_BEGIN': 'Visualforce Serialize',
-              'WF_CRITERIA_BEGIN': 'Workflow Rules',
-              'WF_RULE_EVAL_BEGIN': 'Workflow Evaluations'}
+keyword_translations = {'CALLOUT_REQUEST': 'Callout Requests',
+                        'CODE_UNIT_STARTED': 'Code Units',
+                        'CONSTRUCTOR_ENTRY': 'Constructors',
+                        'CUMULATIVE_LIMIT_USAGE': 'Cumulative Limits',
+                        'CUMULATIVE_PROFILING_BEGIN': 'Cumulative Profilings',
+                        'DML_BEGIN': 'DML Operations',
+                        'EXCEPTION_THROWN': 'Exceptions',
+                        'EXECUTION_STARTED': 'Executions',
+                        'FATAL_ERROR': 'Fatal Errors',
+                        'METHOD_ENTRY': 'Methods',
+                        'SOQL_EXECUTE_BEGIN': 'SOQL Queries',
+                        'SOSL_EXECUTE_BEGIN': 'SOSL Queries',
+                        'SYSTEM_CONSTRUCTOR_ENTRY': 'System Constructors',
+                        'SYSTEM_METHOD_ENTRY': 'System Methods',
+                        'SYSTEM_MODE_ENTER': 'System Modes',
+                        'USER_DEBUG': 'User Debugging',
+                        'VARIABLE_SCOPE_BEGIN': 'Variable Scopes',
+                        'VALIDATION_RULE': 'Validation Rules',
+                        'VF_APEX_CALL': 'Visualforce Apex Calls',
+                        'VF_DESERIALIZE_VIEWSTATE_BEGIN': 'Visualforce Deserialize',
+                        'VF_EVALUATE_FORMULA_BEGIN': 'Visualforce Evaluate',
+                        'VF_SERIALIZE_VIEWSTATE_BEGIN': 'Visualforce Serialize',
+                        'WF_CRITERIA_BEGIN': 'Workflow Rules',
+                        'WF_RULE_EVAL_BEGIN': 'Workflow Evaluations'}
 
-keywordsChosen = []  # empty list to hold keywords that will be selected
-endingsChosen = []
-checkButtonArray = []  # empty list to hold checkbuttons that will be created
+keywords_chosen = []  # empty list to hold keywords that will be selected
+endings_chosen = []
+checkbutton_array = []  # empty list to hold checkbuttons that will be created
 
 
 # Initiate the window
@@ -379,48 +431,49 @@ root.title("Salesforce Debug Methods Tree")
 root.geometry("800x600")
 
 # Create buttons
-fileButton = ttk.Button(root, text="Choose File", command=lambda: chooseFile())
-pasteButton = ttk.Button(root, text="Paste Log", command=lambda: pasteLog())
-resetButton = ttk.Button(root, text="Reset", command=lambda: initialMenu())
-continueButton = ttk.Button(root, text="Continue", command=lambda: processPastedLog(logEntry))
-selectButton = ttk.Button(root, text="Select All", command=lambda: selectAll())
-deselectButton = ttk.Button(root, text="Deselect All", command=lambda: deselectAll())
+file_button = ttk.Button(root, text="Choose File", command=lambda: choose_file())
+paste_button = ttk.Button(root, text="Paste Log", command=lambda: paste_log())
+reset_button = ttk.Button(root, text="Reset", command=lambda: initial_menu())
+continue_button = ttk.Button(root, text="Continue", command=lambda: process_pasted_log(log_entry))
+select_button = ttk.Button(root, text="Select All", command=lambda: select_all())
+deselect_button = ttk.Button(root, text="Deselect All", command=lambda: deselect_all())
 
 # Create checkbuttons automatically
-for keyword in neutralKeywords:
-    newCheckButton = ttk.Checkbutton(root, text=keywordTranslations[keyword], onvalue=keyword, offvalue='off')
-    checkButtonArray.append(newCheckButton)
-for keyword in keywordsWithEndings:
-    newCheckButton = ttk.Checkbutton(root, text=keywordTranslations[keyword], onvalue=keyword, offvalue='off')
-    checkButtonArray.append(newCheckButton)
+for keyword in neutral_keywords:
+    new_checkbutton = ttk.Checkbutton(root, text=keyword_translations[keyword], onvalue=keyword, offvalue='off')
+    checkbutton_array.append(new_checkbutton)
+for keyword in keywords_with_endings:
+    new_checkbutton = ttk.Checkbutton(root, text=keyword_translations[keyword], onvalue=keyword, offvalue='off')
+    checkbutton_array.append(new_checkbutton)
 
 # Create the images
-blankImage = PhotoImage(file='blank.gif')
-workflowImage = PhotoImage(file='gear_happy2.gif')
-validationRuleImage = PhotoImage(file='VR.gif')
-visualForceImage = PhotoImage(file='VF.gif')
-dmlImage = PhotoImage(file='DML.gif')
-soslImage = PhotoImage(file='SOSL.gif')
-soqlImage = PhotoImage(file='SOQL.gif')
-passImage = PhotoImage(file='pass.gif')
-failImage = PhotoImage(file='fail.gif')
-warningImage = PhotoImage(file='warning.gif')
+blank_image = PhotoImage(file='blank.gif')
+workflow_image = PhotoImage(file='gear_happy2.gif')
+validation_rule_image = PhotoImage(file='VR.gif')
+visualforce_image = PhotoImage(file='VF.gif')
+dml_image = PhotoImage(file='DML.gif')
+sosl_image = PhotoImage(file='SOSL.gif')
+soql_image = PhotoImage(file='SOQL.gif')
+pass_image = PhotoImage(file='pass.gif')
+fail_image = PhotoImage(file='fail.gif')
+warning_image = PhotoImage(file='warning.gif')
 
 # Create the Treeview
-treeStructure = ttk.Treeview(root, selectmode="extended", columns=('logLine', 'codeLine'))
+tree_structure = ttk.Treeview(root, selectmode="extended", columns=('logLine', 'codeLine'))
 
 # Create scrollbars to be added to tree structure later
-treeYScrolling = ttk.Scrollbar(root, orient='vertical', command=treeStructure.yview)
-treeXScrolling = ttk.Scrollbar(root, orient='horizontal', command=treeStructure.xview)
-treeStructure.configure(yscroll=treeYScrolling.set, xscroll=treeXScrolling.set)
+treeYScrolling = ttk.Scrollbar(root, orient='vertical', command=tree_structure.yview)
+treeXScrolling = ttk.Scrollbar(root, orient='horizontal', command=tree_structure.xview)
+tree_structure.configure(yscroll=treeYScrolling.set, xscroll=treeXScrolling.set)
 
 # Create place to paste logs
-logEntry = Text(root)
-logYScrolling = ttk.Scrollbar(root, orient='vertical', command=logEntry.yview)
-logEntry.configure(yscroll=logYScrolling.set)
+log_entry = Text(root)
+log_entry.bind('<Button-3>',rClicker, add='')
+logYScrolling = ttk.Scrollbar(root, orient='vertical', command=log_entry.yview)
+log_entry.configure(yscroll=logYScrolling.set)
 
 # Startup
-initialMenu()
+initial_menu()
 root.mainloop()
 
 

@@ -1,13 +1,12 @@
 To-do:
-* Workflow pass and fail
-* Create columns for line numbers in code and debug log
-* Update the photos to look better
+* Cumulative_limit_usage to display stats
+* LIMIT_USAGE_FOR_NS where NS is the namespace that follows
+* Make one place for all the words to go without having to define in multiple places
+* TOTAL_EMAIL_RECIPIENTS_QUEUED for seing number of emails sent
 * Add a right click menu to copy and paste
 * Look into hover labels for displaying information
 * Add right click menu to get more info on an object
-* Adding line numbers to where things fail.
-* Display failures and line numbers for that failure. Maybe red text.
-* Add Permission Errors
+* Update the photos to look better
 
 
 Icons next to types:
