@@ -1,8 +1,8 @@
 __author__ = 'oxsc'
 
-from Tkinter import *
-import tkFileDialog
-import ttk
+from Tkinter import *  # Used for ttk and basic GUI
+import tkFileDialog  # Used for the file dialog for choosing file
+import ttk  # Used for some other GUIs based on Tkinter
 
 
 ########################################################################################################################
@@ -45,7 +45,7 @@ def rClicker(e):  # Right-click menu in log entry for copy, cut, paste
 
 
 ########################################################################################################################
-def get_info(log_lines, index):
+def get_info(log_lines, index):  # Used to return text, image, and code line info based on keyword
     current_line = log_lines[index]  # The line that was currently sent to the function
     split_current_line = current_line.rstrip('\n').split("|")  # Remove the newline character and split it by the pipes
     debug_type = split_current_line[1]  # This is our debug identifier at index 1
@@ -55,6 +55,7 @@ def get_info(log_lines, index):
     displayed_image = blank_image
     displayed_code_line = ''
 
+    # Starting to define things specific to keywords
     if debug_type == 'CALLOUT_REQUEST':
         displayed_text = split_current_line[1]
     elif debug_type == 'CODE_UNIT_STARTED':
@@ -131,7 +132,7 @@ def get_info(log_lines, index):
         displayed_image = visualforce_image
     elif debug_type == 'WF_CRITERIA_BEGIN':
         displayed_image = workflow_image
-        for x in range(index, len(log_lines)):  # Look at the next few lines until the validation pass or fail
+        for x in range(index, len(log_lines)):  # Look at the next few lines until the workflow pass or fail
             current_line = log_lines[x]
             if "WF_CRITERIA_END" in current_line:
                 if 'false' in current_line:
@@ -146,7 +147,7 @@ def get_info(log_lines, index):
 
 
 ########################################################################################################################
-def get_tree_ready():
+def get_tree_ready():  # Sets up the treeview structure
     # Clear the tree
     tree_structure.delete(*tree_structure.get_children())
 
@@ -181,7 +182,7 @@ def get_tree_ready():
 
 
 ########################################################################################################################
-def check_selected_keywords():
+def check_selected_keywords():  # Used to check what checkboxes were chosen
     # Clear the keywords list in case of previous
     keywords_chosen[:] = []
     endings_chosen[:] = []
@@ -200,7 +201,7 @@ def check_selected_keywords():
 
 
 ########################################################################################################################
-def process_log_file(log_file):
+def process_log_file(log_file):  # Used to process log files and closes the file.
     # Add the keywords to be looked for
     check_selected_keywords()
 
@@ -245,7 +246,7 @@ def process_log_file(log_file):
 
 
 ########################################################################################################################
-def process_pasted_log(log):
+def process_pasted_log(log):  # Used to process pasted logs. Only difference is that no file is closed.
     # Add the keywords to be looked for
     check_selected_keywords()
 
@@ -293,7 +294,7 @@ def process_pasted_log(log):
 
 
 ########################################################################################################################
-def select_all():  # Select all the buttons
+def select_all():  # Select all the checkbuttons
     for button in checkbutton_array:
         button.grid(sticky='w')
         button.state(['selected'])  # Sets the internal state as having been selected
@@ -303,7 +304,7 @@ def select_all():  # Select all the buttons
 
 
 ########################################################################################################################
-def deselect_all():  # Deselect all the buttons
+def deselect_all():  # Deselect all the checkbuttons
     for button in checkbutton_array:
         button.grid(sticky='w')
         button.state(['!selected'])  # Sets the internal state as having been selected
@@ -356,7 +357,7 @@ def choose_file():  # Function for choosing a log file
 
 
 ########################################################################################################################
-def paste_log():
+def paste_log():  # Used for the pasting of the log file.
     # Remove other widgets
     tree_structure.grid_remove()
     treeXScrolling.grid_remove()
@@ -380,11 +381,15 @@ def paste_log():
     continue_button.grid(row=1, column=0, sticky='nesw')
     reset_button.grid(row=2, column=0)
 
-    root.mainloop()
+    root.mainloop()  # Keep the frame looping until a button forces it out
 
 ########################################################################################################################
-# Global variables for things that increase and decrease the level of hierarchy currently at
+''' This is the main function that gets started and calls the initial menu after setting up.'''
+
+# Keywords that have no specific ending keyword
 neutral_keywords = ['EXCEPTION_THROWN', 'FATAL_ERROR', 'VALIDATION_RULE', 'USER_DEBUG', 'VF_APEX_CALL']
+
+# Keywords that have a close
 keywords_with_endings = {'CALLOUT_REQUEST': 'CALLOUT_RESPONSE', 'CODE_UNIT_STARTED': 'CODE_UNIT_FINISHED',
                          'CUMULATIVE_PROFILING_BEGIN': 'CUMULATIVE_PROFILING_END', 'DML_BEGIN': 'DML_END',
                          'METHOD_ENTRY': 'METHOD_EXIT', 'SOQL_EXECUTE_BEGIN': 'SOQL_EXECUTE_END',
@@ -421,7 +426,7 @@ keyword_translations = {'CALLOUT_REQUEST': 'Callout Requests',
                         'WF_RULE_EVAL_BEGIN': 'Workflow Evaluations'}
 
 keywords_chosen = []  # empty list to hold keywords that will be selected
-endings_chosen = []
+endings_chosen = []  # empty list to hold the ending keywords of the selected
 checkbutton_array = []  # empty list to hold checkbuttons that will be created
 
 
