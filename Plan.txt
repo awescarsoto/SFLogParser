@@ -3,7 +3,6 @@ To-do:
 * LIMIT_USAGE_FOR_NS where NS is the namespace that follows
 * Make one place for all the words to go without having to define in multiple places
 * TOTAL_EMAIL_RECIPIENTS_QUEUED for seing number of emails sent
-* Add a right click menu to copy and paste
 * Look into hover labels for displaying information
 * Add right click menu to get more info on an object
 * Update the photos to look better
